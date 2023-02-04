@@ -16,8 +16,8 @@ Rosalind_0808
 # 3. Print the results
 dna = input()
 # S/O to 50
-g_units = dna.count('G')
-c_units = dna.count('C')
+g_units = dna.upper().count('G')
+c_units = dna.upper().count('C')
 gc_units = g_units + c_units
 # Dividing to get decimal, multiplying to show percentage
 percentage = (gc_units / len(dna)) * 100
