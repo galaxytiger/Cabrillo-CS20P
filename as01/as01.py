@@ -11,15 +11,19 @@ Sample Output
 Rosalind_0808
 60.919540
 '''
-# 1. Get DNA String as an input
-# 2. Get GC-Content of the DNA string as percentage
-# 3. Print the results
-dna = input()
-# S/O to 50
-g_units = dna.upper().count('G')
-c_units = dna.upper().count('C')
-gc_units = g_units + c_units
-# Dividing to get decimal, multiplying to show percentage
-percentage = (gc_units / len(dna)) * 100
+import sys
+
+gc_ls = []
+dna_len = []
+for line in sys.stdin:
+  dna = line.upper()
+  g_units = dna.count('G')
+  c_units = dna.count('C')
+  gc_ls.append(g_units)
+  gc_ls.append(c_units)
+  dna_len.append(len(line.strip()))
+  continue
+gc_count = sum(gc_ls)
+percentage = (gc_count / sum(dna_len)) * 100
 # Formatting to round to three digits after decimal point
-print(format(percentage, '.3f'))
+print(format(percentage, '.6f'))
