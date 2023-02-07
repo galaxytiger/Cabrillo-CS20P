@@ -8,10 +8,10 @@ __author__ = 'Anthony Torres for CS 12P, altorresmoran@jeff.cis.cabrillo.edu'
 
 import sys
 dna = sys.stdin.read()
-acgt_ls = ''.join(filter(lambda c: c in 'ACGT', dna))
-gc_ls = ''.join(filter(lambda c: c in 'CG', dna))
-acgt_total = len(acgt_ls)
-cg_total = len(gc_ls)
+acgt_ls = [dna.count('A'), dna.count('C'), dna.count('G'), dna.count('T')]
+gc_ls = [dna.count('C'), dna.count('G')]
+acgt_total = sum(acgt_ls)
+cg_total = sum(gc_ls)
 if acgt_total == 0:
   print(0.000)
 else:
