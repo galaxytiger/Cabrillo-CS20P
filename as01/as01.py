@@ -13,16 +13,17 @@ if __name__ == '__main__':
     g_total.append(dna.count('G'))
     c_total.append(dna.count('C'))
     dna_len.append(len(dna))
-    print(dna)
+    # print(dna)
     pass
-  gc_sum = (sum(g_total)) + (sum(c_total))
-  dna_sum = sum(dna_len)
+    print(dna_len)
+  # gc_sum = (sum(g_total)) + (sum(c_total))
+  # dna_sum = sum(dna_len)
 
-  # print(gc_sum, dna_sum)
-  if dna_sum == 0:
-    print(gc_sum)
-  else:
-    print((gc_sum / dna_sum) * 100)
+  # # print(gc_sum, dna_sum)
+  # if dna_sum == 0:
+  #   print(gc_sum)
+  # else:
+  #   print((gc_sum / dna_sum) * 100)
   # result = ""
   #   for char in dna:
   #       if char in "ACGTacgt":
