@@ -14,26 +14,10 @@ Rosalind_0808
 
 __author__ = 'Anthony Torres for CS 12P, altorresmoran@jeff.cis.cabrillo.edu'
 
-
-def valid_dna(dna: str) -> str:
-  return ''.join(filter(lambda c: c in 'ACGT', dna.upper()))
-
-
-def gc_units(string):
-  return ''.join(filter(lambda c: c in 'CG', string))
-
-
-def gc_content(string):
-  if len(valid_dna(string)) == 0:
-    return len(gc_units(string))
-  else:
-    return (len(gc_units(string)) / len(valid_dna(string))) * 100
-
-
-if __name__ == '__main__':
-  import sys
-  dna_input = []
-  for line in sys.stdin:
-    dna_input.append(valid_dna(line))
-    pass
-  print(gc_content(''.join(dna_input)))
+import sys
+dna = sys.stdin.read()
+acgt_ls = [dna.count('A'), dna.count('C'), dna.count('G'), dna.count('T')]
+gc_ls = [dna.count('C'), dna.count('G')]
+acgt_total = sum(acgt_ls)
+cg_total = sum(gc_ls)
+print((cg_total / acgt_total) * 100)
