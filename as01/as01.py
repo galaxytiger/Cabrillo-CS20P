@@ -12,7 +12,7 @@ if __name__ == '__main__':
   for line in sys.stdin:
     dna.append(valid_dna(line))
     pass
-  print(dna)
+  print(len(dna))
   # gc_sum = (sum(g_total)) + (sum(c_total))
   # dna_sum = sum(dna_len)
 
