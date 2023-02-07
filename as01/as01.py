@@ -1,29 +1,49 @@
 #!/usr/bin/env python3
-'''
-The GC-content of a DNA string is given by the percentage of symbols
-in the string that are 'C' or 'G'.
-For example, the GC-content of "AGCTATAG" is 37.5%
-Sample Dataset
->Rosalind_0808
-CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
-TGGGAACCTGCGGGCAGTAGGTGGAAT
-Sample Output
-Rosalind_0808
-60.919540
-'''
-import sys
 
-gc_ls = []
-dna_len = []
-for line in sys.stdin:
-  dna = line.upper()
-  g_units = dna.count('G')
-  c_units = dna.count('C')
-  gc_ls.append(g_units)
-  gc_ls.append(c_units)
-  dna_len.append(len(line.strip()))
-  continue
-gc_count = sum(gc_ls)
-percentage = (gc_count / sum(dna_len)) * 100
-# Formatting to round to three digits after decimal point
-print(format(percentage, '.6f'))
+import sys
+def valid_dna(dna: str) -> str:
+  return ''.join(filter(lambda c: c in 'ACGT', dna.upper().strip()))
+
+if __name__ == '__main__':
+  dna_len = []
+  g_total = []
+  c_total = []
+  for line in sys.stdin:
+    dna = valid_dna(line)
+    g_total.append(dna.count('G'))
+    c_total.append(dna.count('C'))
+    dna_len.append(len(dna))
+    print(dna)
+    pass
+  gc_sum = (sum(g_total)) + (sum(c_total))
+  dna_sum = sum(dna_len)
+
+  # print(gc_sum, dna_sum)
+  if dna_sum == 0:
+    print(gc_sum)
+  else:
+    print((gc_sum / dna_sum) * 100)
+  # result = ""
+  #   for char in dna:
+  #       if char in "ACGTacgt":
+  #           result += char
+  #   return result
+# valid = set("ACGT")
+# dna_len = []
+# g_total = []
+# c_total = []
+# for line in sys.stdin:
+#   dna = line.upper().strip()
+
+#   g_total.append(dna.count('G'))
+#   c_total.append(dna.count('C'))
+#   dna_len.append(len(dna))
+#   pass
+# gc_sum = (sum(g_total)) + (sum(c_total))
+# dna_sum = sum(dna_len)
+
+# # print(gc_sum, dna_len)
+# if dna_sum == 0:
+#   print(gc_sum)
+# else:
+#   print((gc_sum / dna_sum) * 100)
