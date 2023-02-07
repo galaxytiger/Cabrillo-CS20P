@@ -20,4 +20,7 @@ acgt_ls = [dna.count('A'), dna.count('C'), dna.count('G'), dna.count('T')]
 gc_ls = [dna.count('C'), dna.count('G')]
 acgt_total = sum(acgt_ls)
 cg_total = sum(gc_ls)
-print((cg_total / acgt_total) * 100)
+if acgt_total == 0:
+  print(0.000)
+else:
+  print((cg_total / acgt_total) * 100)
