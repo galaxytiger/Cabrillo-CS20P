@@ -36,5 +36,4 @@ if __name__ == '__main__':
   for line in sys.stdin:
     dna_input.append(valid_dna(line))
     pass
-  print(''.join(dna_input))
   print(gc_content(''.join(dna_input)))
