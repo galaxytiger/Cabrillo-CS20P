@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="second draft of as01, changed all input to uppercase">
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="added a for loop to read only GC characters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as01/as01.py" beforeDir="false" afterPath="$PROJECT_DIR$/as01/as01.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +77,7 @@
       <workItem from="1675546012489" duration="572000" />
       <workItem from="1675550303797" duration="581000" />
       <workItem from="1675553652571" duration="590000" />
+      <workItem from="1675712845377" duration="926000" />
     </task>
     <task id="LOCAL-00001" summary="first draft of as01">
       <created>1675490088335</created>
@@ -107,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675491710837</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added a for loop to read only GC characters">
+      <created>1675712909015</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675712909015</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first draft of as01" />
     <MESSAGE value="second draft of as01, changed all input to uppercase" />
-    <option name="LAST_COMMIT_MESSAGE" value="second draft of as01, changed all input to uppercase" />
+    <MESSAGE value="added a for loop to read only GC characters" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a for loop to read only GC characters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
