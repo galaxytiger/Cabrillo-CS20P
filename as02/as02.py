@@ -11,10 +11,10 @@ import re
 
 def text_word(string):
   for w in string.strip().lower().split():
-    w = re.sub(r"[^a-z-']+", '', w)
+    w = re.sub(r"[^a-z]+",'', w)
     # w = w.strip('-')
-    w = w.strip('"')
-    w = w.strip("'")
+    # w = w.strip('"')
+    # w = w.strip("'")
     yield w
 
 
@@ -41,7 +41,7 @@ def word_count(string):
 def sentence_count(string):
   sen_count = 0
   # string = string.strip("'")
-  string = re.sub(r'\"$', '', string)
+  string = re.sub(r'[()"]+$', '', string)
   string = re.sub(r'\"', '', string)
   for sentence in string.split():
     sentence = sentence.strip("'")
