@@ -12,7 +12,7 @@ import re
 def text_word(string):
   for w in string.strip().lower().split():
     w = re.sub(r"[^a-z-']+", '', w)
-    w = w.strip('-')
+    # w = w.strip('-')
     w = w.strip('"')
     w = w.strip("'")
     yield w
@@ -82,4 +82,3 @@ if __name__ == '__main__':
       f'ari\t{automated_readability_index(line):.3f}\t({character_count(line)} characters '
       f'{word_count(line)} words {sentence_count(line)} sentences)'
     )
-
