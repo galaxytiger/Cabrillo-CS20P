@@ -39,9 +39,11 @@ def sentence_count(string):
   sen_count = 0
   string = re.sub(r'[),"\d]+', '', string)
   string = re.sub(r'\"', '', string)
-  for sentence in string.split():
-    if any(letter.isalpha() for letter in sentence):
-      if sentence[-1] in ['.', '!', '?']:
+  for word in string.split():
+    if any(letter.isalpha() for letter in word):
+      if word[-1] in ['.', '!', '?']:
+        sen_count += 1
+      elif '.' in word:
         sen_count += 1
   return sen_count
 
