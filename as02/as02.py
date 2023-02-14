@@ -11,10 +11,7 @@ import re
 
 def text_word(string):
   for w in string.strip().lower().split():
-    w = re.sub(r"[^a-z]+",'', w)
-    # w = w.strip('-')
-    # w = w.strip('"')
-    # w = w.strip("'")
+    w = re.sub(r"[^a-z]+", '', w)
     yield w
 
 
@@ -40,13 +37,12 @@ def word_count(string):
 # function for sentence count
 def sentence_count(string):
   sen_count = 0
-  # string = string.strip("'")
   string = re.sub(r'[),"\d]+', '', string)
   string = re.sub(r'\"', '', string)
   for sentence in string.split():
-    # sentence = sentence.strip("'")
-    if sentence.endswith(('.', '!', '?',)):
-      sen_count += 1
+    if any(letter.isalpha() for letter in sentence):
+      if sentence[-1] in ['.', '!', '?']:
+        sen_count += 1
   return sen_count
 
 
@@ -55,7 +51,7 @@ def word_sentence_divide(string):
   return word_count(string) / sentence_count(string)
 
 
-def automated_readability_index(text: str) -> float | None:
+def automated_readability_index(text: str):
   """
   Return the ARI score for the given text.
   See: https://en.wikipedia.org/wiki/Automated_readability_index
