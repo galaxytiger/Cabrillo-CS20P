@@ -19,6 +19,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -89,7 +92,7 @@
       <workItem from="1675553652571" duration="590000" />
       <workItem from="1675712845377" duration="926000" />
       <workItem from="1676083375939" duration="227000" />
-      <workItem from="1676150163099" duration="4133000" />
+      <workItem from="1676150163099" duration="8693000" />
     </task>
     <task id="LOCAL-00001" summary="first draft of as01">
       <created>1675490088335</created>
@@ -147,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676151297561</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="testing some changes">
+      <created>1676154880310</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676154880310</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
