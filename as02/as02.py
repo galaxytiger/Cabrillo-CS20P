@@ -41,10 +41,10 @@ def word_count(string):
 def sentence_count(string):
   sen_count = 0
   # string = string.strip("'")
-  string = re.sub(r'[()"]+$', '', string)
+  string = re.sub(r'[),"\d]+', '', string)
   string = re.sub(r'\"', '', string)
   for sentence in string.split():
-    sentence = sentence.strip("'")
+    # sentence = sentence.strip("'")
     if sentence.endswith(('.', '!', '?',)):
       sen_count += 1
   return sen_count
