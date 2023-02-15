@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="making print statements">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="fixing print format">
       <change beforePath="$PROJECT_DIR$/as02/as02.py" beforeDir="false" afterPath="$PROJECT_DIR$/as02/as02.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +198,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676433238598</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixing print format">
+      <created>1676434065757</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1676434065757</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fixing print format">
+      <created>1676434160108</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1676434160108</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +251,8 @@
     <MESSAGE value="fixed some output formatting" />
     <MESSAGE value="created function to strip accents and normalize words" />
     <MESSAGE value="making print statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="making print statements" />
+    <MESSAGE value="fixing print format" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing print format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
