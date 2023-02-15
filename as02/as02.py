@@ -38,18 +38,13 @@ def word_count(string):
 def sentence_count(string):
   sen_count = 0
   string = re.sub(r'[),"\d]+', '', string)
+  string = re.sub(r'\[|\]', '', string)
   string = re.sub(r'\"', '', string)
   word = string.split()
   for letter in word:
     match = re.search(r'[a-zA-Z]([.!?])', letter)
     if match:
       sen_count += 1
-  # for word in string.split():
-  #   if any(letter.isalpha() for letter in word):
-  #     if word[-1] in ['.', '!', '?']:
-  #       sen_count += 1
-  #     elif match:
-  #       sen_count += 1
   return sen_count
 
 
