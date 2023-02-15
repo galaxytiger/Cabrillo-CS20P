@@ -71,12 +71,12 @@ if __name__ == '__main__':
   line = sys.stdin.read()
   if sentence_count(line) == 0:
     print(
-      f'ari\tnone\t({character_count(line)} characters '
+      f'0.000\t({character_count(line)} characters '
       f'{word_count(line)} words {sentence_count(line)} sentences)'
     )
   else:
     # ari
     print(
-      f'ari\t{automated_readability_index(line):.3f}\t({character_count(line)} characters '
+      f'{automated_readability_index(line):.3f}\t({character_count(line)} characters '
       f'{word_count(line)} words {sentence_count(line)} sentences)'
     )
