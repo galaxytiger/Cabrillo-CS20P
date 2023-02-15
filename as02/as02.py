@@ -8,11 +8,11 @@ __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 import re
 import unicodedata
-
+import sys
 
 def text_word(string):
   for w in string.strip().lower().split():
-    w = re.sub(r"[^a-z]+", '', w)
+    w = re.sub(r'[^a-z]+', '', w)
     yield w
 
 
@@ -39,7 +39,7 @@ def word_count(string):
 def strip_accents(text):
   text = unicodedata.normalize('NFD', text)
   text = text.encode('ascii', 'ignore')
-  text = text.decode("utf-8")
+  text = text.decode('utf-8')
   return str(text)
 
 
@@ -75,18 +75,15 @@ def automated_readability_index(text: str):
           (0.5 * (word_sentence_divide(text)) - 21.43)
     return ari
 
-
-if __name__ == '__main__':
-  import sys
-  line = sys.stdin.read()
-  if sentence_count(line) == 0:
-    print(
-      f'0.000\t({character_count(line)} characters '
-      f'{word_count(line)} words {sentence_count(line)} sentences)'
-    )
-  else:
-    # ari
-    print(
-      f'{automated_readability_index(line):.3f}\t({character_count(line)} characters '
-      f'{word_count(line)} words {sentence_count(line)} sentences)'
-    )
+line = sys.stdin.read()
+if sentence_count(line) == 0:
+  print(
+    f'0.000\t({character_count(line)} characters '
+    f'{word_count(line)} words {sentence_count(line)} sentences)'
+  )
+else:
+  # ari
+  print(
+    f'{automated_readability_index(line):.3f}\t({character_count(line)} characters '
+    f'{word_count(line)} words {sentence_count(line)} sentences)'
+  )
