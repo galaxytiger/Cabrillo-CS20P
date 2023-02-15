@@ -10,6 +10,7 @@ import re
 import unicodedata
 import sys
 
+
 def text_word(string):
   for w in string.strip().lower().split():
     w = re.sub(r'[^a-z]+', '', w)
@@ -75,15 +76,10 @@ def automated_readability_index(text: str):
           (0.5 * (word_sentence_divide(text)) - 21.43)
     return ari
 
+
 line = sys.stdin.read()
 if sentence_count(line) == 0:
-  print(
-    f'0.000\t({character_count(line)} characters '
-    f'{word_count(line)} words {sentence_count(line)} sentences)'
-  )
+  print('0.000')
 else:
   # ari
-  print(
-    f'{automated_readability_index(line):.3f}\t({character_count(line)} characters '
-    f'{word_count(line)} words {sentence_count(line)} sentences)'
-  )
+  print(f'{automated_readability_index(line):.3f}')
