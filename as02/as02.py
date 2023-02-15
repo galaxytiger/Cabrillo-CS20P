@@ -50,7 +50,7 @@ def sentence_count(string):
   string = re.sub(r'[),"\d]+', '', string)
   string = re.sub(r'\[|\]', '', string)
   string = re.sub(r'\"', '', string)
-  string = re.sub(r"\'", "", string)
+  string = re.sub(r'\'', '', string)
   string = strip_accents(string)
   word = string.split()
   for letter in word:
