@@ -7,6 +7,7 @@ See: https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 import re
+import unicodedata
 
 
 def text_word(string):
@@ -34,12 +35,21 @@ def word_count(string):
   return w_count
 
 
+# normalize words for sentence count
+def strip_accents(text):
+  text = unicodedata.normalize('NFD', text)
+  text = text.encode('ascii', 'ignore')
+  text = text.decode("utf-8")
+  return str(text)
+
+
 # function for sentence count
 def sentence_count(string):
   sen_count = 0
   string = re.sub(r'[),"\d]+', '', string)
   string = re.sub(r'\[|\]', '', string)
   string = re.sub(r'\"', '', string)
+  string = strip_accents(string)
   word = string.split()
   for letter in word:
     match = re.search(r'[a-zA-Z]([.!?])', letter)
