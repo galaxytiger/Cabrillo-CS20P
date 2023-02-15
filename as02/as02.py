@@ -82,4 +82,4 @@ if sentence_count(line) == 0:
   print('0.000')
 else:
   # ari
-  print(f'{automated_readability_index(line):.3f}')
+  print(automated_readability_index(line))
