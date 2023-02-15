@@ -50,6 +50,7 @@ def sentence_count(string):
   string = re.sub(r'[),"\d]+', '', string)
   string = re.sub(r'\[|\]', '', string)
   string = re.sub(r'\"', '', string)
+  string = re.sub(r"\'", "", string)
   string = strip_accents(string)
   word = string.split()
   for letter in word:
@@ -77,24 +78,9 @@ def automated_readability_index(text: str):
     return ari
 
 
-# line = sys.stdin.read()
-# if sentence_count(line) == 0:
-#   print('0.000')
-# else:
-#   # ari
-#   print(automated_readability_index(line))
-
-if __name__ == '__main__':
-  import sys
-  line = sys.stdin.read()
-  if sentence_count(line) == 0:
-    print(
-      f'0.000\t({character_count(line)} characters '
-      f'{word_count(line)} words {sentence_count(line)} sentences)'
-    )
-  else:
-    # ari
-    print(
-      f'{automated_readability_index(line):.3f}\t({character_count(line)} characters '
-      f'{word_count(line)} words {sentence_count(line)} sentences)'
-    )
+line = sys.stdin.read()
+if sentence_count(line) == 0:
+  print('0.000')
+else:
+  # ari
+  print(automated_readability_index(line))
