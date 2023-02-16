@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="fixed sentence count">
-      <change beforePath="$PROJECT_DIR$/as02/ari.py" beforeDir="false" afterPath="$PROJECT_DIR$/as02/ari.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as02/as02.py" beforeDir="false" afterPath="$PROJECT_DIR$/as02/as02.py" afterDir="false" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="making changes to maybe make it more efficient">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as02/ari.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,9 @@
       <workItem from="1676083375939" duration="227000" />
       <workItem from="1676150163099" duration="1087000" />
       <workItem from="1676398154443" duration="1402000" />
-      <workItem from="1676577812988" duration="6131000" />
+      <workItem from="1676577812988" duration="7067000" />
+      <workItem from="1676586821673" duration="74000" />
+      <workItem from="1676586898601" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="first draft of as01">
       <created>1675490088335</created>
@@ -256,7 +258,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676585578404</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed sentence count">
+      <created>1676585808688</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1676585808688</updated>
+    </task>
+    <task id="LOCAL-00025" summary="making changes to maybe make it more efficient">
+      <created>1676586057621</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1676586057621</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +318,8 @@
     <MESSAGE value="adding ari to test something else" />
     <MESSAGE value="fixed word count" />
     <MESSAGE value="fixed sentence count" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed sentence count" />
+    <MESSAGE value="making changes to maybe make it more efficient" />
+    <option name="LAST_COMMIT_MESSAGE" value="making changes to maybe make it more efficient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -317,7 +334,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$as01.coverage" NAME="as01 Coverage Results" MODIFIED="1675493372714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as01" />
-    <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$as02.coverage" NAME="as02 Coverage Results" MODIFIED="1676435417097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as02" />
+    <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$as02.coverage" NAME="as02 Coverage Results" MODIFIED="1676586431544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as02" />
     <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$ari.coverage" NAME="ari Coverage Results" MODIFIED="1676585550939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as02" />
   </component>
 </project>
