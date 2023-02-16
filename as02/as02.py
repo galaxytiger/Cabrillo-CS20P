@@ -74,7 +74,7 @@ def automated_readability_index(text: str):
     return None
   else:
     ari = (4.71 * (character_count(text) / word_count(text))) + \
-          (0.5 * (word_sentence_divide(text)) - 21.43)
+          (0.5 * (word_count(text) / sentence_count(text)) - 21.43)
     return ari
 
 

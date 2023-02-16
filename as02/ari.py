@@ -49,7 +49,24 @@ def sentence_count(string):
   return sen_count
 
 
+def automated_readability_index(text: str):
+  """
+  Return the ARI score for the given text.
+  See: https://en.wikipedia.org/wiki/Automated_readability_index
+  """
+  if sentence_count(text) == 0:
+    return None
+  else:
+    ari = (4.71 * (character_count(text) / word_count(text))) + \
+          (0.5 * (word_count(text) / sentence_count(text)) - 21.43)
+    return ari
+
+
 if __name__ == '__main__':
   import sys
   line = sys.stdin.read()
-  print(f'{character_count(line)}c {word_count(line)}w {sentence_count(line)}s')
+  if sentence_count(line) == 0:
+    print('0.000')
+  else:
+    # ari
+    print(automated_readability_index(line))
