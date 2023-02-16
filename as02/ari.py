@@ -18,7 +18,7 @@ def strip_accents(text):
 
 
 def word(string):
-  whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+  whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
   return ''.join(filter(whitelist.__contains__, string))
 
 
@@ -32,7 +32,7 @@ def character_count(string):
 # function for word count
 def word_count(string):
   w_count = 0
-  for _ in word(string).split():
+  for text in word(string).split():
     w_count += 1
   return w_count
 
