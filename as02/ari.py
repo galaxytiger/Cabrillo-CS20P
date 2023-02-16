@@ -32,14 +32,14 @@ def character_count(string):
 # function for word count
 def word_count(string):
   w_count = 0
-  for text in word(string).split():
+  for _ in word(string).split():
     w_count += 1
   return w_count
 
 
 def sentence_count(string):
   sen_count = 0
-  whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ .?!')
+  whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ .?! \n')
   string = ''.join(filter(whitelist.__contains__, strip_accents(string)))
   words = string.split()
   for letter in words:
