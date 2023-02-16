@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="lol i meant hesse jesse" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="fixing poor practices">
+      <change afterPath="$PROJECT_DIR$/as02/ari.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,6 +93,7 @@
       <workItem from="1676083375939" duration="227000" />
       <workItem from="1676150163099" duration="1087000" />
       <workItem from="1676398154443" duration="1402000" />
+      <workItem from="1676577812988" duration="3968000" />
     </task>
     <task id="LOCAL-00001" summary="first draft of as01">
       <created>1675490088335</created>
@@ -224,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676435146643</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fixing poor practices">
+      <created>1676435493442</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1676435493442</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +277,8 @@
     <MESSAGE value="fixing print format" />
     <MESSAGE value="checking house of something text" />
     <MESSAGE value="lol i meant hesse jesse" />
-    <option name="LAST_COMMIT_MESSAGE" value="lol i meant hesse jesse" />
+    <MESSAGE value="fixing poor practices" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing poor practices" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -281,6 +293,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$as01.coverage" NAME="as01 Coverage Results" MODIFIED="1675493372714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as01" />
-    <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$as02.coverage" NAME="as02 Coverage Results" MODIFIED="1676435074153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as02" />
+    <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$as02.coverage" NAME="as02 Coverage Results" MODIFIED="1676435417097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as02" />
+    <SUITE FILE_PATH="coverage/altorresmoran_jeff_cis_cabrillo_edu_cs20ps23$ari.coverage" NAME="ari Coverage Results" MODIFIED="1676581903792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/as02" />
   </component>
 </project>
