@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="making changes to maybe make it more efficient">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as02/ari.py" beforeDir="false" />
-    </list>
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="removing ari file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +93,7 @@
       <workItem from="1676577812988" duration="7067000" />
       <workItem from="1676586821673" duration="74000" />
       <workItem from="1676586898601" duration="7000" />
+      <workItem from="1676586982407" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="first draft of as01">
       <created>1675490088335</created>
@@ -272,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676586057621</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="removing ari file">
+      <created>1676587004558</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1676587004558</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +324,8 @@
     <MESSAGE value="fixed word count" />
     <MESSAGE value="fixed sentence count" />
     <MESSAGE value="making changes to maybe make it more efficient" />
-    <option name="LAST_COMMIT_MESSAGE" value="making changes to maybe make it more efficient" />
+    <MESSAGE value="removing ari file" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing ari file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
