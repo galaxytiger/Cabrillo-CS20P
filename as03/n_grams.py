@@ -22,7 +22,7 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
 
   :param text: the text to analyze
   :param n_gram_len: the desired length of n-grams (e.g. 2 for 2-grams)
-  :param min_count: the minimum number of times a n-gram must appear in the text to be counted
+  :param min_count: the minimum number of times an n-gram must appear in the text to be counted
   :return a dictionary mapping n-gram occurrence counts to a list of the n-grams occurring that
           number of times, as a list of n_gram_len-tuples of strings in ascending
           lexicographic/alphabetical order of the n-gram words.
@@ -70,8 +70,34 @@ def most_frequent_n_grams(text: str,
           The list shall be sorted in descending order of occurrence count, with ties broken in
           ascending lexicographic/alphabetical order of the n-gram words.
   """
+  # Initialize a dictionary to keep track of the n-grams and their counts by length
+  n_gram_counts_by_length = defaultdict(lambda: defaultdict(int))
 
-  pass
+  # Loop over all possible n-gram lengths and update their counts
+  for n_gram_len in range(min_len, max_len + 1):
+    n_grams_ = n_grams(text, n_gram_len, min_count=2)
+    for count, n_gram_list in n_grams_.items():
+      for n_gram in n_gram_list:
+        n_gram_counts_by_length[n_gram_len][n_gram] += count
+
+  # Initialize a dictionary to store the most frequent n-grams by length
+  most_frequent_n_grams_by_length = defaultdict(list)
+
+  # Loop over all possible n-gram lengths and get the most frequent n-grams
+  for n_gram_len in range(min_len, max_len + 1):
+    # Get the n-gram counts for the current length
+    n_gram_counts = n_gram_counts_by_length[n_gram_len]
+    # Filter the n-grams based on the minimum count
+    filtered_n_grams = [(n_gram, count) for n_gram, count in n_gram_counts.items() if count >= 2]
+    # Sort the filtered n-grams by count and then by the n-gram words
+    sorted_n_grams = sorted(filtered_n_grams, key=lambda x: (-x[1], x[0]))
+    # Take the top `limit` most frequent n-grams
+    top_n_grams = sorted_n_grams[:limit]
+    # Add the top n-grams to the result dictionary
+    most_frequent_n_grams_by_length[n_gram_len] = [(n_gram_tuple, count) for n_gram_tuple, count in
+                                                   top_n_grams]
+
+  return most_frequent_n_grams_by_length
 
 
 def main():
