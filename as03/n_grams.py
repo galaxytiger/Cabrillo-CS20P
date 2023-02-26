@@ -129,19 +129,27 @@ def main():
     sys.exit(1)
 
   n_gram_len = int(sys.argv[1])
-  min_count = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+  if n_gram_len < 1:
+    print("Error: n-gram length must be positive.")
+    sys.exit(1)
 
-  # Get the text from standard input
-  text = sys.stdin.read()
+  if len(sys.argv) > 2:
+    min_count = int(sys.argv[2])
+  else:
+    min_count = 2
 
-  # Compute the n-grams
+  # Read in the text from standard input
+  text = ""
+  for line in sys.stdin:
+    text += line
+
   n_grams_dict = n_grams(text, n_gram_len, min_count)
 
-  # Print the n-grams
-  for count, n_gram_list in sorted(n_grams_dict.items(), reverse=True):
-    n_gram_str_list = [', '.join(n_gram) for n_gram in n_gram_list]
-    n_grams_str = ', '.join(n_gram_str_list)
-    print(f"{count}: {n_grams_str}")
+  # Print the n-grams in descending order of occurrence count
+  for count in sorted(n_grams_dict.keys(), reverse=True):
+    print(f"{n_gram_len}-grams with {count} occurrences:")
+    for n_gram in n_grams_dict[count]:
+      print(f"\t{' '.join(n_gram)} ({count})")
 
 
 if __name__ == '__main__':
