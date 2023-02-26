@@ -7,6 +7,15 @@ characters, with the following characters stripped from either end: !"#%&'()*,-.
 """
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
+import sys
+from collections import defaultdict, Counter
+
+
+def token(text: str):
+  whitelist = set('abcdefghijklmnopqrstuvwxyz \n')
+  valid_words = ''.join(filter(whitelist.__contains__, text.lower()))
+  return valid_words.split()
+
 
 def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tuple[str]]]:
   """
@@ -20,6 +29,9 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
           number of times, as a list of n_gram_len-tuples of strings in ascending
           lexicographic/alphabetical order of the n-gram words.
   """
+  text = token(text)
+
+
   pass  # TODO
 
 
@@ -33,7 +45,7 @@ def most_frequent_n_grams(text: str,
 
   :param text: the text to analyze
   :param min_len: the minimum n-gram length
-  :param min_len: the maximum n-gram length
+  :param max_len: the maximum n-gram length
   :param limit: the maximum number of n-grams to display for each length
   :return a dictionary mapping n-gram lengths to a list of the most frequently occurring n-grams
           of that length, along with their occurrence counts, as a list of 2-tuples, where
