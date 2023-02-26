@@ -144,5 +144,6 @@ def main():
     n_grams_str = ", ".join([" ".join(n_gram) for n_gram in n_grams_list])
     print(f"{count} {n_grams_str}")
 
+
 if __name__ == '__main__':
   main()
