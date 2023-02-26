@@ -122,19 +122,39 @@ def main():
   in ascending alphabetical/lexicographic order.
   """
   if len(sys.argv) < 2:
-    print("Usage: python ngram.py <n-gram length> [<minimum occurrence count>]")
-    sys.exit(1)
-
-  n_gram_len = int(sys.argv[1])
-  if n_gram_len < 1:
-    print("Error: n-gram length must be positive.")
-    sys.exit(1)
-
-  if len(sys.argv) > 2:
-    min_count = int(sys.argv[2])
-  else:
+    print("Error: Please specify a length for n-grams.")
+    return
+  n = int(sys.argv[1])
+  if len(sys.argv) < 3:
     min_count = 2
-  text = sys.stdin.read()
+  else:
+    min_count = int(sys.argv[2])
+
+  # Process input
+  ngrams = Counter()
+  for line in sys.stdin:
+    line = line.strip()
+    if line:
+      # Split the line into n-grams
+      for i in range(len(line) - n + 1):
+        ngram = line[i:i + n]
+        ngrams[ngram] += 1
+
+  # Filter n-grams by minimum occurrence count
+  ngrams = {ngram: count for ngram, count in ngrams.items() if count >= min_count}
+
+  # Group n-grams by occurrence count
+  counts = {}
+  for ngram, count in ngrams.items():
+    if count not in counts:
+      counts[count] = []
+    counts[count].append(ngram)
+
+  # Sort and output n-grams by occurrence count
+  for count in sorted(counts.keys(), reverse=True):
+    ngrams = sorted(counts[count])
+    ngrams_str = ', '.join(ngrams)
+    print(f"{count}: {ngrams_str}")
 
 
 if __name__ == '__main__':
