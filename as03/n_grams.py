@@ -11,10 +11,8 @@ import sys
 from collections import defaultdict, Counter
 
 
-def token(text: str):
-  whitelist = set('abcdefghijklmnopqrstuvwxyz \n')
-  valid_words = ''.join(filter(whitelist.__contains__, text.lower()))
-  return valid_words.split()
+def token(string, chars='!#"#%&\'()*,-./:;?@\\_¡§¶·¿'):
+  return string.strip(chars)
 
 
 def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tuple[str]]]:
@@ -24,7 +22,7 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
 
   :param text: the text to analyze
   :param n_gram_len: the desired length of n-grams (e.g. 2 for 2-grams)
-  :param min_count: the minimum number of times a n-gram must appear in the text to be counted
+  :param min_count: the minimum number of times an n-gram must appear in the text to be counted
   :return a dictionary mapping n-gram occurrence counts to a list of the n-grams occurring that
           number of times, as a list of n_gram_len-tuples of strings in ascending
           lexicographic/alphabetical order of the n-gram words.
@@ -36,8 +34,8 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
 
   # Loop over all possible n-grams of the given length and update their counts
   for i in range(len(words) - n_gram_len + 1):
-    n_gram = tuple(words[i:i + n_gram_len])
-    n_gram_counts[n_gram] += 1
+    n_gram_tuple = tuple(words[i:i + n_gram_len])
+    n_gram_counts[n_gram_tuple] += 1
 
   # Filter the n-grams based on the minimum count and sort them lexicographically
   filtered_n_grams = sorted(
@@ -50,7 +48,8 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
     grouped_n_grams[count].append(n_gram)
 
   # Sort the grouped n-grams by their count and return the result
-  return {count: sorted(n_grams, key=lambda x: x) for count, n_grams in grouped_n_grams.items()}
+  return {count: sorted(n_gram_tuple, key=lambda x: x) for count, n_gram_tuple in
+          grouped_n_grams.items()}
 
 
 def most_frequent_n_grams(text: str,
@@ -71,28 +70,8 @@ def most_frequent_n_grams(text: str,
           The list shall be sorted in descending order of occurrence count, with ties broken in
           ascending lexicographic/alphabetical order of the n-gram words.
   """
-  # Initialize an empty dictionary to store n-grams and their counts
-  ngram_counts = {}
 
-  # Loop over all n-gram lengths in the given range
-  for n in range(min_len, max_len + 1):
-
-    # Initialize a Counter object to count n-grams of length n
-    ngram_counter = Counter()
-
-    # Loop over all n-grams of length n in the text
-    for i in range(len(text) - n + 1):
-      ngram = tuple(text[i:i + n].split())
-      if len(ngram) == n:
-        ngram_counter[ngram] += 1
-
-    # Add the n-grams and their counts to the dictionary, if they occur at least twice
-    ngram_list = [(ngram, count) for ngram, count in ngram_counter.items() if count >= 2]
-    if ngram_list:
-      ngram_counts[n] = sorted(ngram_list, key=lambda x: (-x[1], x[0]))[:limit]
-
-  # Return the dictionary of n-gram counts
-  return ngram_counts
+  pass
 
 
 def main():
