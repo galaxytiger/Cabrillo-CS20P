@@ -28,28 +28,20 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
           lexicographic/alphabetical order of the n-gram words.
   """
   words = token(text)
+  # Count the n-grams and filter based on the minimum count
+  n_gram_counts = Counter(zip(*[words[i:] for i in range(n_gram_len)]))
+  filtered_n_grams = [(n_gram, count) for n_gram, count in n_gram_counts.items() if
+                      count >= min_count]
 
-  # Initialize a defaultdict to keep track of the n-grams and their counts
-  n_gram_counts = defaultdict(int)
-
-  # Loop over all possible n-grams of the given length and update their counts
-  for i in range(len(words) - n_gram_len + 1):
-    n_gram_tuple = tuple(words[i:i + n_gram_len])
-    n_gram_counts[n_gram_tuple] += 1
-
-  # Filter the n-grams based on the minimum count and sort them lexicographically
-  filtered_n_grams = sorted(
-    [(n_gram, count) for n_gram, count in n_gram_counts.items() if count >= min_count],
-    key=lambda x: x[0])
-
-  # Group the filtered n-grams by their count
+  # Sort the filtered n-grams lexicographically and group them by count
+  sorted_n_grams = sorted(filtered_n_grams, key=lambda x: x[0])
   grouped_n_grams = defaultdict(list)
-  for n_gram, count in filtered_n_grams:
-    grouped_n_grams[count].append(n_gram)
+  for n_gram, count in sorted_n_grams:
+    grouped_n_grams[count].append(tuple(sorted(n_gram)))
 
-  # Sort the grouped n-grams by their count and return the result
-  return {count: sorted(n_gram_tuple, key=lambda x: x) for count, n_gram_tuple in
-          grouped_n_grams.items()}
+  # Sort the grouped n-grams by count and return the result
+  return {count: n_grams_list for count, n_grams_list in
+          sorted(grouped_n_grams.items(), reverse=True)}
 
 
 def most_frequent_n_grams(text: str,
@@ -70,34 +62,31 @@ def most_frequent_n_grams(text: str,
           The list shall be sorted in descending order of occurrence count, with ties broken in
           ascending lexicographic/alphabetical order of the n-gram words.
   """
-  # Initialize a dictionary to keep track of the n-grams and their counts by length
-  n_gram_counts_by_length = defaultdict(lambda: defaultdict(int))
+  # Split the text into words
+  words = text.split()
 
-  # Loop over all possible n-gram lengths and update their counts
-  for n_gram_len in range(min_len, max_len + 1):
-    n_grams_ = n_grams(text, n_gram_len, min_count=2)
-    for count, n_gram_list in n_grams_.items():
-      for n_gram in n_gram_list:
-        n_gram_counts_by_length[n_gram_len][n_gram] += count
+  # Initialize a dictionary to keep track of the n-grams and their counts
+  n_gram_counts = defaultdict(Counter)
 
-  # Initialize a dictionary to store the most frequent n-grams by length
-  most_frequent_n_grams_by_length = defaultdict(list)
+  # Loop over all possible n-grams of the given lengths and update their counts
+  for n in range(min_len, max_len + 1):
+    for i in range(len(words) - n + 1):
+      n_gram_tuple = tuple(words[i:i + n])
+      n_gram_counts[n][n_gram_tuple] += 1
 
-  # Loop over all possible n-gram lengths and get the most frequent n-grams
-  for n_gram_len in range(min_len, max_len + 1):
-    # Get the n-gram counts for the current length
-    n_gram_counts = n_gram_counts_by_length[n_gram_len]
-    # Filter the n-grams based on the minimum count
-    filtered_n_grams = [(n_gram, count) for n_gram, count in n_gram_counts.items() if count >= 2]
-    # Sort the filtered n-grams by count and then by the n-gram words
-    sorted_n_grams = sorted(filtered_n_grams, key=lambda x: (-x[1], x[0]))
-    # Take the top `limit` most frequent n-grams
-    top_n_grams = sorted_n_grams[:limit]
-    # Add the top n-grams to the result dictionary
-    most_frequent_n_grams_by_length[n_gram_len] = [(n_gram_tuple, count) for n_gram_tuple, count in
-                                                   top_n_grams]
+  # Filter the n-grams based on the minimum count and sort them lexicographically
+  filtered_n_grams = {}
+  for n in range(min_len, max_len + 1):
+    filtered_n_grams[n] = sorted(
+      [(n_gram, count) for n_gram, count in n_gram_counts[n].items() if count >= 2],
+      key=lambda x: (-x[1], x[0]))
 
-  return most_frequent_n_grams_by_length
+  # Truncate the list of n-grams to the specified limit
+  truncated_n_grams = {}
+  for n in range(min_len, max_len + 1):
+    truncated_n_grams[n] = filtered_n_grams[n][:limit]
+
+  return truncated_n_grams
 
 
 def main():
