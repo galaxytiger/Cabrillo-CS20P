@@ -130,9 +130,7 @@ def main():
   else:
     min_count = 2
 
-  # Read in text from file (assuming one sentence per line)
-  with open("text.txt") as f:
-    text = f.read()
+  text = sys.stdin.read()
 
   # Extract n-grams and group them by occurrence count
   n_gram_counts = n_grams(text, n_gram_len, min_count)
