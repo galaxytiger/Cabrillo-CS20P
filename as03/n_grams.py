@@ -31,6 +31,10 @@ def token(text):
   return processed_words
 
 
+def find_ngrams(text, n):
+  return zip(*[text[i:] for i in range(n)])
+
+
 def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tuple[str]]]:
   """
   Finds and returns all word n-grams of length `n_gram_len`
@@ -48,9 +52,8 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
   n_gram_counts = defaultdict(int)
 
   # Loop over all possible n-grams of the given length and update their counts
-  for i in range(len(words) - n_gram_len + 1):
-    n_gram_tuple = tuple(words[i:i + n_gram_len])
-    n_gram_counts[n_gram_tuple] += 1
+  for n_gram in find_ngrams(words, n_gram_len):
+    n_gram_counts[n_gram] += 1
 
   # Filter the n-grams based on the minimum count and sort them lexicographically
   filtered_n_grams = sorted(
@@ -137,19 +140,7 @@ def main():
     min_count = int(sys.argv[2])
   else:
     min_count = 2
-
-  # Read in the text from standard input
-  text = ""
-  for line in sys.stdin:
-    text += line
-
-  n_grams_dict = n_grams(text, n_gram_len, min_count)
-
-  # Print the n-grams in descending order of occurrence count
-  for count in sorted(n_grams_dict.keys(), reverse=True):
-    print(f"{n_gram_len}-grams with {count} occurrences:")
-    for n_gram in n_grams_dict[count]:
-      print(f"\t{' '.join(n_gram)} ({count})")
+  text = sys.stdin.read()
 
 
 if __name__ == '__main__':
