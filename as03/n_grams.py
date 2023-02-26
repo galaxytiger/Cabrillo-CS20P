@@ -16,13 +16,13 @@ def token(text):
   words = text.split()
   processed_words = []
   for word in words:
-    # Strip unwanted characters from either end
+    # Strip characters from either end
     word = word.lower().strip()
     while word and word[0] in strip_chars:
       word = word[1:]
     while word and word[-1] in strip_chars:
       word = word[:-1]
-    # Append the processed word to the result list
+    # Append result to list
     if word:
       processed_words.append(word)
   return processed_words
@@ -122,40 +122,25 @@ def main():
   in ascending alphabetical/lexicographic order.
   """
   if len(sys.argv) < 2:
-    print("Error: Please specify a length for n-grams.")
+    print(f"Usage: {sys.argv[0]} <n_gram_len> [<min_count>]")
     return
-  n = int(sys.argv[1])
-  if len(sys.argv) < 3:
-    min_count = 2
-  else:
+  n_gram_len = int(sys.argv[1])
+  if len(sys.argv) > 2:
     min_count = int(sys.argv[2])
+  else:
+    min_count = 2
 
-  # Process input
-  ngrams = Counter()
-  for line in sys.stdin:
-    line = line.strip()
-    if line:
-      # Split the line into n-grams
-      for i in range(len(line) - n + 1):
-        ngram = line[i:i + n]
-        ngrams[ngram] += 1
+  # Read in text from file (assuming one sentence per line)
+  with open("text.txt") as f:
+    text = f.read()
 
-  # Filter n-grams by minimum occurrence count
-  ngrams = {ngram: count for ngram, count in ngrams.items() if count >= min_count}
+  # Extract n-grams and group them by occurrence count
+  n_gram_counts = n_grams(text, n_gram_len, min_count)
 
-  # Group n-grams by occurrence count
-  counts = {}
-  for ngram, count in ngrams.items():
-    if count not in counts:
-      counts[count] = []
-    counts[count].append(ngram)
-
-  # Sort and output n-grams by occurrence count
-  for count in sorted(counts.keys(), reverse=True):
-    ngrams = sorted(counts[count])
-    ngrams_str = ', '.join(ngrams)
-    print(f"{count}: {ngrams_str}")
-
+  # Print n-grams in descending order of occurrence count
+  for count, n_grams in sorted(n_gram_counts.items(), reverse=True):
+    n_gram_str = ', '.join([' '.join(n_gram) for n_gram in n_grams])
+    print(f"{count}: {n_gram_str}")
 
 if __name__ == '__main__':
   main()
