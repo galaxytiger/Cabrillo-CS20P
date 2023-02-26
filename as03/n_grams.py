@@ -44,20 +44,27 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
           lexicographic/alphabetical order of the n-gram words.
   """
   words = token(text)
-  # Count the n-grams and filter based on the minimum count
-  n_gram_counts = Counter(zip(*[words[i:] for i in range(n_gram_len)]))
-  filtered_n_grams = [(n_gram, count) for n_gram, count in n_gram_counts.items() if
-                      count >= min_count]
+  # Initialize a defaultdict to keep track of the n-grams and their counts
+  n_gram_counts = defaultdict(int)
 
-  # Sort the filtered n-grams lexicographically and group them by count
-  sorted_n_grams = sorted(filtered_n_grams, key=lambda x: x[0])
+  # Loop over all possible n-grams of the given length and update their counts
+  for i in range(len(words) - n_gram_len + 1):
+    n_gram_tuple = tuple(words[i:i + n_gram_len])
+    n_gram_counts[n_gram_tuple] += 1
+
+  # Filter the n-grams based on the minimum count and sort them lexicographically
+  filtered_n_grams = sorted(
+    [(n_gram, count) for n_gram, count in n_gram_counts.items() if count >= min_count],
+    key=lambda x: x[0])
+
+  # Group the filtered n-grams by their count
   grouped_n_grams = defaultdict(list)
-  for n_gram, count in sorted_n_grams:
-    grouped_n_grams[count].append(tuple(sorted(n_gram)))
+  for n_gram, count in filtered_n_grams:
+    grouped_n_grams[count].append(n_gram)
 
-  # Sort the grouped n-grams by count and return the result
-  return {count: n_grams_list for count, n_grams_list in
-          sorted(grouped_n_grams.items(), reverse=True)}
+  # Sort the grouped n-grams by their count and return the result
+  return {count: sorted(n_gram_tuple, key=lambda x: x) for count, n_gram_tuple in
+          grouped_n_grams.items()}
 
 
 def most_frequent_n_grams(text: str,
