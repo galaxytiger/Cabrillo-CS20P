@@ -121,24 +121,28 @@ def main():
   and (b) a comma-separated list of all n-grams with that occurrence count,
   in ascending alphabetical/lexicographic order.
   """
-  if len(sys.argv) < 2:
-    print(f"Usage: {sys.argv[0]} <n_gram_len> [<min_count>]")
+  if len(sys.argv) < 2 or len(sys.argv) > 3:
+    print(f"Usage: python {sys.argv[0]} <n_gram_len> [<min_count>]")
     return
-  n_gram_len = int(sys.argv[1])
-  if len(sys.argv) > 2:
-    min_count = int(sys.argv[2])
-  else:
-    min_count = 2
 
-  text = sys.stdin.read()
+  try:
+    n_gram_len = int(sys.argv[1])
+    if len(sys.argv) == 3:
+      min_count = int(sys.argv[2])
+    else:
+      min_count = 2
+  except ValueError:
+    print("Invalid arguments: n_gram_len and min_count must be integers")
+    return
 
-  # Extract n-grams and group them by occurrence count
-  n_gram_counts = n_grams(text, n_gram_len, min_count)
+  text = " ".join(sys.stdin.readlines())
 
-  # Print n-grams in descending order of occurrence count
-  for count, n_grams in sorted(n_gram_counts.items(), reverse=True):
-    n_gram_str = ', '.join([' '.join(n_gram) for n_gram in n_grams])
-    print(f"{count}: {n_gram_str}")
+  n_grams_dict = n_grams(text, n_gram_len, min_count)
+
+  for count in sorted(n_grams_dict.keys(), reverse=True):
+    n_grams_list = n_grams_dict[count]
+    n_grams_str = ", ".join([" ".join(n_gram) for n_gram in n_grams_list])
+    print(f"{count} {n_grams_str}")
 
 if __name__ == '__main__':
   main()
