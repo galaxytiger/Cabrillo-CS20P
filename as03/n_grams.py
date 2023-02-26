@@ -11,8 +11,9 @@ import sys
 from collections import defaultdict, Counter
 
 
-def token(string, chars='!#"#%&\'()*,-./:;?@\\_¡§¶·¿'):
-  return string.strip(chars)
+def token(string):
+  whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
+  return ''.join(filter(whitelist.__contains__, string))
 
 
 def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tuple[str]]]:
