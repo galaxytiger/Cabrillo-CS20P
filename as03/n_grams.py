@@ -11,24 +11,21 @@ import sys
 from collections import defaultdict, Counter
 
 
-def token(string, chars='!#"#%&\'()*,-./:;?@\\_¡§¶·¿'):
-  return string.lower().strip(chars).split()
-
-# def token(text):
-#   strip_chars = set("!\"#%&'()*,-./:;?@\\_¡§¶·¿")
-#   words = text.split()
-#   processed_words = []
-#   for word in words:
-#     # Strip unwanted characters from either end
-#     word = word.lower().strip()
-#     while word and word[0] in strip_chars:
-#       word = word[1:]
-#     while word and word[-1] in strip_chars:
-#       word = word[:-1]
-#     # Append the processed word to the result list
-#     if word:
-#       processed_words.append(word)
-#   return processed_words
+def token(text):
+  strip_chars = set("!\"#%&'()*,-./:;?@\\_¡§¶·¿")
+  words = text.split()
+  processed_words = []
+  for word in words:
+    # Strip unwanted characters from either end
+    word = word.lower().strip()
+    while word and word[0] in strip_chars:
+      word = word[1:]
+    while word and word[-1] in strip_chars:
+      word = word[:-1]
+    # Append the processed word to the result list
+    if word:
+      processed_words.append(word)
+  return processed_words
 
 
 def find_ngrams(text, n):
