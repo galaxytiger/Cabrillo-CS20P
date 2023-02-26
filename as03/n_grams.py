@@ -12,7 +12,7 @@ from collections import defaultdict, Counter
 
 
 def token(string, chars='!#"#%&\'()*,-./:;?@\\_¡§¶·¿'):
-  return string.strip(chars)
+  return string.strip(chars).split()
 
 
 def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tuple[str]]]:
@@ -34,8 +34,8 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
 
   # Loop over all possible n-grams of the given length and update their counts
   for i in range(len(words) - n_gram_len + 1):
-    n_gram = tuple(words[i:i + n_gram_len])
-    n_gram_counts[n_gram] += 1
+    n_gram_tuple = tuple(words[i:i + n_gram_len])
+    n_gram_counts[n_gram_tuple] += 1
 
   # Filter the n-grams based on the minimum count and sort them lexicographically
   filtered_n_grams = sorted(
@@ -48,7 +48,8 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
     grouped_n_grams[count].append(n_gram)
 
   # Sort the grouped n-grams by their count and return the result
-  return {count: sorted(n_grams, key=lambda x: x) for count, n_grams in grouped_n_grams.items()}
+  return {count: sorted(n_gram_tuple, key=lambda x: x) for count, n_gram_tuple in
+          grouped_n_grams.items()}
 
 
 def most_frequent_n_grams(text: str,
