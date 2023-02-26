@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="testing n grams function">
-      <change beforePath="$PROJECT_DIR$/as03/n_grams.py" beforeDir="false" afterPath="$PROJECT_DIR$/as03/n_grams.py" afterDir="false" />
-    </list>
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="testing n grams function" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,20 +122,6 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-    </task>
-    <task id="LOCAL-00002" summary="first draft of as01">
-      <created>1675491032159</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1675491032159</updated>
-    </task>
-    <task id="LOCAL-00003" summary="first draft of as01">
-      <created>1675491250962</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1675491250962</updated>
     </task>
     <task id="LOCAL-00004" summary="second draft of as01, changed all input to uppercase">
       <created>1675491710837</created>
@@ -468,7 +452,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677454863994</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="testing n grams function">
+      <created>1677455086224</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1677455086224</updated>
+    </task>
+    <task id="LOCAL-00052" summary="testing n grams function">
+      <created>1677455196528</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1677455196528</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -122,7 +122,7 @@ def main():
   in ascending alphabetical/lexicographic order.
   """
   if len(sys.argv) < 2 or len(sys.argv) > 3:
-    print(f"Usage: python {sys.argv[0]} <n_gram_len> [<min_count>]")
+    print(f"why are you wasting electricity?")
     return
 
   try:
@@ -132,7 +132,7 @@ def main():
     else:
       min_count = 2
   except ValueError:
-    print("Invalid arguments: n_gram_len and min_count must be integers")
+    print("NUMBERS ONLY!!!")
     return
 
   text = " ".join(sys.stdin.readlines())
