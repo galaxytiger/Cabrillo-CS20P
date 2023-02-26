@@ -124,7 +124,24 @@ def main():
   and (b) a comma-separated list of all n-grams with that occurrence count,
   in ascending alphabetical/lexicographic order.
   """
-  pass  # TODO
+  if len(sys.argv) < 2:
+    print("Usage: python ngram.py <n-gram length> [<minimum occurrence count>]")
+    sys.exit(1)
+
+  n_gram_len = int(sys.argv[1])
+  min_count = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+
+  # Get the text from standard input
+  text = sys.stdin.read()
+
+  # Compute the n-grams
+  n_grams_dict = n_grams(text, n_gram_len, min_count)
+
+  # Print the n-grams
+  for count, n_gram_list in sorted(n_grams_dict.items(), reverse=True):
+    n_gram_str_list = [', '.join(n_gram) for n_gram in n_gram_list]
+    n_grams_str = ', '.join(n_gram_str_list)
+    print(f"{count}: {n_grams_str}")
 
 
 if __name__ == '__main__':
