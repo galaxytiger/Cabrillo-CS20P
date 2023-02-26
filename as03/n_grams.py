@@ -12,7 +12,12 @@ from collections import defaultdict, Counter
 
 
 def token(string, chars='!#"#%&\'()*,-./:;?@\\_¡§¶·¿'):
-  return string.strip(chars).split()
+  return string.lower().strip(chars).split()
+
+# def token(string):
+#   whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
+#   valid_words = ''.join(filter(whitelist.__contains__, string.lower()))
+#   return valid_words.split()
 
 
 def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tuple[str]]]:
