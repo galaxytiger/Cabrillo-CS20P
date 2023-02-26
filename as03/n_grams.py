@@ -45,12 +45,9 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
           lexicographic/alphabetical order of the n-gram words.
   """
   words = token(text)
-  # Initialize a defaultdict to keep track of the n-grams and their counts
-  n_gram_counts = defaultdict(int)
 
   # Loop over all possible n-grams of the given length and update their counts
-  for n_gram in find_ngrams(words, n_gram_len):
-    n_gram_counts[n_gram] += 1
+  n_gram_counts = Counter(find_ngrams(words, n_gram_len))
 
   # Filter the n-grams based on the minimum count and sort them lexicographically
   filtered_n_grams = sorted(
