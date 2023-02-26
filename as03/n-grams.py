@@ -29,10 +29,28 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
           number of times, as a list of n_gram_len-tuples of strings in ascending
           lexicographic/alphabetical order of the n-gram words.
   """
-  text = token(text)
+  words = token(text)
 
+  # Initialize a defaultdict to keep track of the n-grams and their counts
+  n_gram_counts = defaultdict(int)
 
-  pass  # TODO
+  # Loop over all possible n-grams of the given length and update their counts
+  for i in range(len(words) - n_gram_len + 1):
+    n_gram = tuple(words[i:i + n_gram_len])
+    n_gram_counts[n_gram] += 1
+
+  # Filter the n-grams based on the minimum count and sort them lexicographically
+  filtered_n_grams = sorted(
+    [(n_gram, count) for n_gram, count in n_gram_counts.items() if count >= min_count],
+    key=lambda x: x[0])
+
+  # Group the filtered n-grams by their count
+  grouped_n_grams = defaultdict(list)
+  for n_gram, count in filtered_n_grams:
+    grouped_n_grams[count].append(n_gram)
+
+  # Sort the grouped n-grams by their count and return the result
+  return {count: sorted(n_grams, key=lambda x: x) for count, n_grams in grouped_n_grams.items()}
 
 
 def most_frequent_n_grams(text: str,

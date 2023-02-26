@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="setting n-grams">
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="initial n-grams">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/as03/n-grams.py" beforeDir="false" afterPath="$PROJECT_DIR$/as03/n-grams.py" afterDir="false" />
     </list>
@@ -100,6 +100,7 @@
       <workItem from="1676586982407" duration="875000" />
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
+      <workItem from="1677392521584" duration="3760000" />
     </task>
     <task id="LOCAL-00001" summary="first draft of as01">
       <created>1675490088335</created>
@@ -297,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677007710628</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="initial n-grams">
+      <created>1677392557956</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677392557956</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +355,8 @@
     <MESSAGE value="removing ari file" />
     <MESSAGE value="initializing as03" />
     <MESSAGE value="setting n-grams" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting n-grams" />
+    <MESSAGE value="initial n-grams" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial n-grams" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
