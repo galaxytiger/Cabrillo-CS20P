@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="testing n grams function">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/as03/n_grams.py" beforeDir="false" afterPath="$PROJECT_DIR$/as03/n_grams.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,13 +124,6 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-    </task>
-    <task id="LOCAL-00005" summary="added a for loop to read only GC characters">
-      <created>1675712909015</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1675712909015</updated>
     </task>
     <task id="LOCAL-00006" summary="adding initial file for as02">
       <created>1676083532216</created>
@@ -469,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677455478359</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="testing n grams function">
+      <created>1677456109112</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1677456109112</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

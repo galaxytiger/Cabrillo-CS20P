@@ -64,27 +64,6 @@ def n_grams(text: str, n_gram_len: int, min_count: int = 2) -> dict[int, list[tu
           grouped_n_grams.items()}
 
 
-def most_frequent_n_grams(text: str,
-                          min_len: int = 1,
-                          max_len: int = 10,
-                          limit: int = 5) -> dict[int, list[tuple[tuple[str], int]]]:
-  """
-  Returns a dictionary mapping n-gram lengths to a list of the most frequently occurring word
-  n-grams of that length, along with their occurrence counts, for n-grams appearing at least twice.
-
-  :param text: the text to analyze
-  :param min_len: the minimum n-gram length
-  :param max_len: the maximum n-gram length
-  :param limit: the maximum number of n-grams to display for each length
-  :return a dictionary mapping n-gram lengths to a list of the most frequently occurring n-grams
-          of that length, along with their occurrence counts, as a list of 2-tuples, where
-          each tuple contains a tuple of the words in an n-gram and the n-gram's occurrence count.
-          The list shall be sorted in descending order of occurrence count, with ties broken in
-          ascending lexicographic/alphabetical order of the n-gram words.
-  """
-  pass  # TODO
-
-
 def main():
   """
   Expects one or two command-line arguments:
@@ -95,7 +74,7 @@ def main():
   in ascending alphabetical/lexicographic order.
   """
   if len(sys.argv) < 2 or len(sys.argv) > 3:
-    print(f"why are you wasting electricity?")
+    print('why are you wasting electricity?')
     return
 
   try:
@@ -105,7 +84,7 @@ def main():
     else:
       min_count = 2
   except ValueError:
-    print("NUMBERS ONLY!!!")
+    print('NUMBERS ONLY!!!')
     return
 
   text = " ".join(sys.stdin.readlines())
