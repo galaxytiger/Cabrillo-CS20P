@@ -82,7 +82,22 @@ def most_frequent_n_grams(text: str,
           The list shall be sorted in descending order of occurrence count, with ties broken in
           ascending lexicographic/alphabetical order of the n-gram words.
   """
-  pass  # TODO
+  n_grams_counts = defaultdict(Counter)
+  for n in range(min_len, max_len + 1):
+    n_gram_dict = n_grams(text, n)
+    for count, n_gram_list in n_gram_dict.items():
+      for n_gram in n_gram_list:
+        n_grams_counts[n][n_gram] += count
+
+  result = {}
+  for n in range(min_len, max_len + 1):
+    n_gram_counts = n_grams_counts[n]
+    if not n_gram_counts:
+      continue
+    top_n_grams = sorted(n_gram_counts.items(), key=lambda x: (-x[1], x[0]))[:limit]
+    result[n] = [(n_gram, count) for n_gram, count in top_n_grams]
+
+  return result
 
 
 def main():
