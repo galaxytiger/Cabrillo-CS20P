@@ -99,7 +99,7 @@ def most_frequent_n_grams(text: str,
     # sort the n-grams by count (descending) and then lexicographically (ascending)
     sorted_n_grams = sorted(n_gram_count.items(), key=lambda x: (-x[1], x[0]))
     # take only the top `limit` n-grams
-    top_n_grams = sorted_n_grams[:min(len(sorted_n_grams), limit)]
+    top_n_grams = sorted_n_grams[:limit]
     # store the top n-grams in the final result dictionary
     result[n] = [(tuple(n_gram), count) for n_gram, count in top_n_grams]
 
