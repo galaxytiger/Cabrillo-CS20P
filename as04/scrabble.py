@@ -68,7 +68,7 @@ def legal_words(words: Iterable[str]) -> Iterator[str]:
   []
   """
   for word in words:
-    if word.lower() in scrabble_words:
+    if word in scrabble_words:
       yield word
 
 
