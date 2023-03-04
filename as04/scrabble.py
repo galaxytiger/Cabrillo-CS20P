@@ -10,14 +10,14 @@ import itertools  # suggested for permutations() and chain.from_iterable()
 import re  # suggested for finditer()
 import collections
 
-legal_words = set()
-with open('/srv/datasets/scrabble-hybrid') as scrabble:
-  for line in scrabble:
+scrabble_words = set()
+with open('/srv/datasets/scrabble-hybrid') as scrabble_hybrid:
+  for line in scrabble_hybrid:
     line = line.strip().split()
     line = list(filter(None, line))
     # iterating through list to add to set
     for ele in line:
-      legal_words.add(ele)
+      scrabble_words.add(ele)
   pass
 
 letter_values = collections.defaultdict(list)
@@ -47,7 +47,7 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   file_contents = file.read().upper()
   words = re.findall(pattern, file_contents)
   for word in words:
-    yield word.upper()
+    yield word
 
  
  
@@ -67,9 +67,18 @@ def legal_words(words: Iterable[str]) -> Iterator[str]:
   >>> list(legal_words(['all', 'in', 'lowercase']))
   []
   """
-  pass  # TODO
- 
- 
+  for word in words:
+    if word in scrabble_words:
+      yield word
+    else:
+      letters = list(word)
+      for i in range(2, len(letters) + 1):
+        for combination in itertools.permutations(letters, i):
+          if ''.join(combination) in scrabble_words:
+            yield ''.join(combination)
+            break
+
+
 def word_score(word: str) -> int:
   """
   Computes the sum of the tile values for a given word, or 0 if the word is illegal.
