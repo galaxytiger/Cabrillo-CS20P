@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on tokenize words function">
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on legal words function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/as04/scrabble.py" beforeDir="false" afterPath="$PROJECT_DIR$/as04/scrabble.py" afterDir="false" />
     </list>
@@ -125,28 +125,7 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-      <workItem from="1677907236939" duration="4009000" />
-    </task>
-    <task id="LOCAL-00019" summary="lol i meant hesse jesse">
-      <created>1676435146643</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1676435146643</updated>
-    </task>
-    <task id="LOCAL-00020" summary="fixing poor practices">
-      <created>1676435493442</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1676435493442</updated>
-    </task>
-    <task id="LOCAL-00021" summary="adding ari to test something else">
-      <created>1676583113672</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1676583113672</updated>
+      <workItem from="1677907236939" duration="4971000" />
     </task>
     <task id="LOCAL-00022" summary="fixed word count">
       <created>1676584778040</created>
@@ -470,7 +449,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677910591246</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="working on legal words function">
+      <created>1677911265109</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1677911265109</updated>
+    </task>
+    <task id="LOCAL-00069" summary="working on legal words function">
+      <created>1677911394159</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1677911394159</updated>
+    </task>
+    <task id="LOCAL-00070" summary="working on legal words function">
+      <created>1677911437909</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1677911437909</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +499,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first draft of as01" />
     <MESSAGE value="second draft of as01, changed all input to uppercase" />
     <MESSAGE value="added a for loop to read only GC characters" />
     <MESSAGE value="adding initial file for as02" />
@@ -524,7 +523,8 @@
     <MESSAGE value="testing n grams function" />
     <MESSAGE value="initializing as05" />
     <MESSAGE value="working on tokenize words function" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on tokenize words function" />
+    <MESSAGE value="working on legal words function" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on legal words function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

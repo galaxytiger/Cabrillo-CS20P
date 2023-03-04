@@ -27,6 +27,15 @@ with open('/srv/datasets/scrabble-letter-values') as values:
     letter_values[letter] = score
     pass
 
+
+  def find_sequences(text: str) -> list:
+    """
+    Finds all contiguous sequences of uppercase English letters in a given string.
+    """
+    pattern = r'[A-Z]+'
+    matches = re.finditer(pattern, text)
+    sequences = [match.group(0) for match in matches]
+    return sequences
  
  
 def tokenize_words(file: TextIOBase) -> Iterator[str]:
@@ -42,11 +51,8 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   >>> pprint(list(tokenize_words(open('/srv/datasets/phonewords-e.161.txt'))))
   ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
   """
-
-  pattern = r'[A-Z]+'
   file_contents = file.read().upper()
-  words = re.findall(pattern, file_contents)
-  for word in words:
+  for word in file_contents:
     yield word
 
  
