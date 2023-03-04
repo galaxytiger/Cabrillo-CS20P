@@ -68,15 +68,8 @@ def legal_words(words: Iterable[str]) -> Iterator[str]:
   []
   """
   for word in words:
-    if word in scrabble_words:
+    if word.lower() in scrabble_words:
       yield word
-    else:
-      letters = list(word)
-      for i in range(2, len(letters) + 1):
-        for combination in itertools.permutations(letters, i):
-          if ''.join(combination) in scrabble_words:
-            yield ''.join(combination)
-            break
 
 
 def word_score(word: str) -> int:
