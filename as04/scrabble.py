@@ -51,9 +51,11 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   >>> pprint(list(tokenize_words(open('/srv/datasets/phonewords-e.161.txt'))))
   ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
   """
-  file_contents = file.read()
-  for word in file_contents:
-    yield word.upper()
+  pattern = r'[A-Z]+'
+  file_contents = file.read().upper()
+  words = re.findall(pattern, file_contents)
+  for word in words:
+    yield word
 
  
  
