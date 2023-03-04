@@ -44,10 +44,10 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   """
 
   pattern = r'[A-Z]+'
-  for line in file:
-    words = re.findall(pattern, line)
-    for word in words:
-      yield word.upper()
+  file_contents = file.read().upper()
+  words = re.findall(pattern, file_contents)
+  for word in words:
+    yield word.upper()
 
  
  

@@ -122,14 +122,7 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-      <workItem from="1677907236939" duration="2968000" />
-    </task>
-    <task id="LOCAL-00017" summary="fixing print format">
-      <created>1676434160108</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1676434160108</updated>
+      <workItem from="1677907236939" duration="3312000" />
     </task>
     <task id="LOCAL-00018" summary="checking house of something text">
       <created>1676434350049</created>
@@ -467,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677910199002</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="working on tokenize words function">
+      <created>1677910425584</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1677910425584</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
