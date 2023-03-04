@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="initializing as05">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as04/scrabble.py" beforeDir="false" afterPath="$PROJECT_DIR$/as04/scrabble.py" afterDir="false" />
-    </list>
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on tokenize words function" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,28 +122,7 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-      <workItem from="1677907236939" duration="2656000" />
-    </task>
-    <task id="LOCAL-00014" summary="created function to strip accents and normalize words">
-      <created>1676432697492</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1676432697492</updated>
-    </task>
-    <task id="LOCAL-00015" summary="making print statements">
-      <created>1676433238598</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1676433238598</updated>
-    </task>
-    <task id="LOCAL-00016" summary="fixing print format">
-      <created>1676434065757</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1676434065757</updated>
+      <workItem from="1677907236939" duration="2968000" />
     </task>
     <task id="LOCAL-00017" summary="fixing print format">
       <created>1676434160108</created>
@@ -470,7 +446,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677907438267</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="working on tokenize words function">
+      <created>1677909943230</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1677909943230</updated>
+    </task>
+    <task id="LOCAL-00064" summary="working on tokenize words function">
+      <created>1677910041242</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1677910041242</updated>
+    </task>
+    <task id="LOCAL-00065" summary="working on tokenize words function">
+      <created>1677910199002</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1677910199002</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +520,8 @@
     <MESSAGE value="initial n-grams" />
     <MESSAGE value="testing n grams function" />
     <MESSAGE value="initializing as05" />
-    <option name="LAST_COMMIT_MESSAGE" value="initializing as05" />
+    <MESSAGE value="working on tokenize words function" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on tokenize words function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
