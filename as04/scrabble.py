@@ -8,10 +8,25 @@ from io import TextIOBase  # for type hints
 from typing import Iterable, Iterator  # for type hints
 import itertools  # suggested for permutations() and chain.from_iterable()
 import re  # suggested for finditer()
- 
-# You will want to establish some module-scoped variables representing objects with the information
-# from files /srv/datasets/scrabble-letter-values and /srv/datasets/scrabble-hybrid
-# so that the various functions below have access to them as necessary.
+import collections
+
+legal_words = set()
+with open('/srv/datasets/scrabble-hybrid') as scrabble:
+  for line in scrabble:
+    line = line.strip().split()
+    line = list(filter(None, line))
+    # iterating through list to add to set
+    for ele in line:
+      legal_words.add(ele)
+  pass
+
+letter_values = collections.defaultdict(list)
+with open('/srv/datasets/scrabble-letter-values') as values:
+  for line in values:
+    letter, score = line.split()
+    letter_values[letter] = score
+    pass
+
  
  
 def tokenize_words(file: TextIOBase) -> Iterator[str]:
@@ -27,7 +42,12 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   >>> pprint(list(tokenize_words(open('/srv/datasets/phonewords-e.161.txt'))))
   ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
   """
-  pass  # TODO
+  file_contents = file.read()
+  pattern = r'[A-Z]+'
+  words = re.findall(pattern, file_contents)
+  for word in words:
+    yield word.upper()
+
  
  
 def legal_words(words: Iterable[str]) -> Iterator[str]:

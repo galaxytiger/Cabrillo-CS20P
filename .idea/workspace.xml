@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="testing n grams function" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="initializing as05">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as04/scrabble.py" beforeDir="false" afterPath="$PROJECT_DIR$/as04/scrabble.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,13 +125,7 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-    </task>
-    <task id="LOCAL-00013" summary="fixed some output formatting">
-      <created>1676431494688</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1676431494688</updated>
+      <workItem from="1677907236939" duration="2656000" />
     </task>
     <task id="LOCAL-00014" summary="created function to strip accents and normalize words">
       <created>1676432697492</created>
@@ -466,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677562105336</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="initializing as05">
+      <created>1677907438266</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1677907438267</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +522,8 @@
     <MESSAGE value="setting n-grams" />
     <MESSAGE value="initial n-grams" />
     <MESSAGE value="testing n grams function" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing n grams function" />
+    <MESSAGE value="initializing as05" />
+    <option name="LAST_COMMIT_MESSAGE" value="initializing as05" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
