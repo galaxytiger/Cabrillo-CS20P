@@ -88,11 +88,12 @@ def word_score(word: str) -> int:
   >>> word_score('lowercase')
   0
   """
-  legal_words_iter = legal_words([word])
-  legal_words_list = list(legal_words_iter)
-  if not legal_words_list:
-    return 0
-  tot_score = sum(int(letter_values[letter][0]) for c in word)
+  tot_score = 0
+  for c in word:
+    if c in letter_values:
+      tot_score += letter_values[c]
+    else:
+      return 0
   return tot_score
  
  
