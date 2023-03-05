@@ -28,15 +28,6 @@ with open('/srv/datasets/scrabble-letter-values') as values:
     pass
 
 
-  def find_sequences(text: str) -> list:
-    """
-    Finds all contiguous sequences of uppercase English letters in a given string.
-    """
-    pattern = r'[A-Z]+'
-    matches = re.finditer(pattern, text)
-    sequences = [match.group(0) for match in matches]
-    return sequences
- 
  
 def tokenize_words(file: TextIOBase) -> Iterator[str]:
   """
@@ -99,7 +90,7 @@ def word_score(word: str) -> int:
   >>> word_score('lowercase')
   0
   """
-  pass  # TODO
+
  
  
 def highest_value_word(words: Iterable[str]) -> str:

@@ -125,28 +125,7 @@
       <workItem from="1676775936589" duration="778000" />
       <workItem from="1677007584611" duration="6511000" />
       <workItem from="1677392521584" duration="6298000" />
-      <workItem from="1677907236939" duration="4971000" />
-    </task>
-    <task id="LOCAL-00022" summary="fixed word count">
-      <created>1676584778040</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1676584778040</updated>
-    </task>
-    <task id="LOCAL-00023" summary="fixed sentence count">
-      <created>1676585578404</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1676585578404</updated>
-    </task>
-    <task id="LOCAL-00024" summary="fixed sentence count">
-      <created>1676585808688</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1676585808688</updated>
+      <workItem from="1677907236939" duration="8440000" />
     </task>
     <task id="LOCAL-00025" summary="making changes to maybe make it more efficient">
       <created>1676586057621</created>
@@ -470,7 +449,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677911437909</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="working on legal words function">
+      <created>1677912224830</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1677912224830</updated>
+    </task>
+    <task id="LOCAL-00072" summary="working on legal words function">
+      <created>1677912294891</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1677912294891</updated>
+    </task>
+    <task id="LOCAL-00073" summary="working on legal words function">
+      <created>1677912334736</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1677912334736</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
