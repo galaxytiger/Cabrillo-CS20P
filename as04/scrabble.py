@@ -27,7 +27,6 @@ with open('/srv/datasets/scrabble-letter-values') as values:
     letter_values[letter] = score
     pass
 
-
  
 def tokenize_words(file: TextIOBase) -> Iterator[str]:
   """
@@ -91,16 +90,13 @@ def word_score(word: str) -> int:
   """
   tot_score = 0
   word_check = legal_words(word)
-  for w in word_check:
-    for c in w:
+  for x in word_check:
+    for c in x:
       if c in letter_values:
         tot_score += letter_values[c]
       else:
         return 0
     return tot_score
-
-
-
  
  
 def highest_value_word(words: Iterable[str]) -> str:
