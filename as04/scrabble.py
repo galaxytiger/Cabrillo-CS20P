@@ -48,8 +48,7 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   for word in words:
     yield word
 
- 
- 
+
 def legal_words(words: Iterable[str]) -> Iterator[str]:
   """
   Selects from an iterable collection of strings only those that are legal Scrabble® words.
@@ -90,6 +89,17 @@ def word_score(word: str) -> int:
   >>> word_score('lowercase')
   0
   """
+  tot_score = 0
+  word_check = legal_words(word)
+  for w in word_check:
+    for c in w:
+      if c in letter_values:
+        tot_score += letter_values[c]
+      else:
+        return 0
+    return tot_score
+
+
 
  
  
