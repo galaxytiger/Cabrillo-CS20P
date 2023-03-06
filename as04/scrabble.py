@@ -115,9 +115,12 @@ def highest_value_word(words: Iterable[str]) -> str:
   ... 
   error
   """
-  pass  # TODO
- 
- 
+  for word in words:
+
+
+  # return sorted(word_score(words), key=lambda s: s[1], reverse=True)
+
+
 def legal_tile_words(tiles: str) -> list[str]:
   """
   Returns a sorted list of all the legal Scrabble® words that could be formed from the "tiles"
