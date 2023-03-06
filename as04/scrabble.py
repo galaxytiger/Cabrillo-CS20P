@@ -90,7 +90,7 @@ def word_score(word: str) -> int:
   """
   tot_score = 0
   for c in word:
-    if c in letter_values:
+    if c in scrabble_words:
       tot_score += int(letter_values[c])
     else:
       return 0
