@@ -42,10 +42,11 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
   """
   pattern = r'[A-Z]+'
-  file_contents = file.read().upper()
-  words = re.findall(pattern, file_contents)
-  for word in words:
-    yield word
+  with open(file) as f:
+    for text in f:
+      words = re.findall(pattern, text)
+      for word in words:
+        yield word
 
 
 def legal_words(words: Iterable[str]) -> Iterator[str]:
@@ -135,25 +136,9 @@ def legal_tile_words(tiles: str) -> list[str]:
   >>> legal_tile_words('JTQHDEZ')
   ['DE', 'ED', 'EDH', 'EH', 'ET', 'ETH', 'HE', 'HET', 'JET', 'TE', 'TED', 'THE', 'ZED']
   """
-  tile_freq = {}
-  for w in tiles:
-    tile_freq[letter] = tile_freq.get(w, 0) + 1
+  pass
 
-  l_words = set()
-  for word in scrabble_words:
-    word_freq = {}
-    for char in word:
-      word_freq[char] = word_freq.get(char, 0) + 1
-    for char in word_freq:
-      if char not in tile_freq or word_freq[char] > tile_freq[char]:
-        break
-    else:
-      legal_words.add(word)
 
-  return sorted(legal_words, key=lambda w: (-len(w), w))
-
- 
- 
 if __name__ == '__main__':
   # Print the total number of legal words on stdin and their total value in points, just for fun
   import sys
