@@ -115,7 +115,16 @@ def highest_value_word(words: Iterable[str]) -> str:
   ... 
   error
   """
-  for word in words:
+  max_score = 0
+  max_word = None
+  for word in legal_words(words):
+    high_score = word_score(word)
+    if high_score > max_score:
+      max_score = high_score
+      max_word = word
+  if max_word is None:
+    raise StopIteration
+  return max_word
 
 
   # return sorted(word_score(words), key=lambda s: s[1], reverse=True)
