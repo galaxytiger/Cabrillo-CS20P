@@ -27,12 +27,12 @@ with open('/srv/datasets/scrabble-letter-values') as values:
     letter_values[letter] = score
     pass
 
- 
+
 def tokenize_words(file: TextIOBase) -> Iterator[str]:
   """
   Tokenizes the contents of a text-file object (e.g. from open() or sys.stdin) and yields
   all contiguous sequences of English letters from the file, in uppercase.
- 
+
   >>> from pprint import pprint
   >>> pprint(list(tokenize_words(open('/srv/datasets/party.txt'))), compact=True)
   ['THE', 'PARTY', 'TOLD', 'YOU', 'TO', 'REJECT', 'THE', 'EVIDENCE', 'OF', 'YOUR',
@@ -51,7 +51,7 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
 def legal_words(words: Iterable[str]) -> Iterator[str]:
   """
   Selects from an iterable collection of strings only those that are legal Scrabble® words.
- 
+
   >>> from pprint import pprint
   >>> pprint(list(legal_words(tokenize_words(open('/srv/datasets/party.txt')))), compact=True)
   ['THE', 'PARTY', 'TOLD', 'YOU', 'TO', 'REJECT', 'THE', 'EVIDENCE', 'OF', 'YOUR',
@@ -72,7 +72,7 @@ def legal_words(words: Iterable[str]) -> Iterator[str]:
 def word_score(word: str) -> int:
   """
   Computes the sum of the tile values for a given word, or 0 if the word is illegal.
- 
+
   >>> from pprint import pprint
   >>> pprint([(w, word_score(w)) for w in tokenize_words(open('/srv/datasets/party.txt'))], \
              compact=True)
@@ -95,15 +95,15 @@ def word_score(word: str) -> int:
     else:
       return 0
   return tot_score
- 
- 
+
+
 def highest_value_word(words: Iterable[str]) -> str:
   """
   Selects from an iterable collection of strings the highest-valued Scrabble® word,
   as returned by the word_score() function.
   If multiple words are maximal, the function returns the first one encountered.
   If no words are present, raises an exception of some kind.
- 
+
   >>> highest_value_word(tokenize_words(open('/srv/datasets/party.txt')))
   'REJECT'
   >>> highest_value_word(tokenize_words(open('/srv/datasets/phonewords-e.161.txt')))
@@ -112,7 +112,7 @@ def highest_value_word(words: Iterable[str]) -> str:
   ...   highest_value_word(tokenize_words(open('/srv/datasets/empty')))
   ... except Exception as error:
   ...   print('error')
-  ... 
+  ...
   error
   """
   max_score = 0
@@ -131,7 +131,7 @@ def legal_tile_words(tiles: str) -> list[str]:
   """
   Returns a sorted list of all the legal Scrabble® words that could be formed from the "tiles"
   represented by the argument string.
- 
+
   >>> legal_tile_words('JTQHDEZ')
   ['DE', 'ED', 'EDH', 'EH', 'ET', 'ETH', 'HE', 'HET', 'JET', 'TE', 'TED', 'THE', 'ZED']
   """
