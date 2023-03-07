@@ -16,7 +16,11 @@ class CircleActor:
     :param velocity: the amount in x/y dimensions by which the actor will move on each step
     :param radius: the initial radius of the actor
     """
-    # TODO
+    self.name = name
+    self.radius = radius
+    self.world_size = world_size
+    self.position = position
+    self.velocity = velocity
 
   def __bool__(self) -> bool:
     """
@@ -44,7 +48,7 @@ class CircleActor:
     """
     Returns the name of this actor.
     """
-    # TODO
+    return self.name
 
   def __sub__(self, other) -> float:
     """
@@ -77,7 +81,7 @@ class CircleActor:
 
   def step(self):
     """
-    Moves this actor in in the direction of its velocity by one unit of "time",
+    Moves this actor in the direction of its velocity by one unit of "time",
     i.e. one frame of animation or one discrete event.
     e.g. if position is (4, 5) and velocity is (-1, 1), the new position will be (3, 6).
     """
