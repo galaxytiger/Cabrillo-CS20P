@@ -42,11 +42,10 @@ def tokenize_words(file: TextIOBase) -> Iterator[str]:
   ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
   """
   pattern = r'[A-Z]+'
-  with open(file) as f:
-    for text in f:
-      words = re.findall(pattern, text)
-      for word in words:
-        yield word
+  for text in file:
+    words = re.findall(pattern, text.upper())
+    for word in words:
+      yield word
 
 
 def legal_words(words: Iterable[str]) -> Iterator[str]:
