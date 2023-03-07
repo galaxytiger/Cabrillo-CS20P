@@ -127,9 +127,6 @@ def highest_value_word(words: Iterable[str]) -> str:
   return max_word
 
 
-  # return sorted(word_score(words), key=lambda s: s[1], reverse=True)
-
-
 def legal_tile_words(tiles: str) -> list[str]:
   """
   Returns a sorted list of all the legal Scrabble® words that could be formed from the "tiles"
@@ -138,7 +135,13 @@ def legal_tile_words(tiles: str) -> list[str]:
   >>> legal_tile_words('JTQHDEZ')
   ['DE', 'ED', 'EDH', 'EH', 'ET', 'ETH', 'HE', 'HET', 'JET', 'TE', 'TED', 'THE', 'ZED']
   """
-  pass  # TODO
+  words = set()
+  for length in range(1, len(tiles) + 1):
+    for permutation in itertools.permutations(tiles, length):
+      word = ''.join(permutation)
+      if word in scrabble_words:
+        words.add(word)
+  return sorted(words)
  
  
 if __name__ == '__main__':
