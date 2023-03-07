@@ -135,7 +135,15 @@ def legal_tile_words(tiles: str) -> list[str]:
   >>> legal_tile_words('JTQHDEZ')
   ['DE', 'ED', 'EDH', 'EH', 'ET', 'ETH', 'HE', 'HET', 'JET', 'TE', 'TED', 'THE', 'ZED']
   """
-  pass
+  tile_counts = collections.Counter(tiles)
+
+  valid_words = []
+  for word in scrabble_words:
+    word_counts = collections.Counter(word)
+    if all(count <= tile_counts[letter] for letter, count in word_counts.items()):
+      valid_words.append(word)
+
+  return sorted(valid_words, key=word_score, reverse=True)
 
 
 if __name__ == '__main__':
