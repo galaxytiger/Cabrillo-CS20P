@@ -2,6 +2,7 @@
 """ Module for the CircleActor class. """
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
+import math
 
 class CircleActor:
   """ Behaves as a circle in a 2D world centered on an X/Y coordinate. """
@@ -27,14 +28,23 @@ class CircleActor:
     Returns True if this actor is still "alive", meaning its radius is
     small enough for the circle to fit within the world and no less than 1.
     """
-    # TODO
+    return 1 <= self.radius <= min(self.world_size) / 2
+
 
   def __contains__(self, other) -> bool:
     """
     Returns True if another actor is "contained within" this one, i.e. whether the two actors
     overlap at all and this actor has a larger radius than the other.
     """
-    # TODO
+    if not isinstance(other, CircleActor):
+      return False
+
+    distance = self - other
+    if distance <= 0 and self.radius > other.radius:
+      return True
+    else:
+      return False
+
 
   def __repr__(self) -> str:
     """
@@ -42,7 +52,8 @@ class CircleActor:
     That is, the return value of this method should be a string that is valid code for
     re-constructing this actor with the same attributes.
     """
-    # TODO
+    return f"CircleActor('{self.name}', {self.radius}, {self.world_size}, {self.position}," \
+           f" {self.velocity})"
 
   def __str__(self) -> str:
     """
@@ -56,7 +67,8 @@ class CircleActor:
     i.e. how far the two circles are from touching.
     This value will be negative if the two circles overlap.
     """
-    # TODO
+    distance = math.dist(self.position, other.position)
+    return distance - self.radius - other.radius
 
   def collide(self, other) -> bool:
     """
@@ -70,14 +82,20 @@ class CircleActor:
     Given no arguments, returns this actor's position.
     Given a tuple[float, float] as an argument, sets this actor's x/y position components.
     """
-    # TODO
+    if new_position is None:
+      return self.position
+    else:
+      self.position = new_position
 
   def radius(self, new_radius: int | float = None):
     """
     Given no arguments, returns this actor's position.
     Given a real number as an argument, sets this actor's radius.
     """
-    # TODO
+    if new_radius is None:
+      return self.radius
+    else:
+      self.radius = new_radius
 
   def step(self):
     """
@@ -92,4 +110,7 @@ class CircleActor:
     Given no arguments, returns this actor's velocity.
     Given a tuple[float, float] as an argument, sets this actor's x/y velocity components.
     """
-    # TODO
+    if new_velocity is None:
+      return self.velocity
+    else:
+      self.velocity = new_velocity
