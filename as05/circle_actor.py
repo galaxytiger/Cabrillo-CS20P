@@ -4,9 +4,9 @@ __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 import math
 
+
 class CircleActor:
   """ Behaves as a circle in a 2D world centered on an X/Y coordinate. """
-
   def __init__(self, name: str, radius: float, world_size: tuple[float, float],
                position: tuple[float, float], velocity: tuple[float, float]):
     """
@@ -30,7 +30,6 @@ class CircleActor:
     """
     return 1 <= self.radius <= min(self.world_size) / 2
 
-
   def __contains__(self, other) -> bool:
     """
     Returns True if another actor is "contained within" this one, i.e. whether the two actors
@@ -38,13 +37,11 @@ class CircleActor:
     """
     if not isinstance(other, CircleActor):
       return False
-
     distance = self - other
     if distance <= 0 and self.radius > other.radius:
       return True
     else:
       return False
-
 
   def __repr__(self) -> str:
     """
@@ -89,7 +86,7 @@ class CircleActor:
 
   def radius(self, new_radius: int | float = None):
     """
-    Given no arguments, returns this actor's position.
+    Given no arguments, returns this actor's radius.
     Given a real number as an argument, sets this actor's radius.
     """
     if new_radius is None:
@@ -107,10 +104,8 @@ class CircleActor:
     dx, dy = self.velocity
     new_x = x + dx
     new_y = y + dy
-    new_position = (new_x, new_y)
-
-    if new_position >= self.world_size:
-      new_position = ((new_x - 1), (new_y - 1))
+    updated_position = (new_x, new_y)
+    self.position = updated_position
 
   def velocity(self, new_velocity: tuple[float, float] = None):
     """
