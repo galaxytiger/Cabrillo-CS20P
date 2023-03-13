@@ -87,8 +87,8 @@ class CircleActor:
     else:
       x, y = new_position
       # Ensure that the new position is within the bounds of the world
-      x = max(self._radius, min(self._world_size[0] - self._radius, x))
-      y = max(self._radius, min(self._world_size[1] - self._radius, y))
+      x = max(self._radius, min(self.world_size[0] - self._radius, x))
+      y = max(self._radius, min(self.world_size[1] - self._radius, y))
       self._position = (x, y)
 
   def radius(self, new_radius: int | float = None):
