@@ -103,7 +103,14 @@ class CircleActor:
     i.e. one frame of animation or one discrete event.
     e.g. if position is (4, 5) and velocity is (-1, 1), the new position will be (3, 6).
     """
-    # TODO
+    x, y = self.position
+    dx, dy = self.velocity
+    new_x = x + dx
+    new_y = y + dy
+    new_position = (new_x, new_y)
+
+    if new_position >= self.world_size:
+      new_position = ((new_x - 1), (new_y - 1))
 
   def velocity(self, new_velocity: tuple[float, float] = None):
     """
