@@ -2,7 +2,7 @@
 """ Module for the CircleActor class. """
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
-from math import sqrt
+import math
 
 
 class CircleActor:
@@ -19,9 +19,9 @@ class CircleActor:
     """
     self.name = name
     self.radius = radius
-    self.world_size = world_size
     self.position = position
     self.velocity = velocity
+    self.world_size = world_size
 
   def __bool__(self) -> bool:
     """
@@ -65,9 +65,9 @@ class CircleActor:
     i.e. how far the two circles are from touching.
     This value will be negative if the two circles overlap.
     """
-    dx = self.position[0] - other.position[0]
-    dy = self.position[1] - other.position[1]
-    distance = sqrt(dx ** 2 + dy ** 2) - (self.radius + other.radius)
+    dx = math.fabs(self.position[0]-other.position[0])
+    dy = math.fabs(self.position[1]-other.position[1])
+    distance = ((dx**2) + (dy**2)) ** 0.5
     return distance
 
   def collide(self, other) -> bool:
@@ -75,7 +75,7 @@ class CircleActor:
     "Collides" this actor with another. If they overlap, the radius of the larger actor shall
     increase by 1 and that of the smaller will decrease by 1.
     """
-    # TODO
+
 
   def position(self, new_position: tuple[float, float] = None):
     """
@@ -83,13 +83,14 @@ class CircleActor:
     Given a tuple[float, float] as an argument, sets this actor's x/y position components.
     """
     if new_position is None:
-      return self._position
+      x = self.position[0]
+      y = self.position[1]
+      self.position = (x, y)
     else:
       x, y = new_position
-      # Ensure that the new position is within the bounds of the world
-      x = max(self._radius, min(self.world_size[0] - self._radius, x))
-      y = max(self._radius, min(self.world_size[1] - self._radius, y))
-      self._position = (x, y)
+      x = max(self.radius, min(self.world_size[0] - self.radius, x))
+      y = max(self.radius, min(self.world_size[1] - self.radius, y))
+      self.position = (x, y)
 
   def radius(self, new_radius: int | float = None):
     """
@@ -97,9 +98,9 @@ class CircleActor:
     Given a real number as an argument, sets this actor's radius.
     """
     if new_radius is None:
-      return self._radius
+      return self.radius
     else:
-      self._radius = max(1.0, new_radius)
+      self.radius = max(1.0, new_radius)
 
   def step(self):
     """
@@ -107,7 +108,7 @@ class CircleActor:
     i.e. one frame of animation or one discrete event.
     e.g. if position is (4, 5) and velocity is (-1, 1), the new position will be (3, 6).
     """
-    self._position = (self._position[0] + self._velocity[0], self._position[1] + self._velocity[1])
+    # TODO
 
   def velocity(self, new_velocity: tuple[float, float] = None):
     """

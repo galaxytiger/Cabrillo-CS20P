@@ -34,7 +34,7 @@ def create_actors(canvas):
                 random.random() * MAX_DEFAULT_VELOCITY_COMPONENT * 2 -
                 MAX_DEFAULT_VELOCITY_COMPONENT))
     actors.append(actor)
-    posx, posy = actor.position
+    posx, posy = actor.position()
     color_int = int.from_bytes(bytes(0xff - random.randint(0, 127) for _ in range(3)),
                                byteorder='big')
     actor.oval = canvas.create_oval(posx - radius,
