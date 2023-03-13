@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Quick and dirty Circle World GUI using tkinter """
-__author__ = 'Jeffrey Bergamini for CS 20P, jeffrey.bergamini@cabrillo.edu'
+__author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 import circle_actor
 import random
