@@ -70,25 +70,18 @@ class CircleActor:
     distance = ((dx**2) + (dy**2)) ** 0.5
     return distance
 
-  def collide(self, other) -> bool:
+  def collide(self, other):
     """
     "Collides" this actor with another. If they overlap, the radius of the larger actor shall
     increase by 1 and that of the smaller will decrease by 1.
     """
-    if not isinstance(other, CircleActor):
-      return False
-    distance = self - other
-    if distance < 0:
-      # Circles overlap, so adjust radii
-      if self.radius > other.radius:
+    if self.radius > other.radius:
         self.radius += 1
         other.radius -= 1
-      else:
-        self.radius -= 1
+    elif other.radius > self.radius:
         other.radius += 1
-      return True
-    else:
-      return False
+        self.radius -= 1
+
 
   def position(self, new_position: tuple[float, float] = None):
     """
