@@ -75,7 +75,20 @@ class CircleActor:
     "Collides" this actor with another. If they overlap, the radius of the larger actor shall
     increase by 1 and that of the smaller will decrease by 1.
     """
-
+    if not isinstance(other, CircleActor):
+      return False
+    distance = self - other
+    if distance < 0:
+      # Circles overlap, so adjust radii
+      if self.radius > other.radius:
+        self.radius += 1
+        other.radius -= 1
+      else:
+        self.radius -= 1
+        other.radius += 1
+      return True
+    else:
+      return False
 
   def position(self, new_position: tuple[float, float] = None):
     """
@@ -83,14 +96,13 @@ class CircleActor:
     Given a tuple[float, float] as an argument, sets this actor's x/y position components.
     """
     if new_position is None:
-      x = self.position[0]
-      y = self.position[1]
-      self.position = (x, y)
+      return self._position
     else:
       x, y = new_position
+      # Clamp the x/y values to be within the world boundaries
       x = max(self.radius, min(self.world_size[0] - self.radius, x))
       y = max(self.radius, min(self.world_size[1] - self.radius, y))
-      self.position = (x, y)
+      self._position = (x, y)
 
   def radius(self, new_radius: int | float = None):
     """
@@ -100,7 +112,7 @@ class CircleActor:
     if new_radius is None:
       return self.radius
     else:
-      self.radius = max(1.0, new_radius)
+      self.radius = new_radius
 
   def step(self):
     """
@@ -108,7 +120,14 @@ class CircleActor:
     i.e. one frame of animation or one discrete event.
     e.g. if position is (4, 5) and velocity is (-1, 1), the new position will be (3, 6).
     """
-    # TODO
+    x_vel, y_vel = self.velocity
+    x_pos, y_pos = self.position
+    x_pos += x_vel
+    y_pos += y_vel
+    # Ensure that the new position is within the world bounds
+    x_pos = max(self.radius, min(self.world_size[0] - self.radius, x_pos))
+    y_pos = max(self.radius, min(self.world_size[1] - self.radius, y_pos))
+    self.position = (x_pos, y_pos)
 
   def velocity(self, new_velocity: tuple[float, float] = None):
     """
