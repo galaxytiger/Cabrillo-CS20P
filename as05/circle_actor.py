@@ -18,9 +18,9 @@ class CircleActor:
     :param radius: the initial radius of the actor
     """
     self.name = name
-    self._radius = radius
-    self._position = position
-    self._velocity = velocity
+    self.radius = radius
+    self.position = position
+    self.velocity = velocity
     self.world_size = world_size
 
   def __bool__(self) -> bool:
@@ -75,13 +75,6 @@ class CircleActor:
     "Collides" this actor with another. If they overlap, the radius of the larger actor shall
     increase by 1 and that of the smaller will decrease by 1.
     """
-    if self.radius > other.radius:
-        self.radius += 1
-        other.radius -= 1
-    elif other.radius > self.radius:
-        other.radius += 1
-        self.radius -= 1
-
 
   def position(self, new_position: tuple[float, float] = None):
     """
@@ -89,13 +82,12 @@ class CircleActor:
     Given a tuple[float, float] as an argument, sets this actor's x/y position components.
     """
     if new_position is None:
-      return self._position
+      return self.position
     else:
       x, y = new_position
-      # Clamp the x/y values to be within the world boundaries
       x = max(self.radius, min(self.world_size[0] - self.radius, x))
       y = max(self.radius, min(self.world_size[1] - self.radius, y))
-      self._position = (x, y)
+      self.position = (x, y)
 
   def radius(self, new_radius: int | float = None):
     """
@@ -113,14 +105,6 @@ class CircleActor:
     i.e. one frame of animation or one discrete event.
     e.g. if position is (4, 5) and velocity is (-1, 1), the new position will be (3, 6).
     """
-    x_vel, y_vel = self.velocity
-    x_pos, y_pos = self.position
-    x_pos += x_vel
-    y_pos += y_vel
-    # Ensure that the new position is within the world bounds
-    x_pos = max(self.radius, min(self.world_size[0] - self.radius, x_pos))
-    y_pos = max(self.radius, min(self.world_size[1] - self.radius, y_pos))
-    self.position = (x_pos, y_pos)
 
   def velocity(self, new_velocity: tuple[float, float] = None):
     """
