@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="initializing as07">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on circle actor">
       <change beforePath="$PROJECT_DIR$/as05/circle_actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/as05/circle_actor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,14 +135,7 @@
       <workItem from="1678732755733" duration="7070000" />
       <workItem from="1678763226777" duration="4934000" />
       <workItem from="1679249969774" duration="36000" />
-      <workItem from="1679250040112" duration="968000" />
-    </task>
-    <task id="LOCAL-00056" summary="testing n grams function">
-      <created>1677456845833</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1677456845833</updated>
+      <workItem from="1679250040112" duration="1395000" />
     </task>
     <task id="LOCAL-00057" summary="testing n grams function">
       <created>1677558716765</created>
@@ -481,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679250112616</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="working on circle actor">
+      <created>1679251148991</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1679251148991</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on sentence function, checking for letters preceding periods" />
     <MESSAGE value="fixed some output formatting" />
     <MESSAGE value="created function to strip accents and normalize words" />
     <MESSAGE value="making print statements" />
@@ -535,7 +533,8 @@
     <MESSAGE value="working on legal_tiles function" />
     <MESSAGE value="working on circle_actor" />
     <MESSAGE value="initializing as07" />
-    <option name="LAST_COMMIT_MESSAGE" value="initializing as07" />
+    <MESSAGE value="working on circle actor" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on circle actor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

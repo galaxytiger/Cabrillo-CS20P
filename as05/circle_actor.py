@@ -18,9 +18,9 @@ class CircleActor:
     :param radius: the initial radius of the actor
     """
     self.name = name
-    self.radius = radius
-    self.position = position
-    self.velocity = velocity
+    self._radius = radius
+    self._position = position
+    self._velocity = velocity
     self.world_size = world_size
 
   def __bool__(self) -> bool:
