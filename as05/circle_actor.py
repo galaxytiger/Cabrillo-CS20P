@@ -28,7 +28,7 @@ class CircleActor:
     Returns True if this actor is still "alive", meaning its radius is
     small enough for the circle to fit within the world and no less than 1.
     """
-    return 1 <= self._radius <= min(self.world_size)
+    return 1 <= self._radius <= min(self.world_size) / 2
 
   def __contains__(self, other) -> bool:
     """
