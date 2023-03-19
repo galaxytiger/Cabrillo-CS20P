@@ -86,13 +86,6 @@ class CircleActor:
       return self._position
     else:
       self._position = new_position
-    # if new_position is None:
-    #   return self.position
-    # else:
-    #   x, y = new_position
-    #   x = max(self.radius, min(self.world_size[0] - self.radius, x))
-    #   y = max(self.radius, min(self.world_size[1] - self.radius, y))
-    #   self.position = (x, y)
 
   def radius(self, new_radius: int | float = None):
     """
