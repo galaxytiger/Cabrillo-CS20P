@@ -18,9 +18,9 @@ class CircleActor:
     :param radius: the initial radius of the actor
     """
     self.name = name
-    self.radius = radius
-    self.position = position
-    self.velocity = velocity
+    self._radius = radius
+    self._position = position
+    self._velocity = velocity
     self.world_size = world_size
 
   def __bool__(self) -> bool:
@@ -87,8 +87,8 @@ class CircleActor:
     Given a tuple[float, float] as an argument, sets this actor's x/y position components.
     """
     if new_position is not None:
-      self.position = new_position
-    return self.position
+      self._position = new_position
+    return self._position
     # if new_position is None:
     #   return self.position
     # else:
@@ -103,8 +103,8 @@ class CircleActor:
     Given a real number as an argument, sets this actor's radius.
     """
     if new_radius is not None:
-      self.radius = new_radius
-    return self.radius
+      self._radius = new_radius
+    return self._radius
 
   def step(self):
     """
@@ -112,24 +112,24 @@ class CircleActor:
     i.e. one frame of animation or one discrete event.
     e.g. if position is (4, 5) and velocity is (-1, 1), the new position will be (3, 6).
     """
-    new_x = self.position[0] + self.velocity[0]
-    new_y = self.position[1] + self.velocity[1]
+    new_x = self._position[0] + self._velocity[0]
+    new_y = self._position[1] + self._velocity[1]
 
-    if new_x - self.radius < 0:
+    if new_x - self._radius < 0:
       new_x = self.radius
-      self.velocity = (-self.velocity[0], self.velocity[1])
-    elif new_x + self.radius > self.world_size[0]:
-      new_x = self.world_size[0] - self.radius
-      self.velocity = (-self.velocity[0], self.velocity[1])
+      self._velocity = (-self._velocity[0], self._velocity[1])
+    elif new_x + self._radius > self.world_size[0]:
+      new_x = self.world_size[0] - self._radius
+      self._velocity = (-self._velocity[0], self._velocity[1])
 
-    if new_y - self.radius < 0:
-      new_y = self.radius
-      self.velocity = (self.velocity[0], -self.velocity[1])
-    elif new_y + self.radius > self.world_size[1]:
-      new_y = self.world_size[1] - self.radius
-      self.velocity = (self.velocity[0], -self.velocity[1])
+    if new_y - self._radius < 0:
+      new_y = self._radius
+      self._velocity = (self._velocity[0], -self._velocity[1])
+    elif new_y + self._radius > self.world_size[1]:
+      new_y = self.world_size[1] - self._radius
+      self._velocity = (self._velocity[0], -self._velocity[1])
 
-    self.position = (new_x, new_y)
+    self._position = (new_x, new_y)
 
   def velocity(self, new_velocity: tuple[float, float] = None):
     """
@@ -137,5 +137,5 @@ class CircleActor:
     Given a tuple[float, float] as an argument, sets this actor's x/y velocity components.
     """
     if new_velocity is not None:
-      self.velocity = new_velocity
-    return self.velocity
+      self._velocity = new_velocity
+    return self._velocity
