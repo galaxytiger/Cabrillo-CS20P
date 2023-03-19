@@ -70,12 +70,12 @@ class CircleActor:
     increase by 1 and that of the smaller will decrease by 1.
     """
     if self in other or other in self:
-      if self.radius >= other.radius:
-        self.radius += 1
-        other.radius -= 1
+      if self.radius() >= other.radius():
+        self.radius(self.radius() + 1)
+        other.radius(other.radius() - 1)
       else:
-        other.radius += 1
-        self.radius -= 1
+        other.radius(other.radius() + 1)
+        self.radius(self.radius() - 1)
 
   def position(self, new_position: tuple[float, float] = None):
     """
