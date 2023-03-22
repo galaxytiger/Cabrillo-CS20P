@@ -44,7 +44,7 @@ class CircleActor:
     That is, the return value of this method should be a string that is valid code for
     re-constructing this actor with the same attributes.
     """
-    return f"CircleActor('{self.name}', {self._radius}, {self.world_size}, {self._position}," \
+    return f"CircleActor({self.name}, {self._radius}, {self.world_size}, {self._position}," \
            f" {self._velocity})"
 
   def __str__(self) -> str:

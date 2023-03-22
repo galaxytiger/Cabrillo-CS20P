@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on circle actor">
-      <change beforePath="$PROJECT_DIR$/as05/circle_world.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as05/circle_actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/as05/circle_actor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as06/circular_range.py" beforeDir="false" afterPath="$PROJECT_DIR$/as06/circular_range.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as07/cs20p_word_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/as07/cs20p_word_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,28 +138,8 @@
       <workItem from="1678732755733" duration="7070000" />
       <workItem from="1678763226777" duration="4934000" />
       <workItem from="1679249969774" duration="36000" />
-      <workItem from="1679250040112" duration="3290000" />
-    </task>
-    <task id="LOCAL-00064" summary="working on tokenize words function">
-      <created>1677910041242</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1677910041242</updated>
-    </task>
-    <task id="LOCAL-00065" summary="working on tokenize words function">
-      <created>1677910199002</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1677910199002</updated>
-    </task>
-    <task id="LOCAL-00066" summary="working on tokenize words function">
-      <created>1677910425584</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1677910425584</updated>
+      <workItem from="1679250040112" duration="5094000" />
+      <workItem from="1679461922045" duration="415000" />
     </task>
     <task id="LOCAL-00067" summary="working on tokenize words function">
       <created>1677910591246</created>
@@ -480,7 +463,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679253045366</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="working on circle actor">
+      <created>1679253348093</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1679253348093</updated>
+    </task>
+    <task id="LOCAL-00114" summary="working on circle actor">
+      <created>1679253400897</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1679253400897</updated>
+    </task>
+    <task id="LOCAL-00115" summary="working on circle actor">
+      <created>1679253544243</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1679253544243</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
