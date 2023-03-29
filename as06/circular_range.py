@@ -18,9 +18,12 @@ class CircularRange(collections.abc.Sequence):
 
   def __getitem__(self, index):
     if isinstance(index, slice):
-      start, stop, step = index.indices(len(self))
-      return CircularRange(self.start + self.step * start, self.start + self.step * stop,
-                           self.step * step)
+      start = self.start + self.step * (index.start % self.range_length) if index.start is not \
+                                                                            None else self.start
+      stop = self.start + self.step * (index.stop % self.range_length) if index.stop is not \
+                                                                            None else self.stop
+      step = self.step * (index.step if index.step else 1)
+      return CircularRange(start, stop, step)
     else:
       if index < 0:
         index += self.range_length
@@ -36,4 +39,4 @@ class CircularRange(collections.abc.Sequence):
     return (item - self.start) % self.step == 0
 
   def __repr__(self):
-    return f'CircularRange({self.start}, {self.stop}, {self.step}'
+    return f'CircularRange({self.start}, {self.stop}, {self.step})'
