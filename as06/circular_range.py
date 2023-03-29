@@ -19,14 +19,11 @@ class CircularRange(collections.abc.Sequence):
   def __getitem__(self, index):
     if isinstance(index, slice):
       start, stop, step = index.indices(len(self))
-      new_start = self.start + self.start * start
-      new_stop = self.start + self.step * stop
-      if step < 0:
-        new_start, new_stop = new_stop + self.step, new_start + self.step
-      return CircularRange(new_start, new_stop, self.step * step)
+      return CircularRange(self.start + self.step * start, self.start + self.step * stop,
+                           self.step * step)
     else:
       if index < 0:
-        index = -index
+        index += self.range_length
       index = index % self.range_length
       return self.start + index * self.step
 
