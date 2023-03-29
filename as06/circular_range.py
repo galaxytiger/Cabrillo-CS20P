@@ -8,6 +8,8 @@ import collections.abc
 
 
 class CircularRange(collections.abc.Sequence):
+  """ Behaves like a built-in range object but whose indexes, slices and iterations reflect an
+  infinite cycle throughout the given range. """
 
   def __init__(self, start, stop, step=1):
     """Constructs a CircularRange with the given start/stop/step values."""
@@ -20,8 +22,10 @@ class CircularRange(collections.abc.Sequence):
     if isinstance(index, slice):
       start = self.start + self.step * (index.start % self.range_length) if index.start is not \
                                                                             None else self.start
-      stop = self.start + self.step * (index.stop % self.range_length) if index.stop is not \
-                                                                            None else self.stop
+      stop = (
+        self.start + self.step * (index.stop % self.range_length) if index.stop is not None else
+        self.stop
+      )
       step = self.step * (index.step if index.step else 1)
       return CircularRange(start, stop, step)
     else:
