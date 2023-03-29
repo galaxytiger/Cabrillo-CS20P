@@ -20,12 +20,24 @@ class CircularRange(collections.abc.Sequence):
 
   def __getitem__(self, index):
     if isinstance(index, slice):
-      start = self.start + self.step * (index.start % self.range_length) if index.start is not \
-                                                                            None else self.start
-      stop = (
-        self.start + self.step * (index.stop % self.range_length) if index.stop is not None else
-        self.stop
-      )
+      if index.step and index.step < 0:
+        start = (
+          self.start + self.step * ((index.start - 1) % self.range_length) if index.start is not
+          None else self.start + self.step * (self.range_length - 1)
+        )
+        stop = (
+          self.start + self.step * ((index.stop - 1) % self.range_length) if index.stop is not
+          None else self.start
+        )
+      else:
+        start = (
+          self.start + self.step * (index.start % self.range_length) if index.start is not
+          None else self.start
+        )
+        stop = (
+          self.start + self.step * (index.stop % self.range_length) if index.stop is not
+          None else self.stop
+        )
       step = self.step * (index.step if index.step else 1)
       return CircularRange(start, stop, step)
     else:
