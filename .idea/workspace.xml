@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on word search">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on circular range">
       <change beforePath="$PROJECT_DIR$/as06/circular_range.py" beforeDir="false" afterPath="$PROJECT_DIR$/as06/circular_range.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as07/cs20p_word_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/as07/cs20p_word_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +139,7 @@
       <workItem from="1679461922045" duration="1292000" />
       <workItem from="1679701931847" duration="717000" />
       <workItem from="1679966554104" duration="9520000" />
-      <workItem from="1680060138756" duration="1714000" />
-    </task>
-    <task id="LOCAL-00076" summary="working on word score function">
-      <created>1677999221384</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1677999221384</updated>
+      <workItem from="1680060138756" duration="2243000" />
     </task>
     <task id="LOCAL-00077" summary="working on word score function">
       <created>1678128275370</created>
@@ -486,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680058692649</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="working on circular range">
+      <created>1680062541525</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1680062541526</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="checking house of something text" />
     <MESSAGE value="lol i meant hesse jesse" />
     <MESSAGE value="fixing poor practices" />
     <MESSAGE value="adding ari to test something else" />
@@ -540,7 +537,8 @@
     <MESSAGE value="circular range" />
     <MESSAGE value="initializing as08" />
     <MESSAGE value="working on word search" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on word search" />
+    <MESSAGE value="working on circular range" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on circular range" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
