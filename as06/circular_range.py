@@ -34,3 +34,6 @@ class CircularRange(collections.abc.Sequence):
     if item < self.start or item >= self.stop:
       return False
     return (item - self.start) % self.step == 0
+
+  def __repr__(self):
+    return f'CircularRange({self.start}, {self.stop}, {self.step}'
