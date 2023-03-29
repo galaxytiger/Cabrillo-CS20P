@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on circle actor">
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="circular range working on init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as05/circle_actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/as05/circle_actor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/as06/circular_range.py" beforeDir="false" afterPath="$PROJECT_DIR$/as06/circular_range.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as07/cs20p_word_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/as07/cs20p_word_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,14 +137,9 @@
       <workItem from="1678763226777" duration="4934000" />
       <workItem from="1679249969774" duration="36000" />
       <workItem from="1679250040112" duration="5094000" />
-      <workItem from="1679461922045" duration="415000" />
-    </task>
-    <task id="LOCAL-00067" summary="working on tokenize words function">
-      <created>1677910591246</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1677910591246</updated>
+      <workItem from="1679461922045" duration="1292000" />
+      <workItem from="1679701931847" duration="717000" />
+      <workItem from="1679966554104" duration="4225000" />
     </task>
     <task id="LOCAL-00068" summary="working on legal words function">
       <created>1677911265109</created>
@@ -484,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679253544243</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="circular range working on init">
+      <created>1679462610614</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1679462610614</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed some output formatting" />
     <MESSAGE value="created function to strip accents and normalize words" />
     <MESSAGE value="making print statements" />
     <MESSAGE value="fixing print format" />
@@ -538,7 +537,8 @@
     <MESSAGE value="working on circle_actor" />
     <MESSAGE value="initializing as07" />
     <MESSAGE value="working on circle actor" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on circle actor" />
+    <MESSAGE value="circular range working on init" />
+    <option name="LAST_COMMIT_MESSAGE" value="circular range working on init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
