@@ -65,17 +65,20 @@ def find_valid_word(grid, min_length, dictionary):
 
 
 def main(min_length, dict_file):
-  if len(sys.argv) != 3:
-    print('Why are you wasting electricity')
-    sys.exit(1)
-  min_length = int(sys.argv[1])
-  dict_file = sys.argv[2]
   grid = read_grid()
   dictionary = load_dictionary(dict_file, min_length)
   valid_words = find_valid_word(grid, min_length, dictionary)
+
   for word in sorted(valid_words):
     print(word)
 
 
 if __name__ == "__main__":
-  main()
+  if len(sys.argv) != 3:
+    print("Why are you wasting electricity")
+    sys.exit(1)
+
+  min_length = int(sys.argv[1])
+  dict_file = sys.argv[2]
+
+  main(min_length, dict_file)
