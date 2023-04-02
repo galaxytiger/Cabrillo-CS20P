@@ -16,7 +16,7 @@ class CircularRange(collections.abc.Sequence):
     self.start = start
     self.stop = stop
     self.step = step
-    self.range_length = abs((stop - start + step - 1) // step)
+    self.range_length = abs((stop - start + (step - 1 if step > 0 else step + 1)) // step)
 
   def __getitem__(self, index):
     if isinstance(index, slice):
