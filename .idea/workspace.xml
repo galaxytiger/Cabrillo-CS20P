@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as06">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as06/circular_range.py" beforeDir="false" afterPath="$PROJECT_DIR$/as06/circular_range.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,14 +139,7 @@
       <workItem from="1679461922045" duration="1292000" />
       <workItem from="1679701931847" duration="717000" />
       <workItem from="1679966554104" duration="9520000" />
-      <workItem from="1680060138756" duration="16505000" />
-    </task>
-    <task id="LOCAL-00088" summary="working on legal_tiles function">
-      <created>1678160154615</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1678160154615</updated>
+      <workItem from="1680060138756" duration="17174000" />
     </task>
     <task id="LOCAL-00089" summary="working on circle_actor">
       <created>1678217964110</created>
@@ -484,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680474491068</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="working on as06">
+      <created>1680476786406</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1680476786406</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
