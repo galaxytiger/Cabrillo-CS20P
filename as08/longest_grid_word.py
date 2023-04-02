@@ -25,4 +25,8 @@ class LongestGridWord:
     sequence of adjacent grid squares in any horizontal, vertical, or diagonal direction.
     The grid is assumed to consist of uppercase letters, and to be square.
     """
-    pass  # TODO
+    self.grid = grid
+    def _longest_word():
+
+
+
