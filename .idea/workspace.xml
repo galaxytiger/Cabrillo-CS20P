@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as07">
-      <change beforePath="$PROJECT_DIR$/as07/cs20p_word_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/as07/cs20p_word_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as08/longest_grid_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/as08/longest_grid_word.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,14 +140,7 @@
       <workItem from="1679461922045" duration="1292000" />
       <workItem from="1679701931847" duration="717000" />
       <workItem from="1679966554104" duration="9520000" />
-      <workItem from="1680060138756" duration="9888000" />
-    </task>
-    <task id="LOCAL-00082" summary="working on legal_tiles function">
-      <created>1678157823558</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1678157823558</updated>
+      <workItem from="1680060138756" duration="11620000" />
     </task>
     <task id="LOCAL-00083" summary="working on legal_tiles function">
       <created>1678158552696</created>
@@ -484,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680462294238</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="working on as07">
+      <created>1680462665529</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1680462665529</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

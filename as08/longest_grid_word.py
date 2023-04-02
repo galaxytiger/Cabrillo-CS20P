@@ -16,7 +16,8 @@ class LongestGridWord:
     word-dictionary file. The file is assumed to be in class spell-checking dictionary format,
     i.e. one word per line.
     """
-    pass  # TODO
+    with open(word_list_file_path, 'r') as f:
+      self.words = set(line.strip().upper() for line in f)
 
   def longest_word(self, grid: Sequence[Sequence[str]]) -> str:
     """
