@@ -16,13 +16,13 @@ def read_grid():
   return grid
 
 
-def load_dictionary(dict_file, min_length):
+def load_dictionary(dictionary_file, length_min):
   """
   Reads a dictionary file, filters out words shorter than min_length,
   and sorts alphabetically.
   """
-  with open(dict_file, "r") as file:
-    dictionary = sorted(line.strip().upper() for line in file if len(line.strip()) >= min_length)
+  with open(dictionary_file, 'r') as file:
+    dictionary = sorted(line.strip().upper() for line in file if len(line.strip()) >= length_min)
   return dictionary
 
 
@@ -36,7 +36,7 @@ def binary_search(dictionary, word):
   return (pos != len(dictionary)) and (dictionary[pos] == word)
 
 
-def find_valid_word(grid, min_length, dictionary):
+def find_valid_word(grid, len_min, dictionary):
   """
   Searches for valid words in the grid using the dictionary and
   iterates through each cell in the grid ala 'Espejeando by Los Tucanes De Tijuana' plus
@@ -56,7 +56,7 @@ def find_valid_word(grid, min_length, dictionary):
           # check if length of word is greater or equal to min length and
           # if word in dict using binary search.
           # if word is valid, adds to set
-          if len(word) >= min_length and binary_search(dictionary, ''.join(word)):
+          if len(word) >= len_min and binary_search(dictionary, ''.join(word)):
             found_words.add(''.join(word))
           # update current row and column
           r += dr
@@ -64,7 +64,7 @@ def find_valid_word(grid, min_length, dictionary):
   return found_words
 
 
-def main(min_length, dict_file):
+def main():
   grid = read_grid()
   dictionary = load_dictionary(dict_file, min_length)
   valid_words = find_valid_word(grid, min_length, dictionary)
@@ -73,12 +73,12 @@ def main(min_length, dict_file):
     print(word)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
   if len(sys.argv) != 3:
-    print("Why are you wasting electricity")
+    print('Why are you wasting electricity')
     sys.exit(1)
 
   min_length = int(sys.argv[1])
   dict_file = sys.argv[2]
 
-  main(min_length, dict_file)
+  main()
