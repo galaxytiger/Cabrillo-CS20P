@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on circular range" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on circular range">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as07/cs20p_word_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/as07/cs20p_word_search.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,14 +140,7 @@
       <workItem from="1679461922045" duration="1292000" />
       <workItem from="1679701931847" duration="717000" />
       <workItem from="1679966554104" duration="9520000" />
-      <workItem from="1680060138756" duration="2947000" />
-    </task>
-    <task id="LOCAL-00078" summary="working on word score function">
-      <created>1678128340805</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1678128340806</updated>
+      <workItem from="1680060138756" duration="4084000" />
     </task>
     <task id="LOCAL-00079" summary="word score function">
       <created>1678128396093</created>
@@ -482,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680063061583</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="working on circular range">
+      <created>1680063951159</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1680063951159</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
