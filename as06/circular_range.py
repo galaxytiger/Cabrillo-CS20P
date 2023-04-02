@@ -22,12 +22,12 @@ class CircularRange(collections.abc.Sequence):
     if isinstance(index, slice):
       if index.step and index.step < 0:
         start = (
-          self.start + self.step * (index.start % self.range_length) if index.start is not
-          None else self.start + self.step * (self.range_length - 1)
+          self.start + self.step * ((index.start + self.range_length) % self.range_length)
+          if index.start is not None else self.start + self.step * (self.range_length - 1)
         )
         stop = (
-          self.start + self.step * (index.stop % self.range_length) if index.stop is not
-          None else self.start
+          self.start + self.step * ((index.stop + self.range_length) % self.range_length)
+          if index.stop is not None else self.start
         )
       else:
         start = (
