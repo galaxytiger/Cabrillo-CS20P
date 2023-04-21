@@ -63,9 +63,9 @@ class BmpImage:
       x, y = coord
 
     pixel_index = (self.height - y - 1) * self.width * 3 + x * 3
-    r = self.pixel_data[pixel_index]
-    g = self.pixel_data[pixel_index + 1]
     b = self.pixel_data[pixel_index + 2]
+    g = self.pixel_data[pixel_index + 1]
+    r = self.pixel_data[pixel_index]
 
     return r, g, b
 
