@@ -20,8 +20,8 @@ class BmpImage:
     with open(path, 'rb') as bmp_file:
       bmp_header = bmp_file.read(14)
       pixel_data_offset = int.from_bytes(bmp_header[10:14], 'little')
+      dib_header = bmp_file.read(40)
 
-    dib_header = bmp_file.read(40)
     width = int.from_bytes(dib_header[4:8], 'little', signed=True)
     height = int.from_bytes(dib_header[8:12], 'little', signed=True)
     self.width = width

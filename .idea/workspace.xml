@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="initializing as10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as09/bmp_decode.py" beforeDir="false" afterPath="$PROJECT_DIR$/as09/bmp_decode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/anthonytorres/PycharmProjects/altorresmoran@jeff.cis.cabrillo.edu:cs20ps23",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
