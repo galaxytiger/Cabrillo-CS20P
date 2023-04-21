@@ -16,7 +16,19 @@ class BmpImage:
     >>> demo.dimensions()
     (300, 151)
     """
-    pass  # TODO
+    self.path = path
+    with open(path, 'rb') as bmp_file:
+      bmp_header = bmp_file.read(14)
+      pixel_data_offset = int.from_bytes(bmp_header[10:14], 'little')
+
+    dib_header = bmp_file.read(40)
+    width = int.from_bytes(dib_header[4:8], 'little', signed=True)
+    height = int.from_bytes(dib_header[8:12], 'little', signed=True)
+    self.width = width
+    self.height = height
+
+    bmp_file.seek(pixel_data_offset)
+    self.pixel_data = bmp_file.read()
 
   def __getitem__(self,
                   coord: int | tuple[int, int]) -> tuple[int, int, int] | tuple[int, int, int, int]:
@@ -44,7 +56,18 @@ class BmpImage:
     >>> demo[(11, 4)]
     (33, 34, 35, 252)
     """
-    pass  # TODO
+    if isinstance(coord, int):
+      x = coord % self.width
+      y = coord // self.width
+    else:
+      x, y = coord
+
+    pixel_index = (self.height - y - 1) * self.width * 3 + x * 3
+    r = self.pixel_data[pixel_index]
+    g = self.pixel_data[pixel_index + 1]
+    b = self.pixel_data[pixel_index + 2]
+
+    return r, g, b
 
   def __len__(self):
     """
@@ -53,7 +76,7 @@ class BmpImage:
     >>> len(BmpImage('/srv/datasets/cabrillo-logo.bmp'))
     45300
     """
-    pass  # TODO
+    return self.width * self.height
 
   def __iter__(self):
     """
@@ -67,7 +90,8 @@ class BmpImage:
     >>> len(set(BmpImage('/srv/datasets/cabrillo-logo.bmp')))
     520
     """
-    pass  # TODO
+    for index in range(len(self)):
+      yield self[index]
 
   def dimensions(self):
     """
@@ -78,4 +102,4 @@ class BmpImage:
     >>> BmpImage('/srv/datasets/cabrillo-logo.bmp').dimensions()
     (300, 151)
     """
-    pass  # TODO
+    return self.width, self.height
