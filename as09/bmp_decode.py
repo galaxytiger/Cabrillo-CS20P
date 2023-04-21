@@ -22,13 +22,13 @@ class BmpImage:
       pixel_data_offset = int.from_bytes(bmp_header[10:14], 'little')
       dib_header = bmp_file.read(40)
 
-    width = int.from_bytes(dib_header[4:8], 'little', signed=True)
-    height = int.from_bytes(dib_header[8:12], 'little', signed=True)
-    self.width = width
-    self.height = height
+      width = int.from_bytes(dib_header[4:8], 'little', signed=True)
+      height = int.from_bytes(dib_header[8:12], 'little', signed=True)
+      self.width = width
+      self.height = height
 
-    bmp_file.seek(pixel_data_offset)
-    self.pixel_data = bmp_file.read()
+      bmp_file.seek(pixel_data_offset)
+      self.pixel_data = bmp_file.read()
 
   def __getitem__(self,
                   coord: int | tuple[int, int]) -> tuple[int, int, int] | tuple[int, int, int, int]:
