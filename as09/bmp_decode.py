@@ -61,13 +61,14 @@ class BmpImage:
       y = coord // self.width
     else:
       x, y = coord
-    row_size = (self.width * 3 + 3) // 4 * 4
-    pixel_index = (self.height - y - 1) * row_size + x * 3
+    row_size = (self.width * 4 + 3) // 4 * 4
+    pixel_index = (self.height - y - 1) * row_size + x * 4
     b = self.pixel_data[pixel_index]
     g = self.pixel_data[pixel_index + 1]
     r = self.pixel_data[pixel_index + 2]
+    a = self.pixel_data[pixel_index + 3]
 
-    return r, g, b
+    return r, g, b, a
 
   def __len__(self):
     """
