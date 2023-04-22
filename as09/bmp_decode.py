@@ -74,6 +74,10 @@ class BmpImage:
     g = self.pixel_data[pixel_index + 1]
     r = self.pixel_data[pixel_index + 2]
 
+    if bytes_per_pixel == 4:
+      a = self.pixel_data[pixel_index + 3]
+      return r, g, b, a
+
     return r, g, b
 
   def __len__(self):
