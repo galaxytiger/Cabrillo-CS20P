@@ -24,8 +24,11 @@ class BmpImage:
 
       width = int.from_bytes(dib_header[4:8], 'little', signed=True)
       height = int.from_bytes(dib_header[8:12], 'little', signed=True)
+      color_depth = int.from_bytes(dib_header[14:16], 'little')
+
       self.width = width
       self.height = height
+      self.color_depth = color_depth
 
       bmp_file.seek(pixel_data_offset)
       self.pixel_data = bmp_file.read()
@@ -61,14 +64,17 @@ class BmpImage:
       y = coord // self.width
     else:
       x, y = coord
-    row_size = (self.width * 4 + 3) // 4 * 4
-    pixel_index = (self.height - y - 1) * row_size + x * 4
+
+    bytes_per_pixel = self.color_depth // 8
+
+    row_size = (self.width * bytes_per_pixel + 3) // 4 * 4
+
+    pixel_index = (self.height - y - 1) * row_size + x * bytes_per_pixel
     b = self.pixel_data[pixel_index]
     g = self.pixel_data[pixel_index + 1]
     r = self.pixel_data[pixel_index + 2]
-    a = self.pixel_data[pixel_index + 3]
 
-    return r, g, b, a
+    return r, g, b
 
   def __len__(self):
     """
