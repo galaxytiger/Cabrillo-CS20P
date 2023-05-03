@@ -9,7 +9,6 @@ __author__ = 'Jeffrey Bergamini for CS 20P, jeffrey.bergamini@cabrillo.edu'
 import call_profiler
 
 
-@call_profiler.profile
 def dna(sequence) -> dict[str, int]:
   """
   Counts the bases in a DNA string.
@@ -20,7 +19,6 @@ def dna(sequence) -> dict[str, int]:
   return {base: sequence.count(base) for base in 'ACGT'}
 
 
-@call_profiler.profile
 def euler_004():
   """ Single statement with walrus. """
   return max(a * b
@@ -29,7 +27,6 @@ def euler_004():
              if (prod_str := str(a * b)) == prod_str[::-1])
 
 
-@call_profiler.profile
 def euler_009():
   """ Generator expression passed to next()—we know there can be only one solution. """
   return next(a * b * c
