@@ -34,8 +34,8 @@ def profile(function):
     _profiling_data[function]['time'] += end_time - start_time
 
     return result
-
-  _called_functions.add(wrapper)
+  wrapper.__wrapped__ = function
+  _called_functions.add(function)
   return wrapper
 
 
