@@ -25,7 +25,7 @@ def profile(function):
     result = function(*args, **kwargs)
     elapsed_time = time.perf_counter() - start_time
 
-    _profiling_data[function]['cout'] += 1
+    _profiling_data[function]['count'] += 1
     _profiling_data[function]['cumulative_time'] += elapsed_time
 
     # if function in _profiling_data:
