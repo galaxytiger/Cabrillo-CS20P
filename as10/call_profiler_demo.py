@@ -34,12 +34,3 @@ def euler_009():
               for a in range(1, 334)
               for b in range(a + 1, 1000 - a)
               if a ** 2 + b ** 2 == (c := 1000 - a - b) ** 2)
-
-
-if __name__ == "__main__":
-    print(call_profiler.call_count(euler_004))
-
-    euler_004()
-    euler_004()
-
-    print(call_profiler.call_count(euler_004))
