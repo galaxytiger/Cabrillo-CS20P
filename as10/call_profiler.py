@@ -12,30 +12,30 @@ import time
 _profiling_data = {}
 
 
+def update_profiling_data(function, elapsed_time):
+  if function in _profiling_data:
+    _profiling_data[function]['count'] += 1
+    _profiling_data[function]['cumulative_time'] += elapsed_time
+  else:
+    _profiling_data[function] = {
+      'count': 1,
+      'cumulative_time': elapsed_time
+    }
+
+
 def profile(function):
   """
   Decorates a function so that the number of calls and cumulative execution time of all calls can
   be reported by call_count() and cumulative_time(), respectively. Execution time is measured by
   calling time.perf_counter() before and after a call to the decorated function.
   """
-  _profiling_data[function] = {'count': 0, 'cumulative_time': 0.0}
-
+  # _profiling_data[function] = {'count': 0, 'cumulative_time': 0.0}
   def wrapper(*args, **kwargs):
     start_time = time.perf_counter()
     result = function(*args, **kwargs)
     elapsed_time = time.perf_counter() - start_time
-
     _profiling_data[function]['count'] += 1
     _profiling_data[function]['cumulative_time'] += elapsed_time
-
-    # if function in _profiling_data:
-    #   _profiling_data[function]['count'] += 1
-    #   _profiling_data[function]['cumulative_time'] += elapsed_time
-    # else:
-    #   _profiling_data[function] = {
-    #     'count': 1,
-    #     'cumulative_time': elapsed_time
-    #   }
     return result
   return wrapper
 
