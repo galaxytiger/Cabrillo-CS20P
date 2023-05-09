@@ -34,8 +34,7 @@ def profile(function):
     start_time = time.perf_counter()
     result = function(*args, **kwargs)
     elapsed_time = time.perf_counter() - start_time
-    _profiling_data[function]['count'] += 1
-    _profiling_data[function]['cumulative_time'] += elapsed_time
+    update_profiling_data(function, elapsed_time)
     return result
   return wrapper
 
