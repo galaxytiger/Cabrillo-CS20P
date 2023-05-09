@@ -35,7 +35,7 @@ def profile(function):
 
     return result
 
-  _called_functions.add(function)
+  _called_functions.add(wrapper)
   return wrapper
 
 
