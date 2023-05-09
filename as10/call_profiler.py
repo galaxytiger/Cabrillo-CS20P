@@ -10,7 +10,7 @@ __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 import time
 
 _profiling_data = {}
-_called_func = set()
+_called_functions = set()
 
 
 def profile(function):
@@ -28,11 +28,14 @@ def profile(function):
     # func_name = function.__qualname__
 
     if function not in _profiling_data:
+
       _profiling_data[function] = {'count': 0, 'time': 0}
     _profiling_data[function]['count'] += 1
     _profiling_data[function]['time'] += end_time - start_time
+
     return result
-  _called_func.add(function)
+
+  _called_functions.add(function)
   return wrapper
 
 
@@ -54,7 +57,7 @@ def call_counts():
   Returns a dictionary mapping functions decorated by profile() to the number of times they have
   been called during this interpreter session.
   """
-  return {func: call_count(func) for func in _called_func}
+  return {func: call_count(func) for func in _called_functions}
 
 
 def cumulative_time(function):
@@ -75,4 +78,4 @@ def cumulative_times():
   Returns a dictionary mapping functions decorated by profile() to the cumulative amount of time (in
   seconds) that have been spent executing calls to a given function during this interpreter session.
   """
-  return {func: cumulative_time(func) for func in _called_func}
+  return {func: cumulative_time(func) for func in _called_functions}
