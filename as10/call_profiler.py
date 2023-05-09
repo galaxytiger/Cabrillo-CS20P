@@ -18,6 +18,8 @@ def profile(function):
   be reported by call_count() and cumulative_time(), respectively. Execution time is measured by
   calling time.perf_counter() before and after a call to the decorated function.
   """
+  _profiling_data[function] = {'count': 0, 'cumulative_time': 0.0}
+
   def wrapper(*args, **kwargs):
     start_time = time.perf_counter()
     result = function(*args, **kwargs)
