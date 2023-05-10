@@ -25,13 +25,15 @@ def profile(function):
     result = function(*args, **kwargs)
     end_time = time.perf_counter()
 
+    func_module = function.__module__
     func_name = function.__qualname__
+    func_key = f"{func_module}.{func_name}"
 
-    if func_name not in _profiling_data:
-      _profiling_data[func_name] = {'count': 0, 'time': 0}
+    if func_key not in _profiling_data:
+      _profiling_data[func_key] = {'count': 0, 'time': 0}
 
-    _profiling_data[func_name]['count'] += 1
-    _profiling_data[func_name]['time'] += end_time - start_time
+    _profiling_data[func_key]['count'] += 1
+    _profiling_data[func_key]['time'] += end_time - start_time
 
     return result
   _called_functions.add(function)
@@ -44,8 +46,10 @@ def call_count(function):
   assuming the function has been decorated by profile().
   """
   # return _profiling_data.get(function, {}).get('count', 0)
+  func_module = function.__module__
   func_name = function.__qualname__
-  return _profiling_data.get(func_name, {}).get('count', 0)
+  func_key = f"{func_module}.{func_name}"
+  return _profiling_data.get(func_key, {}).get('count', 0)
   # for key in _profiling_data:
   #   if key.__qualname__ == func_name:
   #     return _profiling_data[key]['count']
@@ -57,8 +61,8 @@ def call_counts():
   Returns a dictionary mapping functions decorated by profile() to the number of times they have
   been called during this interpreter session.
   """
-  return {func.__qualname__: _profiling_data[func.__qualname__]['count'] for func in
-          _called_functions}
+  return {func.__qualname__: _profiling_data[f"{func.__module__}.{func.__qualname__}"]['count']
+          for func in _called_functions}
   # return {func: _profiling_data.get(func, {'count': 0}).get('count', 0) for func in
   #         _called_functions}
 
@@ -70,8 +74,10 @@ def cumulative_time(function):
   """
   # return _profiling_data.get(function, {}).get('time', 0)
 
+  func_module = function.__module__
   func_name = function.__qualname__
-  return _profiling_data.get(func_name, {}).get('time', 0)
+  func_key = f"{func_module}.{func_name}"
+  return _profiling_data.get(func_key, {}).get('time', 0)
   # for key in _profiling_data:
   #   if key.__qualname__ == func_name:
   #     return _profiling_data[key]['time']
@@ -83,7 +89,7 @@ def cumulative_times():
   Returns a dictionary mapping functions decorated by profile() to the cumulative amount of time (in
   seconds) that have been spent executing calls to a given function during this interpreter session.
   """
-  return {func.__qualname__: _profiling_data[func.__qualname__]['time'] for func in
-          _called_functions}
+  return {func.__qualname__: _profiling_data[f"{func.__module__}.{func.__qualname__}"]['time']
+          for func in _called_functions}
   # return {func: _profiling_data.get(func, {'count': 0}).get('time', 0) for func in
   #         _called_functions}
