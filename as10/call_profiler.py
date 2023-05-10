@@ -41,7 +41,7 @@ def call_count(function):
   assuming the function has been decorated by profile().
   """
   print(_profiling_data)
-  return _profiling_data.get(function, {}).get('count', 2)
+  return _profiling_data.get(function, {'count': 0})['count']
 
 
 def call_counts():
