@@ -40,7 +40,7 @@ def call_count(function):
   Returns the number of times a given function has been called during this interpreter session,
   assuming the function has been decorated by profile().
   """
-  return _profiling_data.get(function, {}).get('count', 0)
+  return _profiling_data.get(function, {}).get('count')
 
 
 def call_counts():
