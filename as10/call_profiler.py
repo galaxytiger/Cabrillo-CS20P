@@ -32,6 +32,7 @@ def profile(function):
     _profiling_data[function]['time'] += end_time - start_time
 
     return result
+  print(_profiling_data)
   return wrapper
 
 
@@ -40,7 +41,7 @@ def call_count(function):
   Returns the number of times a given function has been called during this interpreter session,
   assuming the function has been decorated by profile().
   """
-  return _profiling_data.get(function, {}).get('count')
+  return _profiling_data.get(function, {}).get('count', 0)
 
 
 def call_counts():
