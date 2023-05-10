@@ -34,7 +34,7 @@ def profile(function):
     _profiling_data[func_name]['time'] += end_time - start_time
 
     return result
-  _called_functions.add(function.__qualname__)
+  _called_functions.add(function)
   return wrapper
 
 
@@ -57,7 +57,8 @@ def call_counts():
   Returns a dictionary mapping functions decorated by profile() to the number of times they have
   been called during this interpreter session.
   """
-  return {func: _profiling_data[func]['count'] for func in _called_functions}
+  return {func.__qualname__: _profiling_data[func.__qualname__]['count'] for func in
+          _called_functions}
   # return {func: _profiling_data.get(func, {'count': 0}).get('count', 0) for func in
   #         _called_functions}
 
@@ -82,6 +83,7 @@ def cumulative_times():
   Returns a dictionary mapping functions decorated by profile() to the cumulative amount of time (in
   seconds) that have been spent executing calls to a given function during this interpreter session.
   """
-  return {func: _profiling_data[func]['time'] for func in _called_functions}
+  return {func.__qualname__: _profiling_data[func.__qualname__]['time'] for func in
+          _called_functions}
   # return {func: _profiling_data.get(func, {'count': 0}).get('time', 0) for func in
   #         _called_functions}
