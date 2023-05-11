@@ -27,14 +27,10 @@ def profile(function):
     result = function(*args, **kwargs)
     end_time = time.perf_counter()
 
-    # if function not in _profiling_data:
-    #   _profiling_data[function] = {'count': 0, 'time': 0}
-
     _profiling_data[wrapper]['count'] += 1
     _profiling_data[wrapper]['time'] += end_time - start_time
 
     return result
-  # wrapper.__wrapped__ = function
   _profiling_data[wrapper] = _profiling_data.pop(function)
   return wrapper
 
@@ -44,10 +40,7 @@ def call_count(function):
   Returns the number of times a given function has been called during this interpreter session,
   assuming the function has been decorated by profile().
   """
-  # original_function = getattr(function, '__wrapped__', function)
   return _profiling_data[function]['count']
-  # original_function = function.__wrapped__ if hasattr(function, '__wrapped__') else function
-  # return _profiling_data[original_function]['count']
 
 
 def call_counts():
@@ -63,10 +56,7 @@ def cumulative_time(function):
   Returns the cumulative amount of time (in seconds) that have been spent executing calls to a given
   function during this interpreter session, assuming the function has been decorated by profile().
   """
-  # original_function = getattr(function, '__wrapped__', function)
   return _profiling_data[function]['time']
-  # original_function = function.__wrapped__ if hasattr(function, '__wrapped__') else function
-  # return _profiling_data[original_function]['time']
 
 
 def cumulative_times():
