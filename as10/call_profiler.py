@@ -42,7 +42,7 @@ def call_count(function):
   """
   print(_profiling_data)
   # return _profiling_data.get(function, {'count': 0})['count']
-  return _profiling_data.get(function, 'count')
+  return _profiling_data[function]['count']
 
 
 def call_counts():
