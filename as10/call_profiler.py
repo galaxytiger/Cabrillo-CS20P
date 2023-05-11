@@ -30,8 +30,8 @@ def profile(function):
     # if function not in _profiling_data:
     #   _profiling_data[function] = {'count': 0, 'time': 0}
 
-    _profiling_data[function]['count'] += 1
-    _profiling_data[function]['time'] += end_time - start_time
+    _profiling_data[wrapper]['count'] += 1
+    _profiling_data[wrapper]['time'] += end_time - start_time
 
     return result
   # wrapper.__wrapped__ = function
