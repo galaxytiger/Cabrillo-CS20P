@@ -32,6 +32,8 @@ def profile(function):
     _profiling_data[function]['time'] += end_time - start_time
 
     return result
+
+  wrapper.__wrapped__ = function
   return wrapper
 
 
@@ -40,9 +42,10 @@ def call_count(function):
   Returns the number of times a given function has been called during this interpreter session,
   assuming the function has been decorated by profile().
   """
-  print(_profiling_data)
+  # print(_profiling_data)
   # return _profiling_data.get(function, {'count': 0})['count']
-  return _profiling_data[function]['count']
+  original_function = getattr(function, "__wrapped__", function)
+  return _profiling_data[original_function]['count']
 
 
 def call_counts():
