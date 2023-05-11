@@ -35,6 +35,7 @@ def profile(function):
 
     return result
   # wrapper.__wrapped__ = function
+  _profiling_data[wrapper] = _profiling_data.pop(function)
   return wrapper
 
 
@@ -44,9 +45,9 @@ def call_count(function):
   assuming the function has been decorated by profile().
   """
   # original_function = getattr(function, '__wrapped__', function)
-  # return _profiling_data[function]['count']
-  original_function = function.__wrapped__ if hasattr(function, '__wrapped__') else function
-  return _profiling_data[original_function]['count']
+  return _profiling_data[function]['count']
+  # original_function = function.__wrapped__ if hasattr(function, '__wrapped__') else function
+  # return _profiling_data[original_function]['count']
 
 
 def call_counts():
@@ -63,9 +64,9 @@ def cumulative_time(function):
   function during this interpreter session, assuming the function has been decorated by profile().
   """
   # original_function = getattr(function, '__wrapped__', function)
-  # return _profiling_data[function]['time']
-  original_function = function.__wrapped__ if hasattr(function, '__wrapped__') else function
-  return _profiling_data[original_function]['time']
+  return _profiling_data[function]['time']
+  # original_function = function.__wrapped__ if hasattr(function, '__wrapped__') else function
+  # return _profiling_data[original_function]['time']
 
 
 def cumulative_times():
