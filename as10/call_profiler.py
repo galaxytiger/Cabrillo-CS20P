@@ -51,7 +51,7 @@ def call_counts():
   Returns a dictionary mapping functions decorated by profile() to the number of times they have
   been called during this interpreter session.
   """
-  return {func.__wrapped__: data['count'] for func, data in _profiling_data.items()}
+  return {func: data['count'] for func, data in _profiling_data.items()}
 
 
 def cumulative_time(function):
@@ -68,4 +68,4 @@ def cumulative_times():
   Returns a dictionary mapping functions decorated by profile() to the cumulative amount of time (in
   seconds) that have been spent executing calls to a given function during this interpreter session.
   """
-  return {func.__wrapped__: data['time'] for func, data in _profiling_data.items()}
+  return {func: data['time'] for func, data in _profiling_data.items()}
