@@ -42,8 +42,6 @@ def call_count(function):
   Returns the number of times a given function has been called during this interpreter session,
   assuming the function has been decorated by profile().
   """
-  # print(_profiling_data)
-  # return _profiling_data.get(function, {'count': 0})['count']
   original_function = getattr(function, "__wrapped__", function)
   return _profiling_data[original_function]['count']
 
@@ -61,7 +59,8 @@ def cumulative_time(function):
   Returns the cumulative amount of time (in seconds) that have been spent executing calls to a given
   function during this interpreter session, assuming the function has been decorated by profile().
   """
-  return _profiling_data.get(function, {}.get('time', 0.0))
+  original_function = getattr(function, "__wrapped__", function)
+  return _profiling_data[original_function]['time']
 
 
 def cumulative_times():
