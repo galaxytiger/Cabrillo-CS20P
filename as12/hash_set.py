@@ -25,10 +25,10 @@ class HashSet:
     >>> len(h)
     2
     """
-    self.capacity = 8
-    self.size = 0
-    self.table = [None] * self.capacity
-    self.deleted = [False] * self.capacity
+    self.table_size = 8
+    self.table = [None] * self.table_size
+    self.num_keys = 0
+    self.deleted = [False] * self.table_size
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -106,7 +106,7 @@ class HashSet:
     >>> len(h)
     704240
     """
-    pass  # TODO
+    return self.num_keys
 
   def add(self, key):
     """
@@ -125,7 +125,14 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    pass  # TODO
+    if key not in self.table:
+      if self.num_keys == len(self.table):
+        self._resize_table()
+      idx = hash(key) % len(self.table)
+      while self.table[idx] is not None:
+        idx = (idx + 1) % len(self.table)
+      self.table[idx] = key
+      self.num_keys += 1
 
   def clear(self):
     """
@@ -195,3 +202,11 @@ class HashSet:
     18
     """
     pass  # TODO
+
+  def _resize_table(self):
+    old_table = self.table
+    self.table = [None] * (2 * len(old_table))
+    self.num_keys = 0
+    for key in old_table:
+      if key is not None:
+        self.add(key)
