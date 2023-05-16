@@ -25,7 +25,13 @@ class HashSet:
     >>> len(h)
     2
     """
-    pass  # TODO
+    self.capacity = 8
+    self.size = 0
+    self.table = [None] * self.capacity
+    self.deleted = [False] * self.capacity
+    if iterable is not None:
+      for item in iterable:
+        self.add(item)
 
   def __bool__(self):
     """
