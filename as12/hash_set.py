@@ -47,10 +47,10 @@ class HashSet:
     >>> bool(h)
     False
     """
-    pass  # TODO
+    return self.num_keys > 0
 
   def __contains__(self, key):
-    r"""
+    """
     Tests for membership in the set.
 
     >>> import re
@@ -66,7 +66,8 @@ class HashSet:
     >>> None in h
     False
     """
-    pass  # TODO
+    idx = self._find_key(key)
+    return self.table[idx] is not None and not self.deleted[idx]
 
   def __getitem__(self, index):
     """
@@ -76,7 +77,7 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, 1, 10, None, 4, 13, None, 7]
     """
-    pass  # TODO
+    return self.table[index]
 
   def __iter__(self):
     """
@@ -86,7 +87,9 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    pass  # TODO
+    for key in self.table:
+      if key is not None:
+        yield key
 
   def __repr__(self):
     """
@@ -96,7 +99,8 @@ class HashSet:
     >>> eval(repr(h))
     HashSet([0, 1, 2, 4, 6])
     """
-    pass  # TODO
+    items = ', '.join(map(str, self))
+    return f'HashSet([{items}])'
 
   def __len__(self):
     """
@@ -125,14 +129,14 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if key not in self.table:
-      if self.num_keys == len(self.table):
-        self._resize_table()
-      idx = hash(key) % len(self.table)
-      while self.table[idx] is not None:
-        idx = (idx + 1) % len(self.table)
-      self.table[idx] = key
-      self.num_keys += 1
+    if key in self:
+      return
+    if self.num_keys == len(self.table):
+      self._resize_table()
+    idx = self._find_key(key)
+    self.table[idx] = key
+    self.deleted[idx] = False
+    self.num_keys += 1
 
   def clear(self):
     """
@@ -149,7 +153,9 @@ class HashSet:
     >>> h.table_size()
     8
     """
-    pass  # TODO
+    self.table_size = 8
+    self.table = [None] * self.table_size
+    self.num_keys = 0
 
   def remove(self, key):
     """
@@ -179,7 +185,11 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, None, None, None, None, None, None, None]
     """
-    pass  # TODO
+    idx = self._find_key(key)
+    if self.table[idx] is not None:
+      self.table[idx] = None
+      self.deleted[idx] = True
+      self.num_keys -= 1
 
   def table_size(self):
     """
@@ -201,12 +211,21 @@ class HashSet:
     18
     18
     """
-    pass  # TODO
+    return len(self.table)
 
   def _resize_table(self):
     old_table = self.table
-    self.table = [None] * (2 * len(old_table))
+    self.table_size *= 2
+    self.table = [None] * self.table_size
+    self.deleted = [False] * self.table_size
     self.num_keys = 0
     for key in old_table:
       if key is not None:
         self.add(key)
+
+  def _find_key(self, key):
+    idx = hash(key) % len(self.table)
+    while self.table[idx] is not None and self.table[idx] != key:
+      if not self.deleted[idx]:
+        idx = (idx + 1) % len(self.table)
+    return idx
