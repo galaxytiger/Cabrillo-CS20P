@@ -29,6 +29,7 @@ class HashSet:
     self.table = [None] * self.table_size
     self.num_keys = 0
     self.deleted = [False] * self.table_size
+    self.hash_cache = [None] * self.table_size
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -131,7 +132,7 @@ class HashSet:
     """
     if key in self:
       return
-    if self.num_keys == len(self.table):
+    if self.num_keys / len(self.table) > 2 / 3:
       self._resize_table()
     idx = self._find_key(key)
     self.table[idx] = key
@@ -215,17 +216,27 @@ class HashSet:
 
   def _resize_table(self):
     old_table = self.table
-    self.table_size *= 2
+    old_hash_cache = self.hash_cache
+    self.table_size *= 3
     self.table = [None] * self.table_size
     self.deleted = [False] * self.table_size
+    self.hash_cache = [None] * self.table_size
     self.num_keys = 0
-    for key in old_table:
-      if key is not None:
-        self.add(key)
+    for i in range(len(old_table)):
+      if old_table[i] is not None:
+        idx = self._find_key(old_table[i])
+        self.table[idx] = old_table[i]
+        self.deleted[idx] = False
+        self.hash_cache[idx] = old_hash_cache[i]
+        self.num_keys += 1
 
   def _find_key(self, key):
-    idx = hash(key) % len(self.table)
+    hash_value = hash(key)
+    idx = int(hash_value % len(self.table))
+    increment = 0
     while self.table[idx] is not None and self.table[idx] != key:
-      if not self.deleted[idx]:
-        idx = (idx + 1) % len(self.table)
+      increment += 1
+      direction = -1 if increment % 2 == 0 else 1
+      idx = int((idx + direction * increment) % len(self.table))
+    self.hash_cache[idx] = hash_value
     return idx
