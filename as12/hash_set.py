@@ -25,11 +25,11 @@ class HashSet:
     >>> len(h)
     2
     """
-    self.table_size = 8
-    self.table = [None] * self.table_size
+    self._table_size = 8
+    self.table = [None] * self._table_size
     self.num_keys = 0
-    self.deleted = [False] * self.table_size
-    self.hash_cache = [None] * self.table_size
+    self.deleted = [False] * self._table_size
+    self.hash_cache = [None] * self._table_size
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -154,8 +154,8 @@ class HashSet:
     >>> h.table_size()
     8
     """
-    self.table_size = 8
-    self.table = [None] * self.table_size
+    self.self._table_size = 8
+    self.table = [None] * self._table_size
     self.num_keys = 0
 
   def remove(self, key):
