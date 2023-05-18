@@ -154,7 +154,7 @@ class HashSet:
     >>> h.table_size()
     8
     """
-    self.self._table_size = 8
+    self._table_size = 8
     self.table = [None] * self._table_size
     self.num_keys = 0
 
@@ -217,10 +217,10 @@ class HashSet:
   def _resize_table(self):
     old_table = self.table
     old_hash_cache = self.hash_cache
-    self.table_size *= 3
-    self.table = [None] * self.table_size
-    self.deleted = [False] * self.table_size
-    self.hash_cache = [None] * self.table_size
+    self._table_size *= 3
+    self.table = [None] * self._table_size
+    self.deleted = [False] * self._table_size
+    self.hash_cache = [None] * self._table_size
     self.num_keys = 0
     for i in range(len(old_table)):
       if old_table[i] is not None:
