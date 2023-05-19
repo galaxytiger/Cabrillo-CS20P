@@ -130,7 +130,7 @@ class HashSet:
     """
     if self._num_keys + 1 > self._table_size * 2 / 3:
       self._resize_table()
-    index = self._find_key(key)
+    idx = self._find_key(key)
     if self._table[idx] is None or self._table[idx][0] != key:
       self._table[idx] = (key, hash(key))
       self._num_keys += 1
