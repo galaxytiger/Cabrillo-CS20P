@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as12">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/as12/hash_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/as12/hash_set.py" afterDir="false" />
-    </list>
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as12" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,13 +158,6 @@
       <workItem from="1683776805633" duration="7083000" />
       <workItem from="1684273624227" duration="6201000" />
       <workItem from="1684342540877" duration="10483000" />
-    </task>
-    <task id="LOCAL-00173" summary="working on as10">
-      <created>1683605602271</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1683605602271</updated>
     </task>
     <task id="LOCAL-00174" summary="working on as10">
       <created>1683687152411</created>
@@ -505,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684512394844</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="working on as12">
+      <created>1684512965947</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1684512965947</updated>
+    </task>
+    <option name="localTasksCounter" value="223" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
