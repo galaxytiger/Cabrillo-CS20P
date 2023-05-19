@@ -78,6 +78,8 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, 1, 10, None, 4, 13, None, 7]
     """
+    if self_table[index] is self._DELETED:
+      return None
     return self._table[index][0] if self._table[index] is not None else None
 
   def __iter__(self):
@@ -130,11 +132,16 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if self._num_keys > self._table_size * 2 / 3:
-      self._resize_table()
-    idx = self._find_key(key)
-    if self._table[idx] is None or self._table[idx][0] != key:
-      self._table[idx] = (key, hash(key))
+    if self._num_keys >= self._table_size * 0.75:
+      old_table = self._table
+      self._table_size *= 2
+      while self._table_size <= self._num_keys:
+        self._table_size *= 2
+      self._table = [None] * self._table_size
+      self._num_keys = 0
+      for key in (item[0] for item in old_table if item not in (None, self._DELETED)):
+        self.add(key)
+      self._table[self._find_key(key)] = (key,)
       self._num_keys += 1
 
   def clear(self):
@@ -209,7 +216,7 @@ class HashSet:
     18
     18
     """
-    return self._table_size
+    return len(self._table)
 
   def _resize_table(self):
     old_table = self._table
