@@ -129,7 +129,7 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if self._num_keys + 1 > self._table_size * 2 / 3:
+    if self._num_keys > self._table_size * 2 / 3:
       self._resize_table()
     idx = self._find_key(key)
     if self._table[idx] is None or self._table[idx][0] != key:
@@ -212,7 +212,7 @@ class HashSet:
 
   def _resize_table(self):
     old_table = self._table
-    self._table_size *= 3
+    self._table_size *= 2
     self._table = [None] * self._table_size
     self._num_keys = 0
     for pair in old_table:
