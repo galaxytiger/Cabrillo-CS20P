@@ -29,7 +29,6 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
-    # self._deleted = [False] * self._table_size
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -78,9 +77,7 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, 1, 10, None, 4, 13, None, 7]
     """
-    if self_table[index] is self._DELETED:
-      return None
-    return self._table[index]
+    return self._table[index][0] if self._table[index] is not None else None
 
   def __iter__(self):
     """
@@ -135,9 +132,9 @@ class HashSet:
     if self._num_keys >= self._table_size * 0.75:
       self._resize_table()
     index = self._find_key(key)
-    if self._table[index] is None or self._table[index] is self._DELETED:
+    if self._table[idx] is None or self._table[idx][0] != key:
+      self._table[idx] = (key, hash(key))
       self._num_keys += 1
-    self._table[index] = key
 
   def clear(self):
     """
