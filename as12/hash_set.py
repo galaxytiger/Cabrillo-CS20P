@@ -14,6 +14,7 @@ class HashSet:
   Implementation of a hash table similar to built-in type set, using an internal list as a table.
   """
   _DELETED = object()
+
   def __init__(self, iterable: Iterable[Hashable] = None):
     """
     Constructs an empty set with a table size of 8, or a set containing the values in `iterable`.
@@ -129,14 +130,10 @@ class HashSet:
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
     if self._num_keys + 1 > self._table_size * 2 / 3:
-      old_table = self._table.copy()
       self._resize_table()
-      for item in old_table:
-        if item is not None and item != self._DELETED:
-          self.add(item[0])
     idx = self._find_key(key)
-    if self._table[idx] is None or self._table[idx] != key:
-      self._table[idx] = key
+    if self._table[idx] is None or self._table[idx][0] != key:
+      self._table[idx] = (key, hash(key))
       self._num_keys += 1
 
   def clear(self):
@@ -214,13 +211,13 @@ class HashSet:
     return self._table_size
 
   def _resize_table(self):
-    self._table_size *= 2
-    new_table = [None] * self._table_size
-    for key in self._table:
-      if key is not None and key != self._DELETED:
-        new_hash = hash(key) % self._table_size
-        new_table[new_hash] = key
-    self._table = new_table
+    old_table = self._table
+    self._table_size *= 3
+    self._table = [None] * self._table_size
+    self._num_keys = 0
+    for key in old_table:
+      if key is not None:
+        self.add(key[0])
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
