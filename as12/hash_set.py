@@ -13,7 +13,6 @@ class HashSet:
   """
   Implementation of a hash table similar to built-in type set, using an internal list as a table.
   """
-  _DELETED = object()
 
   def __init__(self, iterable: Iterable[Hashable] = None):
     """
@@ -129,7 +128,7 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if self._num_keys >= self._table_size * 0.75:
+    if self._num_keys + 1 > self._table_size * 2 / 3:
       self._resize_table()
     index = self._find_key(key)
     if self._table[idx] is None or self._table[idx][0] != key:
@@ -185,7 +184,7 @@ class HashSet:
     """
     idx = self._find_key(key)
     if self._table[idx] is not None and self._table[idx][0] == key:
-      self._table[idx] = self._DELETED
+      self._table[idx] = None
       self._num_keys -= 1
 
   def table_size(self):
@@ -216,13 +215,13 @@ class HashSet:
     self._table = [None] * self._table_size
     self._num_keys = 0
     for key in old_table:
-      if key is not None and key is not self._DELETED:
+      if key is not None:
         self.add(key[0])
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
     delta = 1
-    while self._table[idx] is not None and (self._table[idx] == self._DELETED or self._table[idx][0] != key):
+    while self._table[idx] is not None and self._table[idx][0] != key:
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
     return idx
