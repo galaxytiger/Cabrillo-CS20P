@@ -26,9 +26,9 @@ class HashSet:
     2
     """
     self._table_size = 8
-    self.table = [None] * self._table_size
-    self.num_keys = 0
-    self.deleted = [False] * self._table_size
+    self._table = [None] * self._table_size
+    self._num_keys = 0
+    self._deleted = [False] * self._table_size
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -47,7 +47,7 @@ class HashSet:
     >>> bool(h)
     False
     """
-    return self.num_keys > 0
+    return self._num_keys > 0
 
   def __contains__(self, key):
     r"""
@@ -67,7 +67,7 @@ class HashSet:
     False
     """
     idx = self._find_key(key)
-    return self.table[idx] is not None and not self.deleted[idx]
+    return self._table[idx] is not None and not self._deleted[idx]
 
   def __getitem__(self, index):
     """
@@ -77,7 +77,7 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, 1, 10, None, 4, 13, None, 7]
     """
-    return self.table[index]
+    return self._table[index]
 
   def __iter__(self):
     """
@@ -87,7 +87,7 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    for key, deleted in zip(self.table, self.deleted):
+    for key, deleted in zip(self._table, self._deleted):
       if key is not None and not deleted:
         yield key
 
@@ -110,7 +110,7 @@ class HashSet:
     >>> len(h)
     704240
     """
-    return self.num_keys
+    return self._num_keys
 
   def add(self, key):
     """
@@ -129,14 +129,14 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if key in self:
-      return
-    if self.num_keys / len(self.table) >= 2 / 3:
+    if self._num_keys * 3 > self._table_size * 2:
       self._resize_table()
     idx = self._find_key(key)
-    self.table[idx] = key
-    self.deleted[idx] = False
-    self.num_keys += 1
+    if self._table[idx] is not None and not self._deleted[idx]:
+      return
+    self._table[idx] = key
+    self._deleted[idx] = False
+    self._num_keys += 1
 
   def clear(self):
     """
@@ -154,9 +154,9 @@ class HashSet:
     8
     """
     self._table_size = 8
-    self.table = [None] * self._table_size
-    self.num_keys = 0
-    self.deleted = [False] * self._table_size
+    self._table = [None] * self._table_size
+    self._num_keys = 0
+    self._deleted = [False] * self._table_size
 
   def remove(self, key):
     """
@@ -187,10 +187,10 @@ class HashSet:
     [None, None, None, None, None, None, None, None]
     """
     idx = self._find_key(key)
-    if self.table[idx] is not None and not self.deleted[idx]:
-      self.table[idx] = None
-      self.deleted[idx] = True
-      self.num_keys -= 1
+    if self._table[idx] is not None and not self._deleted[idx]:
+      self._table[idx] = None
+      self._deleted[idx] = True
+      self._num_keys -= 1
 
   def table_size(self):
     """
@@ -212,21 +212,21 @@ class HashSet:
     18
     18
     """
-    return len(self.table)
+    return len(self._table)
 
   def _resize_table(self):
-    old_table = self.table
-    old_deleted = self.deleted
-    self._table_size *= 2
-    self.table = [None] * self._table_size
-    self.deleted = [None] * self._table_size
-    self.num_keys = 0
+    old_table = self._table
+    old_deleted = self._deleted
+    self._table_size *= 3
+    self._table = [None] * self._table_size
+    self._deleted = [False] * self._table_size
+    self._num_keys = 0
     for key, deleted in zip(old_table, old_deleted):
       if key is not None and not deleted:
         self.add(key)
 
   def _find_key(self, key):
-    idx = hash(key) % len(self.table)
-    while self.table[idx] is not None and (self.table[idx] != key or self.deleted[idx]):
-      idx = (idx + 1) % len(self.table)
+    idx = hash(key) % len(self._table)
+    while self._table[idx] is not None and (self._table[idx] != key or not self._deleted[idx]):
+      idx = (idx + 1) % len(self._table)
     return idx
