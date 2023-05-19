@@ -50,7 +50,7 @@ class HashSet:
     return self.num_keys > 0
 
   def __contains__(self, key):
-    """
+    r"""
     Tests for membership in the set.
 
     >>> import re
@@ -87,8 +87,8 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    for key in self.table:
-      if key is not None and not self.deleted[self.table.index(key)]:
+    for key, deleted in zip(self.table, self.deleted):
+      if key is not None and not deleted:
         yield key
 
   def __repr__(self):
@@ -131,7 +131,7 @@ class HashSet:
     """
     if key in self:
       return
-    if self.num_keys / len(self.table) > 2 / 3:
+    if self.num_keys / len(self.table) >= 2 / 3:
       self._resize_table()
     idx = self._find_key(key)
     self.table[idx] = key
@@ -187,7 +187,7 @@ class HashSet:
     [None, None, None, None, None, None, None, None]
     """
     idx = self._find_key(key)
-    if self.table[idx] is not None:
+    if self.table[idx] is not None and not self.deleted[idx]:
       self.table[idx] = None
       self.deleted[idx] = True
       self.num_keys -= 1
@@ -217,19 +217,16 @@ class HashSet:
   def _resize_table(self):
     old_table = self.table
     old_deleted = self.deleted
-    self._table_size *= 3
+    self._table_size *= 2
     self.table = [None] * self._table_size
-    self.deleted = [False] * self._table_size
+    self.deleted = [None] * self._table_size
     self.num_keys = 0
-    for i in range(len(old_table)):
-      if old_table[i] is not None and not old_deleted[i]:
-        self.add(old_table[i])
+    for key, deleted in zip(old_table, old_deleted):
+      if key is not None and not deleted:
+        self.add(key)
 
   def _find_key(self, key):
     idx = hash(key) % len(self.table)
-    increment = 0
-    while self.table[idx] is not None and self.table[idx] != key:
-      increment += 1
-      direction = -1 if increment % 2 == 0 else 1
-      idx = (idx + direction * increment) % len(self.table)
+    while self.table[idx] is not None and (self.table[idx] != key or self.deleted[idx]):
+      idx = (idx + 1) % len(self.table)
     return idx
