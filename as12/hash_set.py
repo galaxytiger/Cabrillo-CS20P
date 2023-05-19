@@ -13,7 +13,7 @@ class HashSet:
   """
   Implementation of a hash table similar to built-in type set, using an internal list as a table.
   """
-
+  _DELETED = object()
   def __init__(self, iterable: Iterable[Hashable] = None):
     """
     Constructs an empty set with a table size of 8, or a set containing the values in `iterable`.
@@ -184,7 +184,7 @@ class HashSet:
     """
     idx = self._find_key(key)
     if self._table[idx] is not None and self._table[idx][0] == key:
-      self._table[idx] = None
+      self._table[idx] = self._DELETED
       self._num_keys -= 1
 
   def table_size(self):
@@ -221,7 +221,8 @@ class HashSet:
   def _find_key(self, key):
     idx = hash(key) % self._table_size
     delta = 1
-    while self._table[idx] is not None and self._table[idx][0] != key:
+    while self._table[idx] is not None and (self._table[idx] == self._DELETED or self._table[
+      idx][0] != key):
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
     return idx
