@@ -129,7 +129,7 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if self._num_keys * 3 > self._table_size * 2:
+    if self._num_keys + 1 > self._table_size * 2:
       self._resize_table()
     idx = self._find_key(key)
     if self._table[idx] is not None and not self._deleted[idx]:
@@ -186,11 +186,16 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, None, None, None, None, None, None, None]
     """
+    # idx = self._find_key(key)
+    # if self._table[idx] is not None and not self._deleted[idx]:
+    #   self._table[idx] = None
+    #   self._deleted[idx] = True
+    #   self._num_keys -= 1
     idx = self._find_key(key)
-    if self._table[idx] is not None and not self._deleted[idx]:
-      self._table[idx] = None
-      self._deleted[idx] = True
-      self._num_keys -= 1
+    if self._table[idx] is None or self._deleted[idx]:
+      return
+    self._deleted[idx] = True
+    self._num_keys -= 1
 
   def table_size(self):
     """
@@ -212,7 +217,7 @@ class HashSet:
     18
     18
     """
-    return self._table_size
+    return len(self._table)
 
   def _resize_table(self):
     old_table = self._table
