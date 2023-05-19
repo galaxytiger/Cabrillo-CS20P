@@ -227,6 +227,10 @@ class HashSet:
 
   def _find_key(self, key):
     idx = hash(key) % len(self._table)
+    probes = 0
     while self._table[idx] is not None and (self._table[idx] != key or not self._deleted[idx]):
       idx = (idx + 1) % len(self._table)
+      probes += 1
+      if probes >= len(self._table):
+        break
     return idx
