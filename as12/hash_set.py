@@ -217,10 +217,14 @@ class HashSet:
     for key in old_table:
       if key is not None:
         idx = key[2] % self._table_size
+        idx_start = idx
         while self._table[idx] is not None:
           idx = (idx + 1) % self._table_size
-        self._table[idx] = (key[0], hash(key[0]), key[2])
-        self._num_keys += 1
+          if idx == idx_start:
+            break
+        if self._table[idx] is None:
+          self._table[idx] = (key[0], hash(key[0]), key[2])
+          self._num_keys += 1
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
