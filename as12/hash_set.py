@@ -132,7 +132,7 @@ class HashSet:
       self._resize_table()
     idx = self._find_key(key)
     if self._table[idx] is None or self._table[idx][0] != key:
-      self._table[idx] = (key, hash(key))
+      self._table[idx] = (key, hash(key), idx)
       self._num_keys += 1
 
   def clear(self):
@@ -216,7 +216,11 @@ class HashSet:
     self._num_keys = 0
     for key in old_table:
       if key is not None:
-        self.add(key[0])
+        idx = key[2] % self._table_size
+        while self._table[idx] is not None:
+          idx = (idx + 1) % self._table_size
+        self._table[idx] = (key[0], hash(key[0]), key[2])
+        self._num_keys += 1
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
