@@ -129,10 +129,14 @@ class HashSet:
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
     if self._num_keys + 1 > self._table_size * 2 / 3:
+      old_table = self._table.copy()
       self._resize_table()
+      for item in old_table:
+        if item is not None and item != self._DELETED:
+          self.add(item[0])
     idx = self._find_key(key)
-    if self._table[idx] is None or self._table[idx][0] != key:
-      self._table[idx] = (key, hash(key), idx)
+    if self._table[idx] is None or self._table[idx] != key:
+      self._table[idx] = key
       self._num_keys += 1
 
   def clear(self):
@@ -210,21 +214,13 @@ class HashSet:
     return self._table_size
 
   def _resize_table(self):
-    old_table = self._table
-    self._table_size *= 3
-    self._table = [None] * self._table_size
-    self._num_keys = 0
-    for key in old_table:
-      if key is not None:
-        idx = key[2] % self._table_size
-        idx_start = idx
-        while self._table[idx] is not None:
-          idx = (idx + 1) % self._table_size
-          if idx == idx_start:
-            break
-        if self._table[idx] is None:
-          self._table[idx] = (key[0], hash(key[0]), key[2])
-          self._num_keys += 1
+    self._table_size *= 2
+    new_table = [None] * self._table_size
+    for key in self._table:
+      if key is not None and key != self._DELETED:
+        new_hash = hash(key) % self._table_size
+        new_table[new_hash] = key
+    self._table = new_table
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
