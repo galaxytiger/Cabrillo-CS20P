@@ -212,7 +212,7 @@ class HashSet:
     18
     18
     """
-    return len(self._table)
+    return self._table_size
 
   def _resize_table(self):
     old_table = self._table
@@ -229,7 +229,7 @@ class HashSet:
     idx = hash(key) % len(self._table)
     probes = 0
     while self._table[idx] is not None and (self._table[idx] != key or not self._deleted[idx]):
-      idx = (idx + 1) % len(self._table)
+      idx = (idx + probes * probes) % len(self._table)
       probes += 1
       if probes >= len(self._table):
         break
