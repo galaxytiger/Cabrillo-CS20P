@@ -13,6 +13,7 @@ class HashSet:
   """
   Implementation of a hash table similar to built-in type set, using an internal list as a table.
   """
+  _DELETED = object()
 
   def __init__(self, iterable: Iterable[Hashable] = None):
     """
@@ -28,7 +29,6 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._deleted = [False] * self._table_size
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -67,7 +67,7 @@ class HashSet:
     False
     """
     idx = self._find_key(key)
-    return self._table[idx] is not None and not self._deleted[idx]
+    return self._table[idx] is not None and self._table[idx][0] == key
 
   def __getitem__(self, index):
     """
@@ -77,7 +77,7 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, 1, 10, None, 4, 13, None, 7]
     """
-    return self._table[index]
+    return self._table[index][0] if self._table[index] is not None else None
 
   def __iter__(self):
     """
@@ -87,9 +87,9 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    for key, deleted in zip(self._table, self._deleted):
-      if key is not None and not deleted:
-        yield key
+    for pair in self._table:
+      if pair is not None:
+        yield pair[0]
 
   def __repr__(self):
     """
@@ -129,14 +129,12 @@ class HashSet:
     [None, 1, None, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     [None, 1, 19, None, 4, None, None, 7, None, None, 10, None, None, 13, None, None, 16, None]
     """
-    if self._num_keys + 1 > self._table_size * 2:
+    if self._num_keys + 1 > self._table_size * 2 / 3:
       self._resize_table()
     idx = self._find_key(key)
-    if self._table[idx] is not None and not self._deleted[idx]:
-      return
-    self._table[idx] = key
-    self._deleted[idx] = False
-    self._num_keys += 1
+    if self._table[idx] is None or self._table[idx][0] != key:
+      self._table[idx] = (key, hash(key))
+      self._num_keys += 1
 
   def clear(self):
     """
@@ -156,7 +154,6 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._deleted = [False] * self._table_size
 
   def remove(self, key):
     """
@@ -186,16 +183,10 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, None, None, None, None, None, None, None]
     """
-    # idx = self._find_key(key)
-    # if self._table[idx] is not None and not self._deleted[idx]:
-    #   self._table[idx] = None
-    #   self._deleted[idx] = True
-    #   self._num_keys -= 1
     idx = self._find_key(key)
-    if self._table[idx] is None or self._deleted[idx]:
-      return
-    self._deleted[idx] = True
-    self._num_keys -= 1
+    if self._table[idx] is not None and self._table[idx][0] == key:
+      self._table[idx] = self._DELETED
+      self._num_keys -= 1
 
   def table_size(self):
     """
@@ -217,25 +208,22 @@ class HashSet:
     18
     18
     """
-    return len(self._table)
+    return self._table_size
 
   def _resize_table(self):
     old_table = self._table
-    old_deleted = self._deleted
     self._table_size *= 3
     self._table = [None] * self._table_size
-    self._deleted = [False] * self._table_size
     self._num_keys = 0
-    for key, deleted in zip(old_table, old_deleted):
-      if key is not None and not deleted:
-        self.add(key)
+    for key in old_table:
+      if key is not None:
+        self.add(key[0])
 
   def _find_key(self, key):
-    idx = hash(key) % len(self._table)
-    probes = 0
-    while self._table[idx] is not None and (self._table[idx] != key or not self._deleted[idx]):
-      idx = (idx + probes * probes) % len(self._table)
-      probes += 1
-      if probes >= len(self._table):
-        break
+    idx = hash(key) % self._table_size
+    delta = 1
+    while self._table[idx] is not None and (self._table[idx] == self._DELETED or self._table[
+      idx][0] != key):
+      idx = (idx + delta) % self._table_size
+      delta = -delta if delta < 0 else -delta - 1
     return idx
