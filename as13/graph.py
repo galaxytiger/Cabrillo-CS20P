@@ -9,28 +9,26 @@ __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 from collections import defaultdict
 
 
-class Graph:
+class _Edges(defaultdict):
+  pass  # TODO
+
+
+class Graph(defaultdict):
 
   def __init__(self):
+    super().__init__(_Edges)
 
-    self.graph = defaultdict(dict)
-
-  def __getitem__(self, vertex):
-
-    pass # TODO
-
-  def __setitem__(self, vertex, edge_weight):
-
-    pass  # TODO
-
-  def __delitem__(self, vertex):
+  def __delitem__(self, key):
 
     pass  # TODO
 
   def __len__(self):
     pass  # TODO
 
-  def __contains__(self, vertex):
+  def __iter__(self):
+    pass  # TODO
+
+  def __contains__(self, key):
 
     pass  # TODO
 
