@@ -7,6 +7,7 @@ Practice implementing a hash table!
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 from typing import Iterable, Hashable
+import math
 
 
 class HashSet:
@@ -209,6 +210,10 @@ class HashSet:
     18
     """
     return self._table_size
+
+  def _next_table_size(current_size):
+    next_size = math.ceil(current_size * 1.5)
+    return next_size if next_size % 2 != 0 else next_size + 1
 
   def _resize_table(self):
     old_table = self._table

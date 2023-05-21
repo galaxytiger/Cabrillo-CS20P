@@ -45,7 +45,6 @@ class Graph(defaultdict):
     pass  # TODO
 
   def edges(self):
-
     pass  # TODO
 
   def adjacent(self, src, dst):
