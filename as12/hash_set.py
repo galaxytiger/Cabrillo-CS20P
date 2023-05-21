@@ -211,7 +211,8 @@ class HashSet:
     """
     return self._table_size
 
-  def _next_table_size(self, current_size):
+  @staticmethod
+  def _next_table_size(current_size):
     next_size = math.ceil(current_size * 1.5)
     return next_size if next_size % 2 != 0 else next_size + 1
 
