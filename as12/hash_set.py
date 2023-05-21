@@ -211,13 +211,13 @@ class HashSet:
     """
     return self._table_size
 
-  def _next_table_size(current_size):
+  def _next_table_size(self, current_size):
     next_size = math.ceil(current_size * 1.5)
     return next_size if next_size % 2 != 0 else next_size + 1
 
   def _resize_table(self):
     old_table = self._table
-    self._table_size *= 3
+    self._table_size = self._next_table_size(self._table_size)
     self._table = [None] * self._table_size
     self._num_keys = 0
     for key in old_table:
