@@ -188,7 +188,7 @@ class HashSet:
     if self._table[idx] == key:
       self._table[idx] = self._DELETED
       self._num_keys -= 1
-      self._keys.remove(key)
+      self._keys = [k for k in self._keys if k != key]
 
   def table_size(self):
     """
