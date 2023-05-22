@@ -227,7 +227,7 @@ class HashSet:
       idx] != key):
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
-    if self._table[idx] is None or self._table[idx] == self._DELETED:
-      if self._num_keys + 1 > self._table_size * 2 // 3:
-        self._resize_table()
+    # if self._table[idx] is None or self._table[idx] == self._DELETED:
+    #   if self._num_keys + 1 > self._table_size * 2 // 3:
+    #     self._resize_table()
     return idx
