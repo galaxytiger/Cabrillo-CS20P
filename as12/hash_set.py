@@ -67,7 +67,7 @@ class HashSet:
     False
     """
     idx = self._find_key(key)
-    return self._table[idx] is not None and self._table[idx][0] == key
+    return self._table[idx] is not None and self._table[idx] == key
 
   def __getitem__(self, index):
     """
