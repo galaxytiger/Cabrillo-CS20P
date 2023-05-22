@@ -29,10 +29,10 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
+    self._keys = []
     if iterable is not None:
       for item in iterable:
         self.add(item)
-    self._keys = []
 
   def __bool__(self):
     """
