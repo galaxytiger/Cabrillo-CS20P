@@ -213,7 +213,7 @@ class HashSet:
 
   def _resize_table(self):
     old_table = self._table
-    self._table_size *= 3
+    self._table_size *= 3 + 1
     self._table = [None] * self._table_size
     self._num_keys = 0
     for key in old_table:
