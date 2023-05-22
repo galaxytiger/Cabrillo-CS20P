@@ -89,7 +89,7 @@ class HashSet:
     """
     for pair in self._table:
       if pair is not None:
-        yield pair[0]
+        yield pair
 
   def __repr__(self):
     """
@@ -132,7 +132,7 @@ class HashSet:
     if self._num_keys + 1 > self._table_size * 2 / 3:
       self._resize_table()
     idx = self._find_key(key)
-    if self._table[idx] is None or self._table[idx] != key:
+    if self._table[idx] != key:
       self._table[idx] = key
       self._num_keys += 1
 
@@ -184,7 +184,7 @@ class HashSet:
     [None, None, None, None, None, None, None, None]
     """
     idx = self._find_key(key)
-    if self._table[idx] is not None and self._table[idx] == key:
+    if self._table[idx] == key:
       self._table[idx] = self._DELETED
       self._num_keys -= 1
 
@@ -222,8 +222,8 @@ class HashSet:
   def _find_key(self, key):
     idx = hash(key) % self._table_size
     delta = 1
-    while self._table[idx] is not None and (self._table[idx] == self._DELETED or self._table[
-      idx] != key):
+    while self._table[idx] is not None and (self._table[idx] == self._DELETED or self._table[idx]
+                                            != key):
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
     return idx
