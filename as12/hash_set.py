@@ -32,6 +32,7 @@ class HashSet:
     if iterable is not None:
       for item in iterable:
         self.add(item)
+    self._keys = []
 
   def __bool__(self):
     """
@@ -88,11 +89,7 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    keys = []
-    for key in self._table:
-      if key is not None and key != self._DELETED:
-        keys.append(key)
-    yield from keys
+    yield from self._keys
 
   def __repr__(self):
     """
@@ -138,6 +135,7 @@ class HashSet:
     if self._table[idx] is None or self._table[idx] == self._DELETED:
       self._table[idx] = key
       self._num_keys += 1
+      self._keys.append(key)
 
   def clear(self):
     """
@@ -190,6 +188,7 @@ class HashSet:
     if self._table[idx] == key:
       self._table[idx] = self._DELETED
       self._num_keys -= 1
+      self._keys.remove(key)
 
   def table_size(self):
     """
