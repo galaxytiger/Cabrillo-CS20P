@@ -7,7 +7,7 @@ Practice implementing a hash table!
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 from typing import Iterable, Hashable
-
+import math
 
 class HashSet:
   """
@@ -217,7 +217,7 @@ class HashSet:
   def _resize_table(self):
     # old_table = self._table
     old_keys = self._keys
-    self._table_size = self._num_keys * 3
+    self._table_size = math.ceil(self._num_keys * 3 / 2)
     self._table = [None] * self._table_size
     self._num_keys = 0
     self._keys = []
