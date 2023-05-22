@@ -227,4 +227,6 @@ class HashSet:
       idx] != key):
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
+      if delta == 1:
+        self._resize_table()
     return idx
