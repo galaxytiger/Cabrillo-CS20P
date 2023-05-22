@@ -111,7 +111,7 @@ class HashSet:
     >>> len(h)
     704240
     """
-    return self._num_keys if self._num_keys >= 0 else 0
+    return self._num_keys
 
   def add(self, key):
     """
@@ -209,7 +209,7 @@ class HashSet:
     18
     18
     """
-    return len(self._table)
+    return self._table_size
 
   def _resize_table(self):
     old_table = self._table
