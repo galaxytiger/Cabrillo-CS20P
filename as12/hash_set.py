@@ -217,8 +217,8 @@ class HashSet:
   def _resize_table(self):
     old_table = self._table
     old_keys = self._keys
-    # self._table_size = len(old_table) * 2 + 2
-    self._table_size = len(old_table) * 3 if len(old_table) >= 8 else 8
+    self._table_size = len(old_table) * 2 + 2
+    # self._table_size = len(old_table) * 3 if len(old_table) >= 8 else 8
     self._table = [None] * self._table_size
     self._num_keys = 0
     self._keys = []
