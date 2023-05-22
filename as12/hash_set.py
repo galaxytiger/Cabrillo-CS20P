@@ -223,7 +223,9 @@ class HashSet:
     self._keys = []
     for key in old_keys:
       if key is not None and key != self._DELETED:
-        self.add(key)
+        idx = self._find_key(key)
+        self._table[idx] = key
+
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
