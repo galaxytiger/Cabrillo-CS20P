@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as12">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/as12/hash_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/as12/hash_set.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,28 +162,7 @@
       <workItem from="1683776805633" duration="7083000" />
       <workItem from="1684273624227" duration="6201000" />
       <workItem from="1684342540877" duration="10483000" />
-      <workItem from="1684787847067" duration="817000" />
-    </task>
-    <task id="LOCAL-00194" summary="working on as10">
-      <created>1683778753412</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1683778753412</updated>
-    </task>
-    <task id="LOCAL-00195" summary="working on as10">
-      <created>1683778829313</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL-00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1683778829313</updated>
-    </task>
-    <task id="LOCAL-00196" summary="working on as10">
-      <created>1683778921388</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1683778921388</updated>
+      <workItem from="1684787847067" duration="1224000" />
     </task>
     <task id="LOCAL-00197" summary="working on as10">
       <created>1683779454554</created>
@@ -508,7 +486,28 @@
       <option name="project" value="LOCAL" />
       <updated>1684788205603</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="working on as12">
+      <created>1684788716965</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1684788716965</updated>
+    </task>
+    <task id="LOCAL-00244" summary="working on as12">
+      <created>1684788865422</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1684788865422</updated>
+    </task>
+    <task id="LOCAL-00245" summary="working on as12">
+      <created>1684788905765</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1684788905765</updated>
+    </task>
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
