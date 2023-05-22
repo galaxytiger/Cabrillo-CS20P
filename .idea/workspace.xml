@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as12">
-      <change beforePath="$PROJECT_DIR$/as12/hash_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/as12/hash_set.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as14/ca_roads.py" beforeDir="false" afterPath="$PROJECT_DIR$/as14/ca_roads.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/anthonytorres/PycharmProjects/altorresmoran@jeff.cis.cabrillo.edu:cs20ps23&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Python&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/anthonytorres/PycharmProjects/altorresmoran@jeff.cis.cabrillo.edu:cs20ps23",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Python",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/as11" />
@@ -162,7 +162,48 @@
       <workItem from="1683776805633" duration="7083000" />
       <workItem from="1684273624227" duration="6201000" />
       <workItem from="1684342540877" duration="10483000" />
-      <workItem from="1684787847067" duration="1224000" />
+    </task>
+    <task id="LOCAL-00191" summary="working on as10">
+      <created>1683777823286</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1683777823286</updated>
+    </task>
+    <task id="LOCAL-00192" summary="working on as10">
+      <created>1683777984040</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1683777984040</updated>
+    </task>
+    <task id="LOCAL-00193" summary="working on as10">
+      <created>1683778162868</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1683778162868</updated>
+    </task>
+    <task id="LOCAL-00194" summary="working on as10">
+      <created>1683778753412</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1683778753412</updated>
+    </task>
+    <task id="LOCAL-00195" summary="working on as10">
+      <created>1683778829313</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1683778829313</updated>
+    </task>
+    <task id="LOCAL-00196" summary="working on as10">
+      <created>1683778921388</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1683778921388</updated>
     </task>
     <task id="LOCAL-00197" summary="working on as10">
       <created>1683779454554</created>
@@ -465,49 +506,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684521163431</updated>
     </task>
-    <task id="LOCAL-00240" summary="initializing as14">
-      <created>1684521434366</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1684521434366</updated>
-    </task>
-    <task id="LOCAL-00241" summary="working on as12">
-      <created>1684788070875</created>
-      <option name="number" value="00241" />
-      <option name="presentableId" value="LOCAL-00241" />
-      <option name="project" value="LOCAL" />
-      <updated>1684788070875</updated>
-    </task>
-    <task id="LOCAL-00242" summary="working on as12">
-      <created>1684788205603</created>
-      <option name="number" value="00242" />
-      <option name="presentableId" value="LOCAL-00242" />
-      <option name="project" value="LOCAL" />
-      <updated>1684788205603</updated>
-    </task>
-    <task id="LOCAL-00243" summary="working on as12">
-      <created>1684788716965</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1684788716965</updated>
-    </task>
-    <task id="LOCAL-00244" summary="working on as12">
-      <created>1684788865422</created>
-      <option name="number" value="00244" />
-      <option name="presentableId" value="LOCAL-00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1684788865422</updated>
-    </task>
-    <task id="LOCAL-00245" summary="working on as12">
-      <created>1684788905765</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1684788905765</updated>
-    </task>
-    <option name="localTasksCounter" value="246" />
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,6 +535,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="setting n-grams" />
     <MESSAGE value="initial n-grams" />
     <MESSAGE value="testing n grams function" />
     <MESSAGE value="initializing as05" />
@@ -559,7 +559,6 @@
     <MESSAGE value="initializing as10" />
     <MESSAGE value="working on as09" />
     <MESSAGE value="working on as10" />
-    <MESSAGE value="initializing as14" />
     <MESSAGE value="working on as12" />
     <option name="LAST_COMMIT_MESSAGE" value="working on as12" />
   </component>
