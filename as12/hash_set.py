@@ -7,7 +7,6 @@ Practice implementing a hash table!
 __author__ = 'Anthony Torres for CS 20P, altorresmoran@jeff.cis.cabrillo.edu'
 
 from typing import Iterable, Hashable
-import math
 
 
 class HashSet:
@@ -211,19 +210,21 @@ class HashSet:
     """
     return self._table_size
 
-  @staticmethod
-  def _next_table_size(current_size):
-    next_size = math.ceil(current_size * 1.5)
-    return next_size if next_size % 2 != 0 else next_size + 1
-
   def _resize_table(self):
     old_table = self._table
-    self._table_size = self._next_table_size(self._table_size)
+    self._table_size *= 3
     self._table = [None] * self._table_size
     self._num_keys = 0
-    for key in old_table:
-      if key is not None:
-        self.add(key[0])
+    for pair in old_table:
+      if pair is not None and pair != self._DELETED:
+        key, key_hash = pair
+        idx = key_hash % self._table_size
+        delta = 1
+        while self._table[idx] is not None:
+          idx = (idx + delta) % self._table_size
+          delta = -delta if delta < 0 else -delta - 1
+        self._table[idx] = (key, key_hash)
+        self._num_keys += 1
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
