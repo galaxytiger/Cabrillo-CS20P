@@ -111,7 +111,7 @@ class HashSet:
     >>> len(h)
     704240
     """
-    return self._num_keys
+    return self._num_keys if self._num_keys >= 0 else 0
 
   def add(self, key):
     """
