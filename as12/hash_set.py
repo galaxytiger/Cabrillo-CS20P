@@ -88,9 +88,13 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    for pair in self._table:
-      if pair is not None:
-        yield pair
+    count = 0
+    for key in self._table:
+      if key is not None and key != self._DELETED:
+        yield key
+        count += 1
+        if count == self._num_keys:
+          break
 
   def __repr__(self):
     """
@@ -227,7 +231,4 @@ class HashSet:
       idx] != key):
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
-    # if self._table[idx] is None or self._table[idx] == self._DELETED:
-    #   if self._num_keys + 1 > self._table_size * 2 // 3:
-    #     self._resize_table()
     return idx
