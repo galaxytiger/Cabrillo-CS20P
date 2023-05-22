@@ -88,13 +88,11 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    count = 0
+    keys = []
     for key in self._table:
       if key is not None and key != self._DELETED:
-        yield key
-        count += 1
-        if count == self._num_keys:
-          break
+        keys.append(key)
+    yield from keys
 
   def __repr__(self):
     """
