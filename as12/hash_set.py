@@ -78,7 +78,7 @@ class HashSet:
     [None, 1, 10, None, 4, 13, None, 7]
     """
     value = self._table[index]
-    return None if value is None or value is self._DELETED else value
+    return None if value is None or value == self._DELETED else value
 
   def __iter__(self):
     """
