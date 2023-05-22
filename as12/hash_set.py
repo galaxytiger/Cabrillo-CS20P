@@ -99,7 +99,7 @@ class HashSet:
     >>> eval(repr(h))
     HashSet([0, 1, 2, 4, 6])
     """
-    items = ', '.join(map(str, self))
+    items = ', '.join(map(str, self._keys))
     return f'HashSet([{items}])'
 
   def __len__(self):
