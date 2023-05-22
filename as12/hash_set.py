@@ -135,8 +135,7 @@ class HashSet:
     if self._table[idx] is None or self._table[idx] == self._DELETED:
       self._table[idx] = key
       self._num_keys += 1
-      if key not in self._keys:
-        self._keys.append(key)
+    self._keys.append(key)
 
   def clear(self):
     """
