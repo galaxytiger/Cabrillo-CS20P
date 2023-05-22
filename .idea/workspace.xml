@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="initializing as14" />
+    <list default="true" id="d5566b5c-0582-4df0-a8ef-6794cc01276c" name="Changes" comment="working on as12">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/as12/hash_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/as12/hash_set.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,20 +163,7 @@
       <workItem from="1683776805633" duration="7083000" />
       <workItem from="1684273624227" duration="6201000" />
       <workItem from="1684342540877" duration="10483000" />
-    </task>
-    <task id="LOCAL-00192" summary="working on as10">
-      <created>1683777984040</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1683777984040</updated>
-    </task>
-    <task id="LOCAL-00193" summary="working on as10">
-      <created>1683778162868</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1683778162868</updated>
+      <workItem from="1684787847067" duration="817000" />
     </task>
     <task id="LOCAL-00194" summary="working on as10">
       <created>1683778753412</created>
@@ -504,7 +494,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684521434366</updated>
     </task>
-    <option name="localTasksCounter" value="241" />
+    <task id="LOCAL-00241" summary="working on as12">
+      <created>1684788070875</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1684788070875</updated>
+    </task>
+    <task id="LOCAL-00242" summary="working on as12">
+      <created>1684788205603</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1684788205603</updated>
+    </task>
+    <option name="localTasksCounter" value="243" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,9 +560,9 @@
     <MESSAGE value="initializing as10" />
     <MESSAGE value="working on as09" />
     <MESSAGE value="working on as10" />
-    <MESSAGE value="working on as12" />
     <MESSAGE value="initializing as14" />
-    <option name="LAST_COMMIT_MESSAGE" value="initializing as14" />
+    <MESSAGE value="working on as12" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on as12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
