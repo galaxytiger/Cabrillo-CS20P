@@ -77,8 +77,8 @@ class HashSet:
     >>> [h[i] for i in range(h.table_size())]
     [None, 1, 10, None, 4, 13, None, 7]
     """
-    keys = [key for key in self._table if key is not None]
-    return keys[index] if index < len(keys) else None
+    value = self._table[index]
+    return None if value is None or value is self._DELETED else value
 
   def __iter__(self):
     """
@@ -227,6 +227,6 @@ class HashSet:
       idx] != key):
       idx = (idx + delta) % self._table_size
       delta = -delta if delta < 0 else -delta - 1
-      if delta == 1:
+      if self._num_keys + 1 > self._table_size * 2 // 3:
         self._resize_table()
     return idx
