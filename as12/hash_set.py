@@ -186,7 +186,7 @@ class HashSet:
     """
     idx = self._find_key(key)
     if self._table[idx] == key:
-      self._table[idx] = self._DELETED
+      self._table[idx] = None
       self._num_keys -= 1
 
   def table_size(self):
