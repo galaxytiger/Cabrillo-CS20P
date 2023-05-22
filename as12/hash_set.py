@@ -209,7 +209,7 @@ class HashSet:
     18
     18
     """
-    return self._table_size
+    return len(self._table)
 
   def _resize_table(self):
     old_table = self._table
