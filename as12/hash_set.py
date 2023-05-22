@@ -186,7 +186,7 @@ class HashSet:
     """
     idx = self._find_key(key)
     if self._table[idx] == key:
-      self._table[idx] = None
+      self._table[idx] = self._DELETED
       self._num_keys -= 1
 
   def table_size(self):
@@ -213,7 +213,7 @@ class HashSet:
 
   def _resize_table(self):
     old_table = self._table
-    self._table_size = len(old_table) * 3
+    self._table_size = len(old_table) * 2
     self._table = [None] * self._table_size
     self._num_keys = 0
     for key in old_table:
