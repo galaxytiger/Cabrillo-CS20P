@@ -187,7 +187,8 @@ class HashSet:
     [None, None, None, None, None, None, None, None]
     """
     idx = self._find_key(key)
-    if self._table[idx] == key:
+    # if self._table[idx] == key:
+    if self._table[idx] is not None and self._table[idx] != self._DELETED:
       self._table[idx] = self._DELETED
       self._num_keys -= 1
       self._keys.remove(key)
