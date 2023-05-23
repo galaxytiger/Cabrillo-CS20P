@@ -10,7 +10,24 @@ from collections import defaultdict
 
 
 class _Edges(defaultdict):
-  pass  # TODO
+  def __init__(self, graph):
+    super().__init__(int)
+    self._graph = graph
+
+  def __missing__(self, key):
+    if key not in self._graph:
+      raise KeyError(key)
+    return 0
+
+  def __delitem__(self, key):
+    if key not in self:
+      raise KeyError(key)
+    super().__delitem__(key)
+
+  def __setitem__(self, key, value):
+    if key not in self._graph:
+      self._graph[key] = _Edges(self._graph)
+    super().__setitem__(key, value)
 
 
 class Graph(defaultdict):
@@ -18,19 +35,26 @@ class Graph(defaultdict):
   def __init__(self):
     super().__init__(_Edges)
 
-  def __delitem__(self, key):
+  def __missing__(self, key):
+    value = self[key] = _Edges(self)
+    return value
 
-    pass  # TODO
+  def __delitem__(self, key):
+    if key not in self:
+      raise KeyError(key)
+    super().__delitem__(key)
+    for vertex_edges in self.values():
+      if key in vertex_edges:
+        del vertex_edges[key]
 
   def __len__(self):
-    pass  # TODO
+    return len(self.keys())
 
   def __iter__(self):
     pass  # TODO
 
   def __contains__(self, key):
-
-    pass  # TODO
+    return key in self.keys()
 
   def clear(self):
 
