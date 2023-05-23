@@ -89,7 +89,7 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    yield from sorted(self._keys)
+    yield from self._keys
 
   def __repr__(self):
     """
