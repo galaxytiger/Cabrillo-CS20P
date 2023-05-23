@@ -132,7 +132,8 @@ class HashSet:
     if self._num_keys + 1 > self._table_size * 2 / 3:
       self._resize_table()
     idx = self._find_key(key)
-    if self._table[idx] != key:
+    # if self._table[idx] != key:
+    if self._table[idx] is None or self._table[idx] == self._DELETED:
       self._table[idx] = key
       self._num_keys += 1
       self._keys.append(key)
