@@ -89,7 +89,9 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    yield from sorted(self._keys)
+    for key in self._keys:
+      if key != self._DELETED and key is not None:
+        yield key
 
   def __repr__(self):
     """

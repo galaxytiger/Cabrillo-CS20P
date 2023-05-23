@@ -65,8 +65,7 @@ class Graph(defaultdict):
     pass  # TODO
 
   def vertices(self):
-
-    pass  # TODO
+    return set(self.keys())
 
   def edges(self):
     pass  # TODO
