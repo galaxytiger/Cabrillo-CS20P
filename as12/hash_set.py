@@ -226,7 +226,7 @@ class HashSet:
     self._keys = []
     for key in old_keys:
       if key is not None and key != self._DELETED:
-        idx = self._find_key(key)
+        idx = hash(key) % self._table_size
         while self._table[idx] is not None:
             idx = (idx + 1) % self._table_size
         self._table[idx] = key
