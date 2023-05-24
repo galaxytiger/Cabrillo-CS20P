@@ -29,7 +29,8 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._keys = {}
+    self._keys = []
+    self._key_set = set()
     if iterable is not None:
       for item in iterable:
         self.add(item)
@@ -89,9 +90,8 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    for key, count in self._keys.items():
-      for _ in range(count):
-        yield key
+    for key in self._keys:
+      yield key
 
   def __repr__(self):
     """
@@ -137,7 +137,9 @@ class HashSet:
     if self._table[idx] != key:
       self._table[idx] = key
       self._num_keys += 1
-      self._keys[key] = self._keys.get(key, 0) + 1
+      if key not in self._key_set:
+        self._keys.append(key)
+        self._key_set.add(key)
 
   def clear(self):
     """
@@ -157,7 +159,7 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._keys = {}
+    self._keys = []
 
   def remove(self, key):
     """
@@ -190,9 +192,9 @@ class HashSet:
     idx = self._find_key(key)
     if self._table[idx] == key:
       self._num_keys -= 1
-      self._keys[key] -= 1
-      if self._keys[key] == 0:
-        del self._keys[key]
+      self._table[idx] = self._DELETED
+      self._keys.remove(key)
+      self._key_set.remove(key)
 
   def table_size(self):
     """
@@ -221,15 +223,13 @@ class HashSet:
     self._table_size = round((self._table_size + 1) * 2 / 3) * 3
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._keys = {}
-    for key, count in old_keys.items():
+    for key in old_keys:
       if key is not None and key != self._DELETED:
         idx = hash(key) % self._table_size
         while self._table[idx] is not None:
           idx = (idx + 1) % self._table_size
         self._table[idx] = key
         self._num_keys += 1
-        self._keys[key] = count
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
