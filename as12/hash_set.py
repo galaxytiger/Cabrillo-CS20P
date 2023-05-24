@@ -89,8 +89,9 @@ class HashSet:
     >>> list(h)
     [0, 1, 2, 4, 6]
     """
-    for key in self._keys:
-      yield key
+    for key in self._table:
+      if key is not None and key is not self._DELETED:
+        yield key
 
   def __repr__(self):
     """
