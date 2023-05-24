@@ -244,6 +244,6 @@ class HashSet:
     while self._table[idx] is not None and (self._table[idx] == self._DELETED or self._table[
       idx] != key):
       idx = (idx + delta) % self._table_size
-      delta = -delta if delta < 0 else -delta - 1
+      delta = -delta if delta > 0 else -delta + 1
       idx = abs(idx)
     return idx
