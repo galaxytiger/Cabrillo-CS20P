@@ -51,42 +51,57 @@ class Graph(defaultdict):
     return len(self.keys())
 
   def __iter__(self):
-    pass  # TODO
+    return iter(self.keys())
 
   def __contains__(self, key):
     return key in self.keys()
 
   def clear(self):
-
-    pass  # TODO
+    for key in list(self.keys()):
+      del self[key]
 
   def copy(self):
-
-    pass  # TODO
+    new_graph = Graph()
+    for vertex, ver_edges in self.items():
+      new_graph[vertex].update(ver_edges)
+    return new_graph
 
   def vertices(self):
     return set(self.keys())
 
   def edges(self):
-    pass  # TODO
+    return {(src, dst, e_weight) for src, v_edges in self.items() for dst, e_weight in
+            v_edges.items()}
 
   def adjacent(self, src, dst):
-    pass  # TODO
+    return src in self and dst in self[src]
 
   def neighbors(self, vertex):
-    pass  # TODO
+    return set(self[vertex].keys())
 
   def degree(self, vertex):
-    pass  # TODO
+    return len(self[vertex])
 
   def path_valid(self, vertices):
-    pass  # TODO
+    return all(self.adjacent(vertices[i], vertices[i + 1]) for i in range(len(vertices) - 1))
 
   def path_length(self, vertices):
-    pass  # TODO
+    if not self.path_valid(vertices) or len(vertices) <= 1:
+      return None
+    return sum(self[vertices[i]][vertices[i + 1]] for i in range(len(vertices) - 1))
 
   def is_connected(self):
-    pass  # TODO
+    def dfs(start):
+      visited = {start}
+      stack = [start]
+      while stack:
+        vtex = stack.pop()
+        for neighbor in self[vtex]:
+          if neighbor not in visited:
+            visited.add(neighbor)
+            stack.append(neighbor)
+      return visited
+    return all(len(dfs(vertex)) == len(self) for vertex in self)
 
 
 if __name__ == '__main__':
