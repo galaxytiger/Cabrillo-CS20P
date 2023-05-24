@@ -219,6 +219,7 @@ class HashSet:
     self._table_size = round((self._table_size + 1) * 2 / 3) * 3
     self._table = [None] * self._table_size
     self._num_keys = 0
+    self._keys = []
     for key in old_keys:
       if key is not None and key != self._DELETED:
         idx = hash(key) % self._table_size
