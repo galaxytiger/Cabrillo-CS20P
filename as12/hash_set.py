@@ -157,7 +157,7 @@ class HashSet:
     self._table_size = 8
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._keys = []
+    self._keys = {}
 
   def remove(self, key):
     """
@@ -217,19 +217,19 @@ class HashSet:
     return self._table_size
 
   def _resize_table(self):
-    old_keys = self._keys
+    old_keys = self._keys.copy()
     self._table_size = round((self._table_size + 1) * 2 / 3) * 3
     self._table = [None] * self._table_size
     self._num_keys = 0
-    self._keys = []
-    for key in old_keys:
+    self._keys = {}
+    for key, count in old_keys.items():
       if key is not None and key != self._DELETED:
         idx = hash(key) % self._table_size
         while self._table[idx] is not None:
           idx = (idx + 1) % self._table_size
         self._table[idx] = key
         self._num_keys += 1
-        self._keys.append(key)
+        self._keys[key] = count
 
   def _find_key(self, key):
     idx = hash(key) % self._table_size
