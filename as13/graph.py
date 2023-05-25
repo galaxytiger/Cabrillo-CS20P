@@ -88,7 +88,11 @@ class Graph(defaultdict):
   def path_length(self, vertices):
     if not self.path_valid(vertices) or len(vertices) <= 1:
       return None
-    return sum(self[vertices[i]][vertices[i + 1]] for i in range(len(vertices) - 1))
+    try:
+      return sum(self[vertices[i]][vertices[i + 1]] for i in range(len(vertices) - 1) if
+                 vertices[i+1] in self[vertices[i]])
+    except KeyError:
+      return None
 
   def is_connected(self):
     def dfs(start):
