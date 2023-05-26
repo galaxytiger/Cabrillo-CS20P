@@ -10,6 +10,10 @@ from collections import defaultdict
 
 
 class _Edges(defaultdict):
+
+  """
+  A class used to represent the Edges in a Graph
+  """
   def __init__(self, graph):
     super().__init__(int)
     self._graph = graph
@@ -31,7 +35,9 @@ class _Edges(defaultdict):
 
 
 class Graph(defaultdict):
-
+  """
+  A Graph Representation
+  """
   def __init__(self):
     super().__init__(_Edges)
 
