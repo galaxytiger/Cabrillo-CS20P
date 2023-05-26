@@ -97,7 +97,8 @@ class Graph(defaultdict):
     try:
       return sum(
             self[vertices[i]][vertices[i + 1]]
-            if isinstance(self[vertices[i]][vertices[i + 1]], (int, float)) else 0
+            # if isinstance(self[vertices[i]][vertices[i + 1]], (int, float))
+            # else 0
             for i in range(len(vertices) - 1)
             if vertices[i + 1] in self[vertices[i]]
         )
