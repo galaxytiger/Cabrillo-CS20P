@@ -95,8 +95,12 @@ class Graph(defaultdict):
     if not self.path_valid(vertices) or len(vertices) <= 1:
       return None
     try:
-      return sum(self[vertices[i]][vertices[i + 1]] for i in range(len(vertices) - 1) if
-                 vertices[i+1] in self[vertices[i]])
+      return sum(
+            self[vertices[i]][vertices[i + 1]]
+            if isinstance(self[vertices[i]][vertices[i + 1]], (int, float)) else 0
+            for i in range(len(vertices) - 1)
+            if vertices[i + 1] in self[vertices[i]]
+        )
     except KeyError:
       return None
 
